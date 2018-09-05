@@ -22,5 +22,6 @@
     "build": "cross-env NODE_PATH=src react-scripts build",
     "test": "cross-env NODE_PATH=src react-scripts test --env=jsdom",
     "eject": "cross-env NODE_PATH=src react-scripts eject"
-  }
+  },
+  "proxy": "http://localhost:3001"
 }
