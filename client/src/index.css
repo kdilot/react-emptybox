@@ -1,0 +1,82 @@
+@import '~antd/dist/antd.css';
+
+html, body {
+  width: 100vw;
+  height: 100vh;
+  overflow-x: auto;
+  overflow: hidden;
+  margin: 0;
+  padding: 0;
+  font-family: 'Montserrat', serif;
+  color: white;
+}
+
+a, h1, h2, h3, h4, h5, h6, div {
+  color: white;
+  padding: 0;
+  margin: 0;
+}
+a:hover {
+  color: white;
+}
+h1 { font-size: 2em}
+h2 { font-size: 1.5em}
+h3 { font-size: 1.2em}
+
+.header {
+  height: 4em;
+  line-height: 4em;
+  /* border-bottom: 0.1em solid; */
+}
+
+.nameTag {
+  border-radius: 20px;
+  text-align: center;
+  padding: 0.3em;
+  margin: 0.5em;
+  border: 0.1em solid;
+}
+
+
+/* antd */
+.ant-timeline-item-head-blue {
+  border-color: white;
+}
+
+.ant-layout-header {
+  padding: 0 1em;
+}
+
+
+/* netflix */
+.ant-drawer-wrapper-body {
+  color: #CCC7C3;
+  background-color: #242424;
+}
+
+.ant-drawer-content-wrapper {
+  width: 300px;
+}
+
+.ant-drawer-header {
+  color: #CCC7C3;
+  background-color: #242424;
+}
+
+.ant-drawer-body {
+  font-size: 1em;
+  padding: 0;
+}
+
+.netflix .ant-badge-count {
+  box-shadow: 0 0 0 1px red
+}
+
+.netflix .ant-card-bordered {
+  border: 0
+}
+
+.netflix .ant-card-body {
+  background: black;
+  padding: 0
+}

@@ -1,0 +1,31 @@
+
+.black .header, .black .content {
+  /* background: #444 */
+  background: #252525
+}
+.black .ex .anticon:hover {
+  color: #252525;
+}
+
+.yellow .header, .yellow .content {
+  /* background: #D4AF37 */
+  background: #F29832
+}
+.yellow .ex .anticon:hover {
+  color: #F29832;
+}
+
+.blue .header, .blue .content {
+  /* background: #00327F */
+  background: #4C92FF
+}
+.blue .ex .anticon:hover {
+  color: #4C92FF;
+}
+
+.mint .header, .mint .content {
+  background: #03A678
+}
+.mint .ex .anticon:hover {
+  color: #03A678;
+}
