@@ -3,7 +3,7 @@
   /* background: #444 */
   background: #252525
 }
-.black .ex .anticon:hover {
+.black .ex a:hover, .black .ex span:hover {
   color: #252525;
 }
 
@@ -11,7 +11,7 @@
   /* background: #D4AF37 */
   background: #F29832
 }
-.yellow .ex .anticon:hover {
+.yellow .ex a:hover, .yellow .ex span:hover {
   color: #F29832;
 }
 
@@ -19,13 +19,20 @@
   /* background: #00327F */
   background: #4C92FF
 }
-.blue .ex .anticon:hover {
+.blue .ex a:hover, .blue .ex span:hover {
   color: #4C92FF;
 }
 
 .mint .header, .mint .content {
   background: #03A678
 }
-.mint .ex .anticon:hover {
+.mint .ex a:hover, .mint .ex span:hover {
   color: #03A678;
+}
+
+.beige .header, .beige .content {
+  background: #BD8D5F 
+}
+.beige .ex a:hover, .beige .ex span:hover {
+  color: #BD8D5F;
 }
