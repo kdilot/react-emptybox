@@ -1,38 +1,109 @@
 
-.black .header, .black .content {
+.black .header, 
+.black .content {
   /* background: #444 */
   background: #252525
 }
-.black .ex a:hover, .black .ex span:hover {
+.black .ex a:hover, 
+.black .ex span:hover, 
+.black .ant-card-cover h1 {
   color: #252525;
 }
+.black .ant-card-meta-title, 
+.black .ant-card-meta-description {
+  color: #393939;
+}
+.black .ant-btn-primary {
+  background-color: #212625;
+  border-color: #8B8C81;
+}
+.black .ant-btn-primary:hover {
+  background-color: #8B8C81;
+}
 
-.yellow .header, .yellow .content {
+.yellow .header, 
+.yellow .content {
   /* background: #D4AF37 */
   background: #F29832
 }
-.yellow .ex a:hover, .yellow .ex span:hover {
+.yellow .ex a:hover, 
+.yellow .ex span:hover, 
+.yellow .ant-card-cover h1 {
   color: #F29832;
 }
+.yellow .ant-card-meta-title, 
+.yellow .ant-card-meta-description {
+  color: #F2AC32;
+}
+.yellow .ant-btn-primary {
+  background-color: #F37E35;
+  border-color: #F5AF2D;
+}
+.yellow .ant-btn-primary:hover {
+  background-color: #F5AF2D;
+}
 
-.blue .header, .blue .content {
+
+.blue .header, 
+.blue .content {
   /* background: #00327F */
   background: #4C92FF
 }
-.blue .ex a:hover, .blue .ex span:hover {
+.blue .ex a:hover, 
+.blue .ex span:hover,
+.blue .ant-card-cover h1 {
   color: #4C92FF;
 }
+.blue .ant-card-meta-title, 
+.blue .ant-card-meta-description {
+  color: #4CA6FF;
+}
+.blue .ant-btn-primary {
+  background-color: #4E7AC7;
+  border-color: #7FB2F0;
+}
+.blue .ant-btn-primary:hover {
+  background-color: #7FB2F0;
+}
 
-.mint .header, .mint .content {
+.mint .header, 
+.mint .content {
   background: #03A678
 }
-.mint .ex a:hover, .mint .ex span:hover {
+.mint .ex a:hover, 
+.mint .ex span:hover,
+.mint .ant-card-cover h1 {
   color: #03A678;
 }
+.mint .ant-card-meta-title, 
+.mint .ant-card-meta-description {
+  color: #03BA78;
+}
+.mint .ant-btn-primary {
+  background-color: #4BA66A;
+  border-color: #7ABF8C;
+}
+.mint .ant-btn-primary:hover {
+  background-color: #7ABF8C;
+}
 
-.beige .header, .beige .content {
+.beige .header, 
+.beige .content {
   background: #BD8D5F 
 }
-.beige .ex a:hover, .beige .ex span:hover {
+.beige .ex a:hover, 
+.beige .ex span:hover,
+.beige .ant-card-cover h1 {
   color: #BD8D5F;
+}
+.beige .ant-card-meta-title, 
+.beige .ant-card-meta-description {
+  color: #BD975F;
+}
+.beige .ant-btn-primary {
+  background-color: #DEAF6B;
+  border-color: #F2CC85;
+}
+.beige .ant-btn-primary:hover {
+  background-color: #F2CC85;
 }
