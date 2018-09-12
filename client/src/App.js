@@ -2,10 +2,11 @@ import React, { Component } from 'react';
 import { Route } from 'react-router-dom';
 import { Top } from 'common';
 import { Introduce, About, Example } from 'components';
-import { MainController } from 'components/netflix';
+import { NetflixController } from 'components/netflix';
+import { IncomeController } from 'components/income';
 import { Layout } from 'antd';
 import styled from 'styled-components';
-import Store from 'context/store';
+import { Store } from 'context';
 import PropTypes from 'prop-types';
 
 const { Header, Content } = Layout;
@@ -65,7 +66,8 @@ class App extends Component {
               <Route exact path='/' component={Introduce} />
               <Route path='/about' component={About} />
               <Route path='/example' component={Example} />
-              <Route path='/netflix' component={MainController} />
+              <Route path='/netflix' component={NetflixController} />
+              <Route path='/income' component={IncomeController} />
             </Content>
           </Layout>
         </Wrapper>
