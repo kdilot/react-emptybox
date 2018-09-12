@@ -2,7 +2,8 @@ import React, { Component } from 'react';
 import { Row, Col, Card, Icon } from 'antd';
 import styled from 'styled-components';
 import { Link } from 'react-router-dom';
-import Store from 'context/store';
+import { Language } from 'common';
+import { Store } from 'context';
 const { Meta } = Card;
 
 const Wrapper = styled.div`
@@ -12,7 +13,6 @@ const Wrapper = styled.div`
   margin-top: 5em;
 
   h1 {
-    color: black;
     margin-top: 1em;
   }
 `
@@ -29,28 +29,28 @@ class Example extends Component {
                   <Row style={{ textAlign: "center" }} gutter={20}>
                     <Col span={6}>
                       <Card
-                        cover={<h1>Netflix Clone</h1>}
+                        cover={<h1><Language value="NetflixExTitle" /></h1>}
                         actions={[
                           <Icon type="github" theme="filled" style={{ fontSize: 30 }} />,
                           <Link to="/netflix" style={{ textDecoration: 'none' }}><Icon type="play-circle" theme="filled" style={{ fontSize: 30 }} /></Link>
                         ]}
                       >
                         <Meta
-                          title="Clone Coding"
+                          title={<Language value="NetflixExInfo" />}
                           description="react-context, react-slick, react-onclickoutside, ant-design, styled-components"
                         />
                       </Card>
                     </Col>
                     <Col span={6}>
                       <Card
-                        cover={<h1>Income Management</h1>}
+                        cover={<h1><Language value="IncomeExTitle" /></h1>}
                         actions={[
                           <Icon type="github" theme="filled" style={{ fontSize: 30 }} />,
-                          <Link to="#" style={{ textDecoration: 'none' }}><Icon type="play-circle" theme="filled" style={{ fontSize: 30 }} /></Link>
+                          <Link to="/income" style={{ textDecoration: 'none' }}><Icon type="play-circle" theme="filled" style={{ fontSize: 30 }} /></Link>
                         ]}
                       >
                         <Meta
-                          title="Income management with category and chart"
+                          title={<Language value="IncomeExInfo" />}
                           description="react-context, axios, recharts, ant-design, styled-components"
                         />
                       </Card>
