@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { Route } from 'react-router-dom';
 import { Top } from 'common';
 import { Introduce, About, Example } from 'components';
-import { NetflixContainer, IncomeContainer } from 'containers';
+import { NetflixContainer, IncomeContainer, VtcContainer } from 'containers';
 import { Layout } from 'antd';
 import styled from 'styled-components';
 import { Store } from 'context';
@@ -67,6 +67,7 @@ class App extends Component {
               <Route path='/example' component={Example} />
               <Route path='/netflix' component={NetflixContainer} />
               <Route path='/income' component={IncomeContainer} />
+              <Route path='/vtc' component={VtcContainer} />
             </Content>
           </Layout>
         </Wrapper>

@@ -3,12 +3,16 @@ import { render } from 'react-dom';
 import './index.css';
 import './theme.css';
 import { BrowserRouter } from 'react-router-dom';
-import { createStore } from 'redux';
+import { createStore, applyMiddleware  } from 'redux';
 import { Provider } from 'react-redux';
 import reducers from './modules';
 import App from './App';
+import createSagaMiddleware from 'redux-saga'
+import { rootSaga } from 'sagas'
 
-const store = createStore(reducers, window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__());
+const sagaMiddleware = createSagaMiddleware()
+const store = createStore(reducers, window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__(), applyMiddleware(sagaMiddleware));
+sagaMiddleware.run(rootSaga)
 
 render((
   <Provider store={store}>
