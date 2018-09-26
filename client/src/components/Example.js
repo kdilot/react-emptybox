@@ -43,15 +43,15 @@ class Example extends Component {
                     </Col>
                     <Col span={6}>
                       <Card
-                        cover={<h1><Language value="IncomeExTitle" /></h1>}
+                        cover={<h1><Language value="VtcExTitle" /></h1>}
                         actions={[
                           <Icon type="github" theme="filled" style={{ fontSize: 30 }} />,
-                          <Link to="/income" style={{ textDecoration: 'none' }}><Icon type="play-circle" theme="filled" style={{ fontSize: 30 }} /></Link>
+                          <Link to="/vtc" style={{ textDecoration: 'none' }}><Icon type="play-circle" theme="filled" style={{ fontSize: 30 }} /></Link>
                         ]}
                       >
                         <Meta
-                          title={<Language value="IncomeExInfo" />}
-                          description="react-context, axios, recharts, ant-design, styled-components"
+                          title={<Language value="VtcExInfo" />}
+                          description="redux, websocket, axios, recharts, ant-design, styled-components"
                         />
                       </Card>
                     </Col>
