@@ -13,12 +13,12 @@
 .black .ant-card-meta-description {
   color: #393939;
 }
-.black .currencyCard {
+.black .currencyCard, .black .currencyType {
   background-color: #404040;
   border-color: #212625;
   box-shadow: 5px 5px 10px #ffffff;
 }
-.black .currencyCard:hover {
+.black .currencyCard:hover, .black .slt-currencyType {
   background-color: #212625;
   border-color: #404040;
   box-shadow: 5px 5px 10px #404040;
@@ -38,12 +38,12 @@
 .yellow .ant-card-meta-description {
   color: #F2AC32;
 }
-.yellow .currencyCard {
+.yellow .currencyCard, .yellow .currencyType {
   background-color: #F37E35;
   border-color: #F5AF2D;
   box-shadow: 5px 5px 10px #F5AF2D;
 }
-.yellow .currencyCard:hover {
+.yellow .currencyCard:hover, .yellow .slt-currencyType {
   background-color: #F5AF2D;
   border-color: #F37E35;
   box-shadow: 5px 5px 10px #F37E35;
@@ -64,12 +64,12 @@
 .blue .ant-card-meta-description {
   color: #4CA6FF;
 }
-.blue .currencyCard {
+.blue .currencyCard, .blue .currencyType {
   background-color: #7FB2F0;
   border-color: #4E7AC7;
   box-shadow: 5px 5px 10px #4E7AC7;
 }
-.blue .currencyCard:hover {
+.blue .currencyCard:hover, .blue .slt-currencyType {
   background-color: #4E7AC7;
   border-color: #7FB2F0;
   box-shadow: 5px 5px 10px #7FB2F0;
@@ -88,12 +88,12 @@
 .mint .ant-card-meta-description {
   color: #03BA78;
 }
-.mint .currencyCard {
+.mint .currencyCard, .mint .currencyType {
   background-color: #4BA66A;
   border-color: #7ABF8C;
   box-shadow: 5px 5px 10px #7ABF8C;
 }
-.mint .currencyCard:hover {
+.mint .currencyCard:hover, .mint .slt-currencyType {
   background-color: #7ABF8C;
   border-color: #4BA66A;
   box-shadow: 5px 5px 10px #4BA66A;
@@ -112,12 +112,12 @@
 .beige .ant-card-meta-description {
   color: #BD975F;
 }
-.beige .currencyCard {
+.beige .currencyCard, .beige .currencyType {
   background-color: #DEAF6B;
   border-color: #E0BD7B;
   box-shadow: 5px 5px 10px #E0BD7B;
 }
-.beige .currencyCard:hover {
+.beige .currencyCard:hover, .beige .slt-currencyType {
   background-color: #E0BD7B;
   border-color: #DEAF6B;
   box-shadow: 5px 5px 10px #DEAF6B;
