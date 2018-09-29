@@ -1,5 +1,4 @@
 const Websocket = require('ws');
-
 // 1000	Account Notifications (Beta)
 // 1002	Ticker Data
 // 1003	24 Hour Exchange Volume
