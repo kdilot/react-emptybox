@@ -8,7 +8,7 @@ function _objectWithoutProperties(obj, keys) { var target = {}; for (var i in ob
 
 const init = async () => {
   await Db.connect()
-  // await registCurrencyRate()
+  await registCurrencyRate()
   Socket.connect()
   // importInitialChartData()
   // const pa = await CurrencyRate.showAll()
@@ -79,12 +79,16 @@ const messageChannel = {
   }
 }
 
-Socket.handleMessage = (message) => {
+const messageConvert = (message, ws = false) => {
   const parse = JSON.parse(message)
   if (!parse) return null
   const [channel, empty, data] = parse
   if (messageChannel[channel] && !empty)
     messageChannel[channel](data)
+}
+
+Socket.handleMessage = (message) => {
+  messageConvert(message)
 }
 
 Socket.handleUpdate = () => {
