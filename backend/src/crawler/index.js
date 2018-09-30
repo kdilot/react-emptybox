@@ -69,9 +69,9 @@ const messageChannel = {
       const convert = _objectWithoutProperties(_convert, 'name')
       try {
         await CurrencyRate.updateTicker(name, convert)
-        if (name === 'BTC_ETH') {
-          console.log('[Update]', name, new Date())
-        }
+        // if (name === 'BTC_VI') {
+        //   console.log('[Update]', name, convert, new Date())
+        // }
       } catch (e) {
         console.log(e)
       }
