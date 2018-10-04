@@ -12,7 +12,7 @@ const connect = () => {
   webURL.on('open', function () {
     console.log('Websocket connected')
     _handleUpdate()
-    webURL.send(`{"command": "subscribe", "channel": "1002"}`)  // Ticker Data
+    // webURL.send(`{"command": "subscribe", "channel": "1002"}`)  // Ticker Data (stop for testing)
   })
   webURL.on('message', (message) => {
     _handleMessage(message)
