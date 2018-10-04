@@ -45,7 +45,7 @@ module.exports.updateCurrencyRate = async function updateCurrencyRate() {
   })
 
   try {
-    const t = await Promise.all(param).then(() => {
+    await Promise.all(param).then(() => {
       console.log('[Updated Currency Rate]')
     })
   } catch (e) {
