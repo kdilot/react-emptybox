@@ -30,7 +30,7 @@ CurrencyRateSchema.statics.showAll = function (cb) {
 }
 
 CurrencyRateSchema.statics.updateTicker = function (name, data) {
-  return this.findOneAndUpdate({ name }, { ...data, lastUpdate: new Date() }, { upsert: false, new: true }).exec();
+  return this.findOneAndUpdate({ name }, { ...data, lastUpdate: new Date() }, { upsert: false, new: true }).exec()
 }
 
-module.exports = mongoose.model('currencyrate', CurrencyRateSchema); 
+module.exports = mongoose.model('currencyrate', CurrencyRateSchema)
