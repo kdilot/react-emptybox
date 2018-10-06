@@ -9,7 +9,9 @@ const func = require('./function');
 
 const init = async () => {
   await Db.connect()
-  // await registCurrencyRate()
+  // await func.registCurrencyRate()
+  // await func.registCurrencyName()
+  func.updateCurrencyName()
   Socket.connect()
   Ws.connect()
   // importInitialChartData()
