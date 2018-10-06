@@ -1,6 +1,7 @@
 require('dotenv').config();
 const Poloniex = require('lib/poloniex/');
 const CurrencyRate = require('db/model/CurrencyRate');
+const CurrencyName = require('db/model/CurrencyName');
 const currencyPairMap = require('lib/poloniex/currencyPairMap');
 function _objectWithoutProperties(obj, keys) { var target = {}; for (var i in obj) { if (keys.indexOf(i) >= 0) continue; if (!Object.prototype.hasOwnProperty.call(obj, i)) continue; target[i] = obj[i]; } return target; }
 
@@ -51,5 +52,39 @@ module.exports.updateCurrencyRate = async function updateCurrencyRate() {
   } catch (e) {
     console.log(e)
   }
+}
 
+module.exports.registCurrencyName = async function registCurrencyName() {
+  const info = await Poloniex.getCurrenciesName()
+  const keys = Object.keys(info)
+  const param = keys.map(key => {
+    const currency = info[key]
+    const data = Object.assign({ currency: key }, currency)
+    const currencies = new CurrencyName(data)
+    return currencies.save()
+  })
+
+  try {
+    await Promise.all(param)
+  } catch (e) {
+    console.log(e)
+  }
+}
+
+module.exports.updateCurrencyName = async () => {
+  const info = await Poloniex.getCurrenciesName()
+  const keys = Object.keys(info)
+  const param = keys.map(key => {
+    const currency = info[key]
+    const convert = _objectWithoutProperties(currency, 'currency')
+    return CurrencyName.updateCurrencyName(key, convert)
+  })
+
+  try {
+    await Promise.all(param).then(() => {
+      console.log('[Updated Currency Name]')
+    })
+  } catch (e) {
+    console.log(e)
+  }
 }
