@@ -73,7 +73,7 @@ class CurrencyCard extends Component {
     const { changed, effect } = this.state
     return (
       <Wrapper>
-        <Link to={`/vtc/chart/${name}`}>
+        <Link to={`/vtc/${name}`}>
           <Row style={{ padding: '1em' }} className={changed ? effect ? 'currencyCard effect-plue' : 'currencyCard effect-minus' : 'currencyCard'}>
             <Col span={24} style={{ textAlign: 'right', fontWeight: 'bold' }}>{name.split('_')[1]}</Col>
             <Col span={24} style={{ textAlign: 'center' }}><h2>{parseFloat(price).toFixed(8)}</h2></Col>

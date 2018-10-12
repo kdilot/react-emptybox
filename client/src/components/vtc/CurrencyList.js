@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Row, Col, Icon } from 'antd';
-import { CurrencyCard, CurrencyType, CurrencyChart } from 'components/vtc';
+import { CurrencyCard, CurrencyType } from 'components/vtc';
 import { Language } from 'common';
 import styled from 'styled-components';
 
@@ -18,6 +18,7 @@ class CurrencyList extends Component {
       currencyNameList,
       handleCurrencyType,
       selectedCurrencyType,
+      currencyChartData
     } = this.props
     const type = list.map(_list => _list.name.split('_')[0]).reduce(function (a, b) {
       if (a.indexOf(b) < 0) a.push(b);
@@ -28,10 +29,7 @@ class CurrencyList extends Component {
       return 0;
     })
     return (
-      <Row style={{ width: '96vw' }}>
-      <Col span={24}>
-        <CurrencyChart />
-      </Col>
+      <Row>
         {list.length ?
           <Col span={24} style={{ textAlign: 'center' }}>
             <CurrencyType
@@ -53,13 +51,14 @@ class CurrencyList extends Component {
             .map((_list, index) =>
               <Col span={4} key={index}>
                 <CurrencyCard
-                  name={_list.name.split('_')}
+                  name={_list.name}
                   currency={currencyNameList.filter(e => e.currency === _list.name.split('_')[1]).map(info => info.name)}
                   price={_list.last}
                   volume={_list.baseVolume}
                   change={_list.percentChange}
                   date={_list.lastUpdate}
                   selected={selectedCurrencyType}
+                  currencyChartData={currencyChartData}
                 />
               </Col>
             )
