@@ -51,7 +51,7 @@ class Example extends Component {
                       >
                         <Meta
                           title={<Language value="VtcExInfo" />}
-                          description="redux, websocket, axios, recharts, ant-design, styled-components"
+                          description="redux, express, mongoDb, websocket, axios, recharts, ant-design, styled-components"
                         />
                       </Card>
                     </Col>

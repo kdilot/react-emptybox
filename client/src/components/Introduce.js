@@ -29,8 +29,8 @@ class Introduce extends Component {
       'React JS',
       'Node JS',
       'Express',
-      'Mysql',
       'MariaDB',
+      'MongoDB',
       'Axios',
       'GraphQL'
     ]
