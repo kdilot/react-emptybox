@@ -3,9 +3,10 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import * as vtcActions from 'modules/vtc';
-import { CurrencyList } from 'components/vtc';
+import { CurrencyList, CurrencyChart } from 'components/vtc';
 import styled from 'styled-components';
 import PropTypes from 'prop-types';
+import { Row, Col } from 'antd';
 
 let socket = ''
 const Wrapper = styled.div`
@@ -14,17 +15,29 @@ const Wrapper = styled.div`
   width: 100vw;
   margin-top: 5em;
 
-  h1 {
-    margin-top: 1em;
-  }
 `
 
 class VtcContainer extends Component {
 
-  fetchData = async () => {
+  fetchData = () => {
+    this.currencyNameData()
+    this.currencyData()
+    this.handleSocket()
+  }
+
+  currencyData = async () => {
     const { VtcActions } = this.props
     try {
       await VtcActions.currencyState()
+    } catch (e) {
+      console.log(e)
+    }
+  }
+
+  currencyChartData = async (data) => {
+    const { VtcActions } = this.props
+    try {
+      await VtcActions.currencyChart(data)
     } catch (e) {
       console.log(e)
     }
@@ -58,35 +71,63 @@ class VtcContainer extends Component {
   }
 
   componentDidMount() {
-    this.currencyNameData()
     this.fetchData()
-    this.handleSocket()
   }
 
   componentWillUnmount() {
     socket.close()
   }
+
+  // shouldComponentUpdate(nextProps, nextState) {
+  //   console.log(nextProps, nextState)
+  //   return true
+  // }
+
   constructor(props) {
     super(props)
 
     this.state = {
       handleCurrencyType: this.handleCurrencyType,
+      currencyChartData: this.currencyChartData,
       test: false
     }
   }
   render() {
     const { vtc } = this.props
     const {
-      handleCurrencyType
+      handleCurrencyType,
+      currencyChartData
     } = this.state
     return (
       <Wrapper>
-        <CurrencyList
-          list={vtc.get('list').toJS()}
-          currencyNameList={vtc.get('currencyNameList').toJS()}
-          handleCurrencyType={handleCurrencyType}
-          selectedCurrencyType={vtc.get('selectedCurrencyType')}
-        />
+        <Row style={{ width: '96vw' }}>
+          {this.props.location.pathname.split('/')[2]
+            ?
+            <Row>
+              <Col span={24} style={{textAlign: 'center'}}>
+                <h1>{this.props.location.pathname.split('/')[2]}</h1>
+              </Col>
+              <Col span={24}>
+                <CurrencyChart
+                  chart={vtc.get('chart').toJS()}
+                  currencyChartData={currencyChartData}
+                  pathname={this.props.location.pathname}
+                />
+              </Col>
+            </Row>
+            :
+            ''
+          }
+          <Col span={24}>
+            <CurrencyList
+              list={vtc.get('list').toJS()}
+              currencyNameList={vtc.get('currencyNameList').toJS()}
+              selectedCurrencyType={vtc.get('selectedCurrencyType')}
+              handleCurrencyType={handleCurrencyType}
+              currencyChartData={currencyChartData}
+            />
+          </Col>
+        </Row>
       </Wrapper>
     );
   }
