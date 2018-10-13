@@ -63,6 +63,8 @@ class CurrencyCard extends Component {
   componentDidUpdate(prevProps, prevState) {
     if (prevProps.price !== this.props.price && prevProps.selected === this.props.selected) {
       this.highlight(this.props.price > prevProps.price)
+    } else if (prevProps.volume !== this.props.volume && prevProps.selected === this.props.selected) {
+      this.highlight(this.props.volume > prevProps.volume)
     }
   }
   componentWillUnmount() {

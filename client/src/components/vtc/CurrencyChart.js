@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import echarts from 'echarts';
 import { Row, Col, Icon } from 'antd';
+import debounce from 'lodash/debounce'
 import moment from 'moment';
 import styled from 'styled-components';
 
@@ -23,6 +24,7 @@ class CurrencyChart extends Component {
   drawChart = (params) => {
     if (params.length === 0) return ''
     const myChart = echarts.init(this.chart)
+    this.echart = myChart
     let colorList = ['#c23531', '#2f4554', '#61a0a8', '#d48265', '#91c7ae', '#749f83', '#ca8622', '#bda29a', '#6e7074', '#546570', '#c4ccd3']
     function calculateMA(dayCount, data) {
       let result = []
@@ -193,12 +195,12 @@ class CurrencyChart extends Component {
       grid: [
         {
           top: '1%',
-          left: '4%',
-          right: '4%',
+          left: '5%',
+          right: '5%',
           height: '60%'
         }, {
-          left: '4%',
-          right: '4%',
+          left: '5%',
+          right: '5%',
           bottom: '20%',
           height: '10%'
         }
@@ -284,7 +286,7 @@ class CurrencyChart extends Component {
       }]
     };
     myChart.setOption(option)
-
+    this.chart.scrollIntoView({block: 'end', behavior: 'smooth'})
   }
   handleChart = (day) => {
     const { currencyChartData, pathname } = this.props
@@ -293,11 +295,17 @@ class CurrencyChart extends Component {
     currencyChartData({ currencyPair: name[2], day: day })
   }
 
+  handleResize = debounce(() => {
+    if (this.echart) {
+      this.echart.resize()
+    }
+  }, 100)
+
   componentDidMount() {
     const { currencyChartData, pathname } = this.props
     const name = pathname.split('/')
     currencyChartData({ currencyPair: name[2] })
-    // window.addEventListener('resize', this.handleResize)
+    window.addEventListener('resize', this.handleResize)
   }
 
   componentDidUpdate(prevProps, prevState) {
