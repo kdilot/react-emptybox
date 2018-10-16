@@ -31,8 +31,6 @@ const Wrapper = styled.div`
   p {
     padding: 2px
   }
-
-  margin-bottom: 1em;
 `
 
 class MovieList extends Component {
@@ -41,8 +39,8 @@ class MovieList extends Component {
     const settings = {
       dots: false,
       speed: 500,
-      slidesToShow: web ? 8 : 4,
-      slidesToScroll: web ? 8 : 4,
+      slidesToShow: web ? 8 : 3,
+      slidesToScroll: web ? 8 : 3,
       infinite: false,
       nextArrow: <NextArrow />,
       prevArrow: <PrevArrow />

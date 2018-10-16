@@ -28,9 +28,7 @@ const CSS = styled.div`
   }
 `
 const Info = styled.div`
-  width: 40vw;
   height: 100vh;
-  margin-top: 2.5em;
   overflow: auto;
   background: #242424;
   z-index: 2001;
@@ -40,14 +38,18 @@ const Info = styled.div`
     width: 100%;
   }
   h1, h2 {
-    font-size: 2.5em;
+    font-size: 1.5em;
     color: white;
     padding: 0;
     margin: 0 40px;
   }
+  h1 {
+    margin-top: 1em;
+    margin-bottom: 1em;
+  }
   h2 {
     margin-top: 0.3em;
-    font-size: 1.2em;
+    font-size: 1em;
     font-weight: normal;
   }
 `
@@ -56,6 +58,7 @@ const MovieInformation = () => {
   return (
     <Netflix.Consumer>
       {net => {
+        const web = net.web
         return (
           <CSS>
             <CSSTransition
@@ -67,7 +70,7 @@ const MovieInformation = () => {
               unmountOnExit
             >
               <Row type="flex" justify="center">
-                <Info>
+                <Info style={{ width: web ? '40vw' : '100vw', marginTop: web ? '2.5em' : 0 }}>
                   <Row style={{ width: '100vw' }}>
                     <Col span={24} style={{ textAlign: 'right' }}>
                       <img alt="img" src={net.movieList.information.backdrop_path ? net.imgSize.large + net.movieList.information.backdrop_path : net.imgSize.medium + net.movieList.information.poster_path} />
@@ -77,7 +80,7 @@ const MovieInformation = () => {
                       <h1>{net.movieList.information ? net.movieList.information.title : ''}</h1>
                       <h2>
                         {net.movieList.information.genre_ids && net.movieList.information.genre_ids.length > 0 ? net.movieList.information.genre_ids.map(
-                          (list, index) => <Tag key={index}>{net.genres[list]}</Tag>
+                          (list, index) => <Tag key={index} style={{margin: '0.5em 0', marginRight: '0.5em'}}>{net.genres[list]}</Tag>
                         ) : ''}
                       </h2>
                       <h2><Rate disabled value={net.movieList.information.vote_average} count={10} /></h2>

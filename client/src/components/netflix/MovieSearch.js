@@ -1,12 +1,13 @@
 import React, { Component } from 'react';
 import styled from 'styled-components';
-import { Icon, Card } from 'antd';
+import { Row, Col, Icon, Card } from 'antd';
 import { Language } from 'common';
 import { Netflix } from 'context';
+
 const Wrapper = styled.div`
 `
 const Search = styled.div`
-  padding: 0 1.5em;
+  padding: 3em 1.5em;
   height: 10vh;
   display: flex;
   justify-content: center;
@@ -14,12 +15,11 @@ const Search = styled.div`
   background: black;
 
   .search-back {
-    position: absolute;
-    left: 1%;
+    /* position: absolute;
+    left: 1%; */
   }
 
   input {
-    width: 27em; 
     background: black;
     border: 2px solid gray;
     color: white;
@@ -31,13 +31,14 @@ const Search = styled.div`
 `
 const Result = styled.div`
   padding: 1em 1.5em;
+  width: 100vw;
   height: 90vh;
+  display: table-cell;
   background: black;
+  text-align: center;
+  vertical-align: middle;
 
   h1 {
-    position: fixed;
-    top: 50%;
-    left: 40%;
     color: #FFF;
   }
 `
@@ -74,12 +75,20 @@ class Modal extends Component {
     return (
       <Netflix.Consumer>
         {net => {
+          const web = net.web
           return (
             <Wrapper>
               <Search>
-                <Icon type="arrow-left" style={{ fontSize: 30, color: 'white', fontWeight: 'bold' }} className="search-back" onClick={net.handleSearch} />
-                <Icon type="search" style={{ fontSize: 30, color: 'white', fontWeight: 'bold' }} />
-                <Language value="Search" type="input" onChange={net.handleSearchList} />
+                <Row style={{ width: '100%' }}>
+                  <Col span={3}>
+                    <Icon type="left" style={{ fontSize: 30, color: 'white', fontWeight: 'bold' }} className="search-back" onClick={net.handleSearch} />
+                  </Col>
+                  <Col span={18} style={{ textAlign: 'center' }}>
+                    {/* <Icon type="search" style={{ fontSize: 30, color: 'white', fontWeight: 'bold', marginRight: '0.2em' }} /> */}
+                    <Language value="Search" type="input" onChange={net.handleSearchList} />
+                  </Col>
+                  <Col span={3} />
+                </Row>
               </Search>
               {net.movieList.search.length !== 0 ?
                 (
@@ -89,7 +98,7 @@ class Modal extends Component {
                         return (
                           children.backdrop_path ?
                             (
-                              <Card.Grid key={children.title} style={{ width: '20%', textAlign: 'center' }} onClick={() => { net.handleMovieModal(children) }}>
+                              <Card.Grid key={children.title} style={{ width: web ? '20%' : '50%', textAlign: 'center' }} onClick={() => { net.handleMovieModal(children) }}>
                                 <img alt={children.title} style={{ width: '100%' }} src={net.imgSize.small + children.backdrop_path} />
                               </Card.Grid>
                             ) : ('')
@@ -99,9 +108,13 @@ class Modal extends Component {
                     </Card>
                   </SearchResult>
                 ) : (
-                  <Result>
-                    <h1><Language value="EnterSearch" /></h1>
-                  </Result>
+                  <Row type="flex" justify="center">
+                    <Col span={24}>
+                      <Result>
+                        <h1><Language value="EnterSearch" /></h1>
+                      </Result>
+                    </Col>
+                  </Row>
                 )}
             </Wrapper>
           )
