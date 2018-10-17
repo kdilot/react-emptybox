@@ -39,12 +39,19 @@ h3 { font-size: 1.2em}
 
 
 /* antd */
+.ant-card {
+  margin-bottom: 1em
+}
+
 .ant-timeline-item-head-blue {
   border-color: white;
 }
 
 .ant-layout-header {
   padding: 0 1em;
+}
+.ant-card-body {
+  padding: 1.5em;
 }
 
 
