@@ -49,7 +49,7 @@ class CurrencyList extends Component {
             }
           ).filter(_list => _list.name.indexOf(selectedCurrencyType + '_') !== -1)
             .map((_list, index) =>
-              <Col span={4} key={index}>
+              <Col xs={24} sm={12} md={6} lg={6} xl={4} key={index}>
                 <CurrencyCard
                   name={_list.name}
                   currency={currencyNameList.filter(e => e.currency === _list.name.split('_')[1]).map(info => info.name)}
