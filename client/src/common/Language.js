@@ -14,12 +14,13 @@ class Language extends Component {
     return (
       <Store.Consumer>
         {store => {
+          const web = store.web
           return (
             type ?
               (
                 type === 'input' ?
                   (
-                    <Input placeholder={lang[store.currentLanguage][value]} onChange={onChange ? onChange : ''} />
+                    <Input style={{ width: web ? '27em' : '15em' }} placeholder={lang[store.currentLanguage][value]} onChange={onChange ? onChange : ''} />
                   ) : ''
               ) : lang[store.currentLanguage][value] // default text
           )
