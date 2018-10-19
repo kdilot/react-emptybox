@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { MovieSearch, SideMenu, ItemList, Profile, MovieInformation } from 'components/netflix';
+import { MovieSearch, SideMenu, MovieList, Profile, MovieInformation } from 'components/netflix';
 import { genres, movieList, allMovieList, IMG_large, IMG_medium, IMG_small } from 'common/movie';
 import { Modal, Language } from 'common';
 import { Netflix } from 'context';
@@ -17,7 +17,7 @@ const Wrapper = styled.div`
 const Header = styled.div`
   width: 100vw;
   height: 10vh;
-  padding: 1.5em;
+  padding: 3em 1.5em;
   display: flex;
   align-items: center;
 
@@ -81,6 +81,7 @@ class NetflixController extends Component {
       menuSelected: 'Home',
       currentUser: 0,
       genres: genres,
+      web: window.innerWidth > 768 ? true : false,
       handleSearch: this.handleSearch,
       handleSearchList: this.handleSearchList,
       handleKeyUp: this.handleKeyUp,
@@ -146,6 +147,13 @@ class NetflixController extends Component {
         movieList: {
           ...movieList,
           search: searchList
+        }
+      })
+    } else {
+      this.setState({
+        movieList: {
+          ...movieList,
+          search: []
         }
       })
     }
@@ -238,20 +246,22 @@ class NetflixController extends Component {
       handleSearch,
       showDrawer,
       display,
+      web
     } = this.state
 
     return (
       <Netflix.Provider value={this.state}>
         <Wrapper className="netflix">
-          <Modal display={display.movieInfomation} children={<MovieInformation />} />
+          <Modal display={display.movieInfomation} children={<MovieInformation />} zIndex={2000} />
           <Modal display={display.movieSearch} children={<MovieSearch />} zIndex={99} />
           <Modal display={display.profile} children={<Profile />} zIndex={2000} />
           <Header>
             <Row style={{ width: '100%' }}>
-              <Col span={20}>
+              <Col span={16}>
                 <Badge count={Object.keys(movieList.all).length} style={{ backgroundColor: 'red', boxShadow: 'red' }} overflowCount={999}>
                   <Icon type="menu-unfold" style={{ fontSize: 30, color: 'white' }} onClick={showDrawer} />
                   <Drawer
+                    className="netflix"
                     width="300px"
                     placement="left"
                     closable={false}
@@ -263,14 +273,14 @@ class NetflixController extends Component {
                 </Badge>
                 <h1><Language value="Netflix" /></h1>
               </Col>
-              <Col span={4} style={{ textAlign: 'right', marginTop: '0.5em', paddingRight: '1em' }}>
-                <Icon type="search" style={{ fontSize: 30, color: 'white', fontWeight: 'bolder', marginRight: '2em' }} onClick={() => { handleSearch() }} />
+              <Col span={8} style={{ textAlign: 'right', marginTop: '0.5em', paddingRight: '1em' }}>
+                <Icon type="search" style={{ fontSize: 30, color: 'white', fontWeight: 'bolder', marginRight: web ? '2em' : '1em' }} onClick={() => { handleSearch() }} />
                 <Icon type="ellipsis" style={{ fontSize: 30, color: 'white', fontWeight: 'bold' }} />
               </Col>
             </Row>
           </Header>
           <Content>
-            <ItemList />
+            <MovieList />
           </Content>
         </Wrapper>
       </Netflix.Provider>
@@ -307,6 +317,7 @@ NetflixController.proptypes = {
   menuSelected: PropTypes.string,
   currentUser: PropTypes.number,
   genres: PropTypes.array,
+  web: PropTypes.boolean,
   handleSearch: PropTypes.func,
   handleSearchList: PropTypes.func,
   handleKeyUp: PropTypes.func,
