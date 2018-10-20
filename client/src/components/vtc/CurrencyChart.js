@@ -336,11 +336,11 @@ class CurrencyChart extends Component {
             <Col span={24}>
               <Wrapper>
                 <Row style={{ textAlign: 'center' }}>
-                  <Col xs={3} sm={2} md={2} lg={2} xl={1} style={{ padding: '0.5em', marginRight: '1.5em' }} onClick={() => { this.handleChart(1) }} className={selected === 1 ? "currencyType slt-currencyType" : "currencyType"}>1D</Col>
-                  <Col xs={3} sm={2} md={2} lg={2} xl={1} style={{ padding: '0.5em', marginRight: '1.5em' }} onClick={() => { this.handleChart(7) }} className={selected === 7 ? "currencyType slt-currencyType" : "currencyType"}>1W</Col>
-                  <Col xs={3} sm={2} md={2} lg={2} xl={1} style={{ padding: '0.5em', marginRight: '1.5em' }} onClick={() => { this.handleChart(30) }} className={selected === 30 ? "currencyType slt-currencyType" : "currencyType"}>1M</Col>
-                  <Col xs={3} sm={2} md={2} lg={2} xl={1} style={{ padding: '0.5em', marginRight: '1.5em' }} onClick={() => { this.handleChart(365) }} className={selected === 365 ? "currencyType slt-currencyType" : "currencyType"}>1Y</Col>
-                  <Col xs={3} sm={2} md={2} lg={2} xl={1} style={{ padding: '0.5em', marginRight: '1.5em' }} onClick={() => { this.handleChart(0) }} className={selected === 0 ? "currencyType slt-currencyType" : "currencyType"}>All</Col>
+                  <Col xs={3} sm={2} md={2} lg={2} xl={1} style={{ padding: '0.3em', marginRight: '1em' }} onClick={() => { this.handleChart(1) }} className={selected === 1 ? "currencyType slt-currencyType" : "currencyType"}>1D</Col>
+                  <Col xs={3} sm={2} md={2} lg={2} xl={1} style={{ padding: '0.3em', marginRight: '1em' }} onClick={() => { this.handleChart(7) }} className={selected === 7 ? "currencyType slt-currencyType" : "currencyType"}>1W</Col>
+                  <Col xs={3} sm={2} md={2} lg={2} xl={1} style={{ padding: '0.3em', marginRight: '1em' }} onClick={() => { this.handleChart(30) }} className={selected === 30 ? "currencyType slt-currencyType" : "currencyType"}>1M</Col>
+                  <Col xs={3} sm={2} md={2} lg={2} xl={1} style={{ padding: '0.3em', marginRight: '1em' }} onClick={() => { this.handleChart(365) }} className={selected === 365 ? "currencyType slt-currencyType" : "currencyType"}>1Y</Col>
+                  <Col xs={3} sm={2} md={2} lg={2} xl={1} style={{ padding: '0.3em', marginRight: '1em' }} onClick={() => { this.handleChart(0) }} className={selected === 0 ? "currencyType slt-currencyType" : "currencyType"}>All</Col>
                 </Row>
               </Wrapper>
             </Col>
