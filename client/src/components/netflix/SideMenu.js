@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Avatar, Icon } from 'antd';
+import { Row, Col, Avatar, Icon } from 'antd';
 import styled from 'styled-components';
 import { CSSTransition } from 'react-transition-group';
 import { Language } from 'common';
@@ -140,8 +140,15 @@ class SideMenu extends Component {
                   </div>
                   <div style={{ display: !net.display.sideMenu ? 'block' : 'none' }}>
                     <Content onClick={net.handleSideMenu}>
-                      <Icon type="left" className="icon-lf" style={{ fontSize: 20 }} />
-                      <h2 className="h2-lf"><Language value="Notifications" /></h2>
+                      <Row type="flex" justify="center" style={{ width: '100%', textAlign: 'center' }}>
+                        <Col span={1}>
+                          <Icon type="left" style={{ fontSize: '1.3em', marginTop: '0.2em', verticalAlign: 'middle' }} />
+                        </Col>
+                        <Col span={22}>
+                          <h2><Language value="Notifications" /></h2>
+                        </Col>
+                        <Col span={1}></Col>
+                      </Row>
                     </Content>
                     {net.movieList.all.filter(_children => _children.backdrop_path).slice(0, 15).map(children => {
                       return (

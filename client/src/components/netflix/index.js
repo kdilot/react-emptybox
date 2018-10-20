@@ -1,5 +1,5 @@
 export {default as MovieSearch} from './MovieSearch'
-export {default as ItemList} from './ItemList'
+export {default as MovieList} from './MovieList'
 export {default as SideMenu} from './SideMenu'
 export {default as SliderButton} from './SliderButton'
 export {default as Profile} from './Profile'

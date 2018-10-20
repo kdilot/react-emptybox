@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import styled from 'styled-components';
-import { Avatar } from 'antd';
+import { Row, Col, Avatar } from 'antd';
 import { Language } from 'common';
 import { Netflix } from 'context';
 
@@ -15,16 +15,14 @@ const Wrapper = styled.div`
 
   h1 {
     color: white;
-    margin-bottom: 3em;
+    margin-top: 1em;
+    margin-bottom: 2em;
   }
   .group {
     display: flex;
   }
 `
 const ProfileBadge = styled.div`
-  margin: 2em;
-  margin-bottom: 15em;
-
   :hover p {
     opacity: 1
   }
@@ -48,17 +46,26 @@ class Profile extends Component {
     return (
       <Netflix.Consumer>
         {net => {
+          const web = net.web
           return (
-            <Wrapper >
-              <h1><Language value="WhosWatching" /></h1>
-              <div className="group">
-                {net.user.map((list, index) =>
-                  <ProfileBadge key={list.name} onClick={() => { net.changeProfile(index) }}>
-                    <Avatar shape="square" size={100} className="icon" icon="user" style={{ backgroundColor: list.color }} />
-                    <p>{list.name}</p>
-                  </ProfileBadge>
-                )}
-              </div>
+            <Wrapper>
+              <Row style={{ textAlign: 'center', width: '100%' }}>
+                <Col span={24}>
+                  <h1><Language value="WhosWatching" /></h1>
+                </Col>
+                <Col span={24}>
+                  <Row type="flex" justify="center">
+                    {net.user.map((list, index) =>
+                      <Col span={web ? 2 : 6} key={list.name}>
+                        <ProfileBadge onClick={() => { net.changeProfile(index) }}>
+                          <Avatar shape="square" size={web ? 100 : 50} className="icon" icon="user" style={{ backgroundColor: list.color }} />
+                          <p>{list.name}</p>
+                        </ProfileBadge>
+                      </Col>
+                    )}
+                  </Row>
+                </Col>
+              </Row>
             </Wrapper>
           )
         }}
