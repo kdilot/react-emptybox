@@ -54,23 +54,22 @@ h3 { font-size: 1.2em}
   padding: 1.5em;
 }
 
-
 /* netflix */
-.ant-drawer-wrapper-body {
+.netflix .ant-drawer-wrapper-body {
   color: #CCC7C3;
   background-color: #242424;
 }
 
-.ant-drawer-content-wrapper {
+.netflix .ant-drawer-content-wrapper {
   width: 300px;
 }
 
-.ant-drawer-header {
+.netflix .ant-drawer-header {
   color: #CCC7C3;
   background-color: #242424;
 }
 
-.ant-drawer-body {
+.netflix .ant-drawer-body {
   font-size: 1em;
   padding: 0;
 }

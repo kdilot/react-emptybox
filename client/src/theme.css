@@ -1,8 +1,7 @@
 
 .black .header, 
 .black .content {
-  /* background: #444 */
-  background: #252525
+  background: #252525;
 }
 .black .ex a:hover, 
 .black .ex span:hover, 
@@ -12,6 +11,18 @@
 .black .ant-card-meta-title, 
 .black .ant-card-meta-description {
   color: #393939;
+}
+.black .ant-input-number,
+.black .ant-tag,
+.black .ant-select-selection,
+.black .ant-input-number-input {
+  background-color: #404040;
+}
+.black .ant-input-number,
+.black .ant-select-selection,
+.black .ant-select-selection:focus,
+.black .ant-select-selection:hover {
+  border-color: #404040;
 }
 .black .currencyCard, .black .currencyType {
   background-color: #404040;
@@ -23,11 +34,18 @@
   border-color: #404040;
   box-shadow: 5px 5px 10px #404040;
 }
+.black .ant-drawer-header, .black .ant-drawer-wrapper-body  {
+  color: white;
+  background-color: #212625;
+  border-bottom: 1px solid white;
+}
+.black .ant-drawer-close-x, .black .ant-drawer-title {
+  color: white;
+}
 
 .yellow .header, 
 .yellow .content {
-  /* background: #D4AF37 */
-  background: #F29832
+  background: #F29832;
 }
 .yellow .ex a:hover, 
 .yellow .ex span:hover, 
@@ -37,6 +55,18 @@
 .yellow .ant-card-meta-title, 
 .yellow .ant-card-meta-description {
   color: #F2AC32;
+}
+.yellow .ant-input-number,
+.yellow .ant-tag,
+.yellow .ant-select-selection,
+.yellow .ant-input-number-input {
+  background-color: #F37E35;
+}
+.yellow .ant-input-number,
+.yellow .ant-select-selection,
+.yellow .ant-select-selection:focus,
+.yellow .ant-select-selection:hover {
+  border-color: #F37E35;
 }
 .yellow .currencyCard, .yellow .currencyType {
   background-color: #F37E35;
@@ -48,12 +78,19 @@
   border-color: #F37E35;
   box-shadow: 5px 5px 10px #F37E35;
 }
+.yellow .ant-drawer-header, .yellow .ant-drawer-wrapper-body  {
+  color: white;
+  background-color: #F5AF2D;
+  border-bottom: 1px solid white;
+}
+.yellow .ant-drawer-close-x, .yellow .ant-drawer-title {
+  color: white;
+}
 
 
 .blue .header, 
 .blue .content {
-  /* background: #00327F */
-  background: #4C92FF
+  background: #4C92FF;
 }
 .blue .ex a:hover, 
 .blue .ex span:hover,
@@ -63,6 +100,18 @@
 .blue .ant-card-meta-title, 
 .blue .ant-card-meta-description {
   color: #4CA6FF;
+}
+.blue .ant-input-number,
+.blue .ant-tag,
+.blue .ant-select-selection,
+.blue .ant-input-number-input {
+  background-color: #7FB2F0;
+}
+.blue .ant-input-number,
+.blue .ant-select-selection,
+.blue .ant-select-selection:focus,
+.blue .ant-select-selection:hover {
+  border-color: #7FB2F0;
 }
 .blue .currencyCard, .blue .currencyType {
   background-color: #7FB2F0;
@@ -74,10 +123,18 @@
   border-color: #7FB2F0;
   box-shadow: 5px 5px 10px #7FB2F0;
 }
+.blue .ant-drawer-header, .blue .ant-drawer-wrapper-body  {
+  color: white;
+  background-color: #4E7AC7;
+  border-bottom: 1px solid white;
+}
+.blue .ant-drawer-close-x, .blue .ant-drawer-title {
+  color: white;
+}
 
 .mint .header, 
 .mint .content {
-  background: #03A678
+  background: #03A678;
 }
 .mint .ex a:hover, 
 .mint .ex span:hover,
@@ -87,6 +144,18 @@
 .mint .ant-card-meta-title, 
 .mint .ant-card-meta-description {
   color: #03BA78;
+}
+.mint .ant-input-number,
+.mint .ant-tag,
+.mint .ant-select-selection,
+.mint .ant-input-number-input {
+  background-color: #4BA66A;
+}
+.mint .ant-input-number,
+.mint .ant-select-selection,
+.mint .ant-select-selection:focus,
+.mint .ant-select-selection:hover {
+  border-color: #4BA66A;
 }
 .mint .currencyCard, .mint .currencyType {
   background-color: #4BA66A;
@@ -98,10 +167,18 @@
   border-color: #4BA66A;
   box-shadow: 5px 5px 10px #4BA66A;
 }
+.mint .ant-drawer-header, .mint .ant-drawer-wrapper-body  {
+  color: white;
+  background-color: #7ABF8C;
+  border-bottom: 1px solid white;
+}
+.mint .ant-drawer-close-x, .mint .ant-drawer-title {
+  color: white;
+}
 
 .beige .header, 
 .beige .content {
-  background: #BD8D5F 
+  background: #BD8D5F;
 }
 .beige .ex a:hover, 
 .beige .ex span:hover,
@@ -112,6 +189,18 @@
 .beige .ant-card-meta-description {
   color: #BD975F;
 }
+.beige .ant-input-number,
+.beige .ant-tag,
+.beige .ant-select-selection,
+.beige .ant-input-number-input {
+  background-color: #DEAF6B;
+}
+.beige .ant-input-number,
+.beige .ant-select-selection,
+.beige .ant-select-selection:focus,
+.beige .ant-select-selection:hover {
+  border-color: #DEAF6B;
+}
 .beige .currencyCard, .beige .currencyType {
   background-color: #DEAF6B;
   border-color: #E0BD7B;
@@ -121,4 +210,12 @@
   background-color: #E0BD7B;
   border-color: #DEAF6B;
   box-shadow: 5px 5px 10px #DEAF6B;
+}
+.beige .ant-drawer-header, .beige .ant-drawer-wrapper-body  {
+  color: white;
+  background-color: #E0BD7B;
+  border-bottom: 1px solid white;
+}
+.beige .ant-drawer-close-x, .beige .ant-drawer-title {
+  color: white;
 }
