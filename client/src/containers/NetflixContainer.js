@@ -141,7 +141,7 @@ class NetflixController extends Component {
     const { movieList } = this.state
     if (e.target.value) {
       const searchList = movieList.all.filter(data =>
-        data.title.toLowerCase().indexOf(e.target.value) !== -1
+        data.title.toLowerCase().indexOf(e.target.value.toLowerCase()) !== -1
       )
       this.setState({
         movieList: {
