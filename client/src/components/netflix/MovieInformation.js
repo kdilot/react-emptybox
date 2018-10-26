@@ -52,6 +52,9 @@ const Info = styled.div`
     font-size: 1em;
     font-weight: normal;
   }
+  .ant-tag {
+    background: white;
+  }
 `
 
 const MovieInformation = () => {
