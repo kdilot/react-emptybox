@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { Row, Col, Icon } from 'antd';
 import styled from 'styled-components';
 import Clock from 'react-live-clock';
+import { Store } from 'context';
 
 const Wrapper = styled.div`
   display: flex;
@@ -32,35 +33,40 @@ class Introduce extends Component {
       'MariaDB',
       'MongoDB',
       'Axios',
-      'GraphQL'
     ]
   }
   render() {
     return (
-      <Wrapper>
-        <Row>
-          <Col span={24}>
-            <h1>
-              <Clock
-                format={'HH:mm:ss'}
-                ticking={true}
-              />
-            </h1>
-          </Col>
-        </Row>
-        <Row gutter={5} style={{ display: 'flex', justifyContent: 'center', width: '80vw' }}>
-          {this.state.skills.map((list, index) => <Col span={2} key={index} className="nameTag">{list}</Col>)}
-        </Row>
-        <Row>
-          <Col span={24}>
-            <h2>
-              <Icon type="github" theme="outlined" />
-              <a rel="noopener noreferrer" href="https://github.com/kdilot" target="_blank">https://github.com/kdilot</a>
-            </h2>
-          </Col>
-        </Row>
-      </Wrapper>
-    );
+      <Store.Consumer>
+        {store => {
+          return (
+            <Wrapper>
+              <Row style={{ textAlign: 'center', width: '100%' }}>
+                <Col span={24}>
+                  <h1>
+                    <Clock
+                      format={'HH:mm:ss'}
+                      ticking={true}
+                    />
+                  </h1>
+                </Col>
+                <Col span={24}>
+                  <Row type="flex" justify="center">
+                    {this.state.skills.map((list, index) => <Col xs={11} sm={6} md={3} lg={2} xl={2} key={index} className="nameTag">{list}</Col>)}
+                  </Row>
+                </Col>
+                <Col span={24}>
+                  <h2>
+                    <Icon type="github" theme="outlined" />
+                    <a rel="noopener noreferrer" href="https://github.com/kdilot" target="_blank">https://github.com/kdilot</a>
+                  </h2>
+                </Col>
+              </Row>
+            </Wrapper>
+          )
+        }}
+      </Store.Consumer>
+    )
   }
 }
 
