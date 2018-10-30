@@ -1,6 +1,4 @@
-import React from 'react';
-
-const CurrencyFormat = ({ price, currency = 'USD', digit = 0, brak = false }) => {
+const CurrencyFormat = ({ price, currency = 'USD', digit = 0 }) => {
   return (
     new Intl.NumberFormat("en", {
       style: 'currency',
