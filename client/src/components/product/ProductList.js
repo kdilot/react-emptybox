@@ -1,13 +1,12 @@
 import React, { Component } from 'react';
 import { Row, Col, Card, Radio, Icon, Button, Avatar } from 'antd';
 import { Link } from 'react-router-dom';
-import { CurrencyFormat } from 'common';
+import { CurrencyFormat, Language } from 'common';
 import styled from 'styled-components';
 
 const { Meta } = Card;
 
 const Wrapper = styled.div`
-  margin-bottom: 2em;
   .ant-card-meta-title,
   .ant-card-meta-description,
   .ant-radio-button-wrapper .ant-radio-button-wrapper-disabled span,
@@ -20,9 +19,6 @@ const Wrapper = styled.div`
   .ant-radio-button-wrapper-disabled {
     background: white;
     border-color: white;
-  }
-  .ant-btn-primary {
-    margin-left: 0.5em;
   }
   p {
     margin: 0;
@@ -76,23 +72,20 @@ class ProductList extends Component {
     return (
       <Wrapper>
         <Row>
-          <Col xs={0} sm={0} md={2} lg={2} xl={2} />
-          <Col xs={24} sm={24} md={20} lg={20} xl={20}>
+          <Col xs={1} sm={1} md={2} lg={2} xl={2} />
+          <Col xs={22} sm={22} md={20} lg={20} xl={20}>
             <Row>
               <Col xs={24} sm={24} md={22} lg={22} xl={22} style={{ marginBottom: '1em', display: 'flex' }}>
                 <Row>
-                  <Col xs={22} sm={20} md={20} lg={20} xl={20}>
+                  <Col xs={20} sm={20} md={20} lg={20} xl={20}>
                     <Radio.Group defaultValue="a" buttonStyle="solid">
-                      <Radio.Button value="a" onClick={() => { handleListSort('name') }}>name</Radio.Button>
-                      <Radio.Button value="c" onClick={() => { handleListSort('price') }}>price</Radio.Button>
+                      <Radio.Button value="a" onClick={() => { handleListSort('name') }}><Language value="Name" /></Radio.Button>
+                      <Radio.Button value="c" onClick={() => { handleListSort('price') }}><Language value="Price" /></Radio.Button>
                       <Radio.Button value="d" disabled><h4>{asc ? <Icon type="arrow-up" theme="outlined" /> : <Icon type="arrow-down" theme="outlined" />}</h4></Radio.Button>
                     </Radio.Group>
                   </Col>
-                  <Col xs={0} sm={4} md={4} lg={4} xl={4}>
-                    <Button type="primary" onClick={() => { handleCreateProduct() }}>Create</Button>
-                  </Col>
-                  <Col xs={2} sm={0} md={0} lg={0} xl={0}>
-                    <h2><Icon type="file-add" theme="outlined" style={{ fontSize: '22px' }} onClick={() => { handleCreateProduct() }} /></h2>
+                  <Col xs={4} sm={4} md={4} lg={4} xl={4}>
+                    <Button type="primary" onClick={() => { handleCreateProduct() }}><Language value="Create" /></Button>
                   </Col>
                 </Row>
               </Col>
@@ -120,7 +113,7 @@ class ProductList extends Component {
               }) : ''}
             </Row>
           </Col>
-          <Col xs={0} sm={0} md={2} lg={2} xl={2} />
+          <Col xs={1} sm={1} md={2} lg={2} xl={2} />
         </Row>
       </Wrapper>
     );
