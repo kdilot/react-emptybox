@@ -3,6 +3,8 @@ import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import * as vtcActions from 'modules/vtc';
 import { CurrencyList, CurrencyChart } from 'components/vtc';
+import { Language } from 'common';
+import { LinkButton } from 'common/ButtonType';
 import { Row, Col } from 'antd';
 import styled from 'styled-components';
 import PropTypes from 'prop-types';
@@ -12,8 +14,6 @@ const Wrapper = styled.div`
   display: flex;
   justify-content: center;
   width: 100vw;
-  margin-top: 2em;
-
 `
 
 class VtcContainer extends Component {
@@ -41,7 +41,7 @@ class VtcContainer extends Component {
       console.log(e)
     }
   }
-  
+
   currencyNameData = async () => {
     const { VtcActions } = this.props
     try {
@@ -94,24 +94,29 @@ class VtcContainer extends Component {
     return (
       <Wrapper>
         <Row style={{ width: '96vw' }}>
-          {this.props.location.pathname.split('/')[2]
-            ?
-            <Row>
-              <Col span={24} style={{ textAlign: 'center' }}>
-                <h1>{this.props.location.pathname.split('/')[2]}</h1>
-              </Col>
-              <Col span={24}>
-                <CurrencyChart
-                  chart={vtc.get('chart').toJS()}
-                  currencyChartData={currencyChartData}
-                  pathname={this.props.location.pathname}
-                />
-              </Col>
-            </Row>
-            :
-            ''
-          }
-          <Col span={24}>
+          <Col xs={0} sm={0} md={24} lg={24} xl={24} style={{ marginTop: '5em' }} />
+          <Col xs={1} sm={1} md={0} lg={0} xl={0} />
+          <Col xs={22} sm={22} md={24} lg={24} xl={24} style={{marginBottom: '5em'}}>
+            {this.props.location.pathname.split('/')[2]
+              ?
+              <Row>
+                <Col span={24}>
+                  <LinkButton LinkTo={`/vtc`} ButtonName={<Language value="Back" />} />
+                </Col>
+                <Col span={24} style={{ textAlign: 'center' }}>
+                  <h1>{this.props.location.pathname.split('/')[2]}</h1>
+                </Col>
+                <Col span={24}>
+                  <CurrencyChart
+                    chart={vtc.get('chart').toJS()}
+                    currencyChartData={currencyChartData}
+                    pathname={this.props.location.pathname}
+                  />
+                </Col>
+              </Row>
+              :
+              ''
+            }
             <CurrencyList
               list={vtc.get('list').toJS()}
               currencyNameList={vtc.get('currencyNameList').toJS()}
@@ -120,6 +125,7 @@ class VtcContainer extends Component {
               currencyChartData={currencyChartData}
             />
           </Col>
+          <Col xs={1} sm={1} md={0} lg={0} xl={0} />
         </Row>
       </Wrapper>
     );
@@ -142,7 +148,7 @@ VtcContainer.propTypes = {
   currencyChartData: PropTypes.func,
   currencyData: PropTypes.func,
   fetchData: PropTypes.func,
-      
+
 }
 
 

@@ -5,27 +5,19 @@ import * as productActions from 'modules/product';
 import { ProductInfo, ProductForm, ProductList } from 'components/product';
 import { Row, Col } from 'antd';
 import styled from 'styled-components';
-
 // import PropTypes from 'prop-types';
-
 
 const Wrapper = styled.div`
   display: flex;
-  text-align: 'center';
   justify-content: center;
   width: 100vw;
-  margin-top: 2em;
   padding: 2em;
 
   .style {
     width: 100%;
-    text-align: 'center'
+    text-align: center;
   }
   h1 { margin-bottom: 1em}
-  h3 {
-    /* margin-bottom: 0.7em; */
-    /* font-size: 1.5em; */
-  }
   .thumbnail {
     margin: 1em 0;
     display: inline-block;
@@ -41,7 +33,7 @@ class ProductContainer extends Component {
     const { ProductActions } = this.props
     const array = Object.assign({ index: dpt }, opt)
     ProductActions.optionDepth(array)
-    if (name) this.handleSelectedOption(name, dpt)
+    if (name >= 0) this.handleSelectedOption(name, dpt)
   }
 
   handleSelectedOption = (name, dpt = 0) => {
@@ -60,10 +52,10 @@ class ProductContainer extends Component {
     ProductActions.removeOption({ product: pathname[3], type, index, depth })
   }
 
-  handleModifyProduct = (type, index, depth, name, e, number) => {
+  handleModifyProduct = (type, index, depth, name, value) => {
     const { ProductActions } = this.props
     const pathname = this.props.location.pathname.split('/')
-    ProductActions.modifyProduct({ product: pathname[3], type, index, depth, name, value: number ? e : e.target.value })
+    ProductActions.modifyProduct({ product: pathname[3], type, index, depth, name, value })
   }
 
   handleAddOption = (type, index, depth) => {
@@ -120,7 +112,8 @@ class ProductContainer extends Component {
     return (
       <Wrapper>
         <Row style={{ width: '100%' }}>
-          <Col span={24}>
+          <Col xs={0} sm={0} md={24} lg={24} xl={24} style={{ marginTop: '2em' }} />
+          <Col span={24} style={{ marginBottom: '5em' }}>
             {pathname[2] ?
               pathname[2] === 'modify' ?
                 <ProductForm
@@ -137,6 +130,7 @@ class ProductContainer extends Component {
                   handleSelectedOption={handleSelectedOption}
                   handleResetSelectedOption={handleResetSelectedOption}
                   list={product.get('list').toJS()}
+                  color={product.get('color').toJS()}
                   optionStatus={product.get('optionStatus').toJS()}
                   productStatus={product.get('productStatus').toJS()}
                   pathname={pathname}
@@ -146,6 +140,7 @@ class ProductContainer extends Component {
                 list={product.get('list').toJS()}
                 sort={product.get('sort')}
                 asc={product.get('asc')}
+                color={product.get('color').toJS()}
                 handleListSort={handleListSort}
                 handleCreateProduct={handleCreateProduct}
               />
