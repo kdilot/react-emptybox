@@ -344,9 +344,11 @@ class CurrencyChart extends Component {
                 </Row>
               </Wrapper>
             </Col>
-            <Col span={24}>
+            <Col xs={1} sm={1} md={1} lg={0} xl={0} />
+            <Col xs={22} sm={22} md={22} lg={24} xl={24}>
               <div style={{ width: '100%', height: '45em' }} ref={ref => (this.chart = ref)} />
             </Col>
+            <Col xs={1} sm={1} md={1} lg={0} xl={0} />
           </Row>
         }
       </Row>
