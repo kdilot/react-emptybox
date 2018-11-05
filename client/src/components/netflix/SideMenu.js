@@ -96,14 +96,14 @@ const OptionList = styled.div`
   }
 
   p {
-    display: flex;
+    /* display: flex; */
     width: 70%;
     padding: 0;
     margin: 0;
     margin-left: 5px;
-    word-break: break-all;  
-    white-space: nowrap;
-    overflow: hidden;
+    /* word-break: break-all;   */
+    /* white-space: nowrap; */
+    /* overflow: hidden; */
     font-weight: normal;
     font-size: 1em;
   }
@@ -154,7 +154,7 @@ class SideMenu extends Component {
                       return (
                         <OptionList key={children.title} onClick={() => { net.handleMovieModal(children) }}>
                           <div className="img"><img alt={children.title} style={{ width: '100%' }} src={net.imgSize.small + children.backdrop_path} /></div>
-                          <p>
+                          <p className="text-overflow">
                             <Language value="SuggestionForYou" />
                             <br />
                             {children.title}
