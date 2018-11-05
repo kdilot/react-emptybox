@@ -3,6 +3,7 @@
 .black .content {
   background: #252525;
 }
+.black .ant-radio-button-wrapper:hover, .black .ant-radio-button-wrapper-focused,
 .black .ex a:hover, 
 .black .ex span:hover, 
 .black .ant-card-cover h1 {
@@ -12,12 +13,17 @@
 .black .ant-card-meta-description {
   color: #393939;
 }
+.black input,
+.black .ant-btn-primary,
+.black .ant-radio-group-solid .ant-radio-button-wrapper-checked:not(.ant-radio-button-wrapper-disabled),
 .black .ant-input-number,
 .black .ant-tag,
 .black .ant-select-selection,
 .black .ant-input-number-input {
   background-color: #404040;
 }
+.black input,
+.black .ant-radio-group-solid .ant-radio-button-wrapper-checked:not(.ant-radio-button-wrapper-disabled),
 .black .ant-input-number,
 .black .ant-select-selection,
 .black .ant-select-selection:focus,
@@ -39,7 +45,7 @@
   background-color: #212625;
   border-bottom: 1px solid white;
 }
-.black .ant-drawer-close-x, .black .ant-drawer-title {
+.black .ant-drawer-close-x, .black .ant-drawer-title, .black input {
   color: white;
 }
 
@@ -47,6 +53,7 @@
 .yellow .content {
   background: #F29832;
 }
+.yellow .ant-radio-button-wrapper:hover, .yellow .ant-radio-button-wrapper-focused,
 .yellow .ex a:hover, 
 .yellow .ex span:hover, 
 .yellow .ant-card-cover h1 {
@@ -56,12 +63,17 @@
 .yellow .ant-card-meta-description {
   color: #F2AC32;
 }
+.yellow input,
+.yellow .ant-btn-primary,
+.yellow .ant-radio-group-solid .ant-radio-button-wrapper-checked:not(.ant-radio-button-wrapper-disabled),
 .yellow .ant-input-number,
 .yellow .ant-tag,
 .yellow .ant-select-selection,
 .yellow .ant-input-number-input {
   background-color: #F37E35;
 }
+.yellow input,
+.yellow .ant-radio-group-solid .ant-radio-button-wrapper-checked:not(.ant-radio-button-wrapper-disabled),
 .yellow .ant-input-number,
 .yellow .ant-select-selection,
 .yellow .ant-select-selection:focus,
@@ -83,7 +95,7 @@
   background-color: #F5AF2D;
   border-bottom: 1px solid white;
 }
-.yellow .ant-drawer-close-x, .yellow .ant-drawer-title {
+.yellow .ant-drawer-close-x, .yellow .ant-drawer-title, .yellow input {
   color: white;
 }
 
@@ -92,6 +104,7 @@
 .blue .content {
   background: #4C92FF;
 }
+.blue .ant-radio-button-wrapper:hover, .blue .ant-radio-button-wrapper-focused,
 .blue .ex a:hover, 
 .blue .ex span:hover,
 .blue .ant-card-cover h1 {
@@ -101,12 +114,17 @@
 .blue .ant-card-meta-description {
   color: #4CA6FF;
 }
+.blue input,
+.blue .ant-btn-primary,
+.blue .ant-radio-group-solid .ant-radio-button-wrapper-checked:not(.ant-radio-button-wrapper-disabled),
 .blue .ant-input-number,
 .blue .ant-tag,
 .blue .ant-select-selection,
 .blue .ant-input-number-input {
   background-color: #7FB2F0;
 }
+.blue input,
+.blue .ant-radio-group-solid .ant-radio-button-wrapper-checked:not(.ant-radio-button-wrapper-disabled),
 .blue .ant-input-number,
 .blue .ant-select-selection,
 .blue .ant-select-selection:focus,
@@ -128,7 +146,7 @@
   background-color: #4E7AC7;
   border-bottom: 1px solid white;
 }
-.blue .ant-drawer-close-x, .blue .ant-drawer-title {
+.blue .ant-drawer-close-x, .blue .ant-drawer-title, .blue input {
   color: white;
 }
 
@@ -136,6 +154,7 @@
 .mint .content {
   background: #03A678;
 }
+.mint .ant-radio-button-wrapper:hover, .mint .ant-radio-button-wrapper-focused,
 .mint .ex a:hover, 
 .mint .ex span:hover,
 .mint .ant-card-cover h1 {
@@ -145,12 +164,17 @@
 .mint .ant-card-meta-description {
   color: #03BA78;
 }
+.mint input,
+.mint .ant-btn-primary,
+.mint .ant-radio-group-solid .ant-radio-button-wrapper-checked:not(.ant-radio-button-wrapper-disabled),
 .mint .ant-input-number,
 .mint .ant-tag,
 .mint .ant-select-selection,
 .mint .ant-input-number-input {
   background-color: #4BA66A;
 }
+.mint input,
+.mint .ant-radio-group-solid .ant-radio-button-wrapper-checked:not(.ant-radio-button-wrapper-disabled),
 .mint .ant-input-number,
 .mint .ant-select-selection,
 .mint .ant-select-selection:focus,
@@ -172,7 +196,7 @@
   background-color: #7ABF8C;
   border-bottom: 1px solid white;
 }
-.mint .ant-drawer-close-x, .mint .ant-drawer-title {
+.mint .ant-drawer-close-x, .mint .ant-drawer-title, .mint input {
   color: white;
 }
 
@@ -180,6 +204,7 @@
 .beige .content {
   background: #BD8D5F;
 }
+.beige .ant-radio-button-wrapper:hover, .beige .ant-radio-button-wrapper-focused,
 .beige .ex a:hover, 
 .beige .ex span:hover,
 .beige .ant-card-cover h1 {
@@ -189,12 +214,17 @@
 .beige .ant-card-meta-description {
   color: #BD975F;
 }
+.beige input,
+.beige .ant-btn-primary,
+.beige .ant-radio-group-solid .ant-radio-button-wrapper-checked:not(.ant-radio-button-wrapper-disabled),
 .beige .ant-input-number,
 .beige .ant-tag,
 .beige .ant-select-selection,
 .beige .ant-input-number-input {
   background-color: #DEAF6B;
 }
+.beige input,
+.beige .ant-radio-group-solid .ant-radio-button-wrapper-checked:not(.ant-radio-button-wrapper-disabled),
 .beige .ant-input-number,
 .beige .ant-select-selection,
 .beige .ant-select-selection:focus,
@@ -216,6 +246,6 @@
   background-color: #E0BD7B;
   border-bottom: 1px solid white;
 }
-.beige .ant-drawer-close-x, .beige .ant-drawer-title {
+.beige .ant-drawer-close-x, .beige .ant-drawer-title, .beige input {
   color: white;
 }

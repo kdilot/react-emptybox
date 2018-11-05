@@ -37,12 +37,19 @@ h3 { font-size: 1.2em}
   border: 0.1em solid;
 }
 
+.text-overflow {
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
 
 /* antd */
 .ant-card {
   margin-bottom: 1em
 }
 
+.ant-btn-primary,
 .ant-timeline-item-head-blue {
   border-color: white;
 }
