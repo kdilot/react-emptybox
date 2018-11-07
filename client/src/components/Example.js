@@ -10,7 +10,6 @@ const Wrapper = styled.div`
   display: flex;
   justify-content: center;
   width: 100vw;
-  margin-top: 5em;
 
   h1 {
     margin-top: 1em;
@@ -40,8 +39,9 @@ class Example extends Component {
           return (
             <Wrapper className={store.theme}>
               <Row style={{ width: '80%' }} className="ex">
+                <Col xs={0} sm={0} md={24} lg={24} xl={24} style={{ margin: '2em 0' }} />
                 <Col span={24}>
-                  <Row style={{ textAlign: "center" }} gutter={20}>
+                  <Row style={{ textAlign: "center", marginTop: '1em' }} gutter={20}>
                     <Col xs={24} sm={24} md={12} lg={8} xl={6}>
                       <Card
                         cover={<h1><Language value="NetflixExTitle" /></h1>}
