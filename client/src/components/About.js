@@ -8,7 +8,6 @@ const Wrapper = styled.div`
   justify-content: center;
   width: 100vw;
   /* height: 100vh; */
-  margin-top: 5em;
 
   h1 { 
     margin-left: 0.1em;
@@ -41,6 +40,7 @@ class About extends Component {
     return (
       <Wrapper>
         <Row style={{ width: '85%' }}>
+          <Col xs={0} sm={0} md={24} lg={24} xl={24} style={{ marginTop: '5em' }} />
           <Col span={24}>
             <Row style={{ marginBottom: '1em' }}>
               <Col xs={24} sm={24} md={8} lg={6} xl={6}>
