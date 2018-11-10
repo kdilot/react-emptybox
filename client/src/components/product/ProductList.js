@@ -1,20 +1,14 @@
 import React, { Component } from 'react';
-import { Row, Col, Card, Radio, Icon, Button, Avatar } from 'antd';
+import { Row, Col, Radio, Icon, Button } from 'antd';
 import { Link } from 'react-router-dom';
 import { CurrencyFormat, Language } from 'common';
 import styled from 'styled-components';
 
-const { Meta } = Card;
-
 const Wrapper = styled.div`
-  .ant-card-meta-title,
-  .ant-card-meta-description,
   .ant-radio-button-wrapper .ant-radio-button-wrapper-disabled span,
   h4 {
+    font-weight: bold;
     color: black;
-  }
-  h4 {
-    text-align: right;
   }
   .ant-radio-button-wrapper-disabled {
     background: white;
@@ -25,16 +19,26 @@ const Wrapper = styled.div`
   }
 `
 
-const PriceBox = ({ price, originPrice, linethrough = false }) => {
+const ItemBox = ({ product, color }) => {
   return (
-    <h4>
-      {originPrice ?
-        <p style={{ textDecoration: (linethrough ? 'line-through' : '') }}>
-          (<CurrencyFormat price={originPrice} />)
-        </p>
-        : ''}
-      <p><CurrencyFormat price={price} /></p>
-    </h4>
+    <Link to={`/product/view/${product.no}`}>
+      <Row type="flex" justify="space-around" align="middle" style={{ background: 'white', marginBottom: '1em', padding: '1px' }}>
+        <Col xs={7} sm={7} md={24} lg={24} xl={24} style={{ border: '1px solid white' }}>
+          <div style={{ width: '100%', paddingBottom: '100%', background: color[product.image], borderRadius: '4px' }} />
+        </Col>
+        <Col xs={17} sm={17} md={24} lg={24} xl={24} style={{ padding: '1em', fontWeight: 'bold', background: 'white' }}>
+          <h4 className="text-overflow">{product.name}</h4>
+          <h4 style={{textAlign: 'right'}}>
+            {product.originPrice ?
+              <p style={{ textDecoration: 'line-through' }}>
+                (<CurrencyFormat price={product.originPrice} />)
+              </p>
+              : ''}
+            <p><CurrencyFormat price={product.price} /></p>
+          </h4>
+        </Col>
+      </Row>
+    </Link>
   )
 }
 
@@ -93,21 +97,8 @@ class ProductList extends Component {
             <Row gutter={30}>
               {_list.length ? _list.map((product, index) => {
                 return (
-                  <Col xs={24} sm={12} md={8} lg={6} xl={4} key={index} className="card">
-                    <Link to={`/product/view/${product.no}`}>
-                      <Card
-                        hoverable
-                        style={{ width: '100%' }}
-                        cover={<Avatar shape="square" style={{ background: color[product.image], width: '100%', paddingBottom: '100%', display: 'inline-block', textAlign: 'center' }} />}
-                      >
-                        <Meta
-                          title={product.name}
-                          description={
-                            <PriceBox price={product.price} originPrice={product.originPrice} linethrough={true} />
-                          }
-                        />
-                      </Card>
-                    </Link>
+                  <Col xs={24} sm={12} md={8} lg={6} xl={4} key={index}>
+                    <ItemBox product={product} color={color} />
                   </Col>
                 )
               }) : ''}
