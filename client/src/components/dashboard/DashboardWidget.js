@@ -32,7 +32,7 @@ const Wrapper = styled.div`
 }
 `
 
-function DashboardWidget(Comp, name, col = 24) {
+function DashboardWidget(Comp, name, col = 24, hide = true) {
   return (
     class DashboardWidget extends Component {
       handleChangeView = () => {
@@ -58,7 +58,9 @@ function DashboardWidget(Comp, name, col = 24) {
                   <h2>{name}</h2>
                 </Col>
                 <Col span={4} style={{ textAlign: 'right' }}>
-                  <h2><Switch checkedChildren={<Icon type="check" />} unCheckedChildren={<Icon type="close" />} defaultChecked onChange={() => { handleChangeView() }} /></h2>
+                  {hide ?
+                    <h2><Switch checkedChildren={<Icon type="check" />} unCheckedChildren={<Icon type="close" />} defaultChecked onChange={() => { handleChangeView() }} /></h2>
+                    : ''}
                 </Col>
               </Row>
               <CSSTransition
