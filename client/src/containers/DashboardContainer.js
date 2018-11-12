@@ -1,19 +1,22 @@
 import React, { Component } from 'react';
 import { Route, Link } from 'react-router-dom';
-import { DashboardWidget } from 'components/dashboard';
+import { DashboardWidget, Visitor } from 'components/dashboard';
 import { Row, Col, Menu, Icon, Layout, Breadcrumb } from 'antd';
 import styled from 'styled-components';
 
-const { Header, Content, Footer, Sider } = Layout;
+const { Content, Sider } = Layout;
 const SubMenu = Menu.SubMenu;
 const Wrapper = styled.div`
-  padding: 1em;
   width: 100%;
   h1,h2,h3,h4,h5,h6 {
     color: black;
   }
   .ant-layout-sider-zero-width-trigger {
     z-index: 1;
+  }
+  .ant-menu-item > a, .ant-menu-item {
+    color: rgba(255, 255, 255, 1);
+    margin: 0;
   }
 `
 const BreadcrumbWrapper = styled.div`
@@ -24,12 +27,27 @@ const BreadcrumbWrapper = styled.div`
 const Widget1 = DashboardWidget('TEST', 'widget1', 24)
 const Widget2 = DashboardWidget('TEST widget2', 'widget2', 8)
 
+const Today = DashboardWidget(<Visitor number={290} />, 'today', 6, false)
+const Weekly = DashboardWidget(<Visitor number={1300} />, 'weekly', 6, false)
+const Monthly = DashboardWidget(<Visitor number={10490} />, 'monthly', 6, false)
+const Total = DashboardWidget(<Visitor number={48300} />, 'total', 6, false)
+const VisitorGroup = () => {
+  return (
+    [
+      <Today />,
+      <Weekly />,
+      <Monthly />,
+      <Total />,
+    ]
+  )
+}
+
 class DashboardContainer extends Component {
   render() {
     const pathname = this.props.location.pathname.split('/')
     return (
       <Wrapper>
-        <Layout>
+        <Layout style={{ height: '100%' }}>
           <Sider
             breakpoint="sm"
             collapsedWidth="0"
@@ -42,12 +60,16 @@ class DashboardContainer extends Component {
               inlineCollapsed={'menu-unfold'}
             >
               <Menu.Item key="1">
-                <Icon type="pie-chart" />
-                <span><Link to={'/dashboard/widget1'}>Widget1</Link></span>
+                <Link to={'/dashboard'}>
+                  <Icon type="notification" />
+                  <span>Intro</span>
+                </Link>
               </Menu.Item>
               <Menu.Item key="2">
-                <Icon type="desktop" />
-                <span><Link to={'/dashboard/widget2'}>Widget2</Link></span>
+                <Link to={'/dashboard/widget2'}>
+                  <Icon type="team" />
+                  <span>Widget2</span>
+                </Link>
               </Menu.Item>
               <Menu.Item key="3">
                 <Icon type="inbox" />
@@ -71,7 +93,7 @@ class DashboardContainer extends Component {
           </Sider>
           <Layout>
             <Content>
-              <Row type="flex" justify="space-around" align="top">
+              <Row type="flex" align="top">
                 <Col span={24}>
                   <BreadcrumbWrapper>
                     <Breadcrumb>
@@ -84,13 +106,13 @@ class DashboardContainer extends Component {
                     </Breadcrumb>
                   </BreadcrumbWrapper>
                 </Col>
+                <Route exact path='/dashboard' component={VisitorGroup} />
                 <Route path='/dashboard/widget1' component={Widget1} />
-                <Route path='/dashboard/widget2' component={Widget2} />
               </Row>
             </Content>
           </Layout>
         </Layout>
-      </Wrapper>
+      </Wrapper >
     )
   }
 }
