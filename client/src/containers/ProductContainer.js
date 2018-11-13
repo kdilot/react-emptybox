@@ -5,7 +5,7 @@ import * as productActions from 'modules/product';
 import { ProductInfo, ProductForm, ProductList } from 'components/product';
 import { Row, Col } from 'antd';
 import styled from 'styled-components';
-// import PropTypes from 'prop-types';
+import PropTypes from 'prop-types';
 
 const Wrapper = styled.div`
   display: flex;
@@ -160,3 +160,15 @@ export default connect(
     ProductActions: bindActionCreators(productActions, dispatch),
   })
 )(ProductContainer)
+
+ProductContainer.propTypes = {
+  handleOptionDepth: PropTypes.func,
+  handleSelectedOption: PropTypes.func,
+  handleListSort: PropTypes.func,
+  handleRemoveOption: PropTypes.func,
+  handleModifyProduct: PropTypes.func,
+  handleAddOption: PropTypes.func,
+  handleCreateProduct: PropTypes.func,
+  handleProductRemove: PropTypes.func,
+  handleResetSelectedOption: PropTypes.func,
+}

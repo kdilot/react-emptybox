@@ -148,7 +148,6 @@ VtcContainer.propTypes = {
   currencyChartData: PropTypes.func,
   currencyData: PropTypes.func,
   fetchData: PropTypes.func,
-
 }
 
 
