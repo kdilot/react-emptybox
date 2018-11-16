@@ -7,7 +7,6 @@ import styled from 'styled-components';
 
 const Wrapper = styled.div`
 `
-
 const Lang = styled.div`
   display: inline-flex;
   
@@ -39,6 +38,7 @@ const ColorBox = styled.div`
     width: 3em;
     height: 3em;
   }
+  p { margin-bottom: 1em; }
 `
 
 class Top extends Component {
@@ -69,9 +69,9 @@ class Top extends Component {
                     <Col span={24} style={{ borderBottom: '1px solid white', marginBottom: '1em' }}>
                     </Col>
                     <Col span={24} onClick={() => { store.handleDrawer('menu') }}>
-                      <p><Link to="/?" style={{ textDecoration: 'none' }}>?</Link></p>
-                      <p><Link to="/project" style={{ textDecoration: 'none' }}><Language value="Project" /></Link></p>
-                      <p><Link to="/about" style={{ textDecoration: 'none' }}>About</Link></p>
+                      <p style={{marginBottom: '1em'}}><Link to="/?" style={{ textDecoration: 'none' }}>?</Link></p>
+                      <p style={{marginBottom: '1em'}}><Link to="/project" style={{ textDecoration: 'none' }}><Language value="Project" /></Link></p>
+                      <p style={{marginBottom: '1em'}}><Link to="/about" style={{ textDecoration: 'none' }}>About</Link></p>
                     </Col>
                   </Row>
                 }
