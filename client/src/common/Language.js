@@ -20,9 +20,9 @@ class Language extends Component {
               (
                 type === 'input' ?
                   (
-                    <Input style={{ width: web ? '27em' : '15em' }} placeholder={lang[store.currentLanguage][value]} onChange={onChange ? onChange : ''} />
+                    <Input style={{ width: web ? '27em' : '15em' }} placeholder={lang[store.currentLanguage][value] ? lang[store.currentLanguage][value] : value} onChange={onChange ? onChange : ''} />
                   ) : ''
-              ) : lang[store.currentLanguage][value] // default text
+              ) : lang[store.currentLanguage][value] ? lang[store.currentLanguage][value] : value // default text
           )
         }}
       </Store.Consumer>
