@@ -1,14 +1,20 @@
 import React, { Component } from 'react';
 import { Route, Link } from 'react-router-dom';
-import { DashboardWidget, Visitor } from 'components/dashboard';
-import { Row, Col, Menu, Icon, Layout, Breadcrumb } from 'antd';
+import { connect } from 'react-redux';
+import { bindActionCreators } from 'redux';
+import * as dashboardActions from 'modules/dashboard';
+import { Language } from 'common';
+import { DashboardHeader, Visitor, Account } from 'components/dashboard';
+import { Row, Menu, Icon, Layout } from 'antd';
+import moment from 'moment';
 import styled from 'styled-components';
+import PropTypes from 'prop-types';
 
 const { Content, Sider } = Layout;
 const SubMenu = Menu.SubMenu;
 const Wrapper = styled.div`
   width: 100%;
-  h1,h2,h3,h4,h5,h6 {
+  h1, h2, h3, h4, h5, h6 {
     color: black;
   }
   .ant-layout-sider-zero-width-trigger {
@@ -18,33 +24,79 @@ const Wrapper = styled.div`
     color: rgba(255, 255, 255, 1);
     margin: 0;
   }
+  .ant-layout-sider-below {
+    position: absolute;
+    min-width: 200px;
+    max-width: 200px;
+    z-index: 1;
+    height: 100%;
+  }
 `
-const BreadcrumbWrapper = styled.div`
-  padding: 1em;
-  background: white;
-  a { color : black;}
-`
-const Widget1 = DashboardWidget('TEST', 'widget1', 24)
-const Widget2 = DashboardWidget('TEST widget2', 'widget2', 8)
-
-const Today = DashboardWidget(<Visitor number={290} />, 'today', 6, false)
-const Weekly = DashboardWidget(<Visitor number={1300} />, 'weekly', 6, false)
-const Monthly = DashboardWidget(<Visitor number={10490} />, 'monthly', 6, false)
-const Total = DashboardWidget(<Visitor number={48300} />, 'total', 6, false)
-const VisitorGroup = () => {
-  return (
-    [
-      <Today />,
-      <Weekly />,
-      <Monthly />,
-      <Total />,
-    ]
-  )
-}
 
 class DashboardContainer extends Component {
+  constructor(props) {
+    super(props)
+
+    this.state = {
+      employeeList: [
+        ['Alison Parker', 9, 0, 16, 0], // name / start hour / start minute / finish hour / finish minute 
+        ['Peter Parker', 8, 0, 14, 28],
+        ['Denny Green', 3, 20, 16, 13],
+        ['Wil Castillo', 14, 36, 21, 0],
+        ['Caitlan Waters', 7, 0, 17, 5],
+        ['Libbie Avila', 9, 14, 13, 10],
+        ['Laurence Costa', 20, 56, 3, 9],
+        ['Jimmie Russell', 18, 34, 24, 30],
+        ['Britany Turner', 10, 0, 19, 0],
+      ],
+      status: [],
+    }
+  }
+
+  checkWorktime = () => {
+    this.intervalID = setTimeout(() => {
+      const { employeeList } = this.state
+      let _status = []
+      employeeList.map((list, index) => {
+        if (parseInt(moment().diff(moment().hour(list[1]).minute(list[2])), 10) >= 0 &&
+          parseInt(moment().diff(moment().hour(list[3]).minute(list[4])), 10) < 0) {
+          _status.push('Working')
+        }
+        else {
+          _status.push('Left')
+        }
+        return _status
+      })
+      this.setState({
+        status: _status
+      })
+      this.checkWorktime()
+    }, 1000)
+  }
+
+  shouldComponentUpdate(nextProps, nextState) {
+    let flag = false
+    nextState.status.map((list, index) => {
+      if (list !== this.state.status[index])
+        return flag = true
+        return true
+    })
+    if(nextProps !== this.props) flag = true
+
+    return flag
+  }
+
+  componentDidMount() {
+    this.checkWorktime()
+  }
+  componentDidUpdate() {
+  }
+
+  componentWillUnmount() {
+    clearInterval(this.intervalID);
+  }
+
   render() {
-    const pathname = this.props.location.pathname.split('/')
     return (
       <Wrapper>
         <Layout style={{ height: '100%' }}>
@@ -53,27 +105,29 @@ class DashboardContainer extends Component {
             collapsedWidth="0"
           >
             <Menu
-              defaultSelectedKeys={['1']}
-              defaultOpenKeys={['sub1']}
+              defaultSelectedKeys={[this.props.location.pathname.split('/')[2]]}
+              defaultOpenKeys={[this.props.location.pathname.split('/')[2]]}
               mode="inline"
               theme="dark"
               inlineCollapsed={'menu-unfold'}
             >
-              <Menu.Item key="1">
-                <Link to={'/dashboard'}>
-                  <Icon type="notification" />
-                  <span>Intro</span>
-                </Link>
-              </Menu.Item>
-              <Menu.Item key="2">
-                <Link to={'/dashboard/widget2'}>
+              <Menu.Item key="member">
+                <Link to={'/dashboard/member'}>
                   <Icon type="team" />
-                  <span>Widget2</span>
+                  <span><Language value="Member" /></span>
                 </Link>
               </Menu.Item>
-              <Menu.Item key="3">
-                <Icon type="inbox" />
-                <span>Option 3</span>
+              <Menu.Item key="account">
+                <Link to={'/dashboard/account'}>
+                  <Icon type="bank" />
+                  <span><Language value="Account" /></span>
+                </Link>
+              </Menu.Item>
+              <Menu.Item key="test">
+              <Link to={'/dashboard/test'}>
+                  <Icon type="team" />
+                  <span><Language value="test" /></span>
+                </Link>
               </Menu.Item>
               <SubMenu key="sub1" title={<span><Icon type="mail" /><span>Navigation One</span></span>}>
                 <Menu.Item key="5">Option 5</Menu.Item>
@@ -94,20 +148,14 @@ class DashboardContainer extends Component {
           <Layout>
             <Content>
               <Row type="flex" align="top">
-                <Col span={24}>
-                  <BreadcrumbWrapper>
-                    <Breadcrumb>
-                      <Breadcrumb.Item ><Link to={'/dashboard'}>Home</Link></Breadcrumb.Item>
-                      {pathname.filter((list, index) => index > 1).map((list, index) => {
-                        return (
-                          <Breadcrumb.Item key={index}><Link to={list}>{list}</Link></Breadcrumb.Item>
-                        )
-                      })}
-                    </Breadcrumb>
-                  </BreadcrumbWrapper>
-                </Col>
-                <Route exact path='/dashboard' component={VisitorGroup} />
-                <Route path='/dashboard/widget1' component={Widget1} />
+                <DashboardHeader {...this.props} />
+                <Route exact path='/dashboard/member' component={() => {
+                  return (
+                    <Visitor {...this.props} {...this.state} />
+                  )
+                }} />
+                <Route path='/dashboard/account' component={Account} />
+                <Route path='/dashboard/test' component={()=>{return(<div>test</div>)}} />
               </Row>
             </Content>
           </Layout>
@@ -117,4 +165,18 @@ class DashboardContainer extends Component {
   }
 }
 
-export default DashboardContainer;
+// export default DashboardContainer;
+export default connect(
+  (state) => ({
+    dashboard: state.dashboard,
+  }),
+  (dispatch) => ({
+    DashboardActions: bindActionCreators(dashboardActions, dispatch),
+  })
+)(DashboardContainer)
+
+DashboardContainer.propsType = {
+  checkWorktime: PropTypes.func,
+  employeeList: PropTypes.array,
+  status: PropTypes.array
+}
