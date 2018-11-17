@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 import { Row, Col, Divider, Switch, Icon } from 'antd';
-import styled from 'styled-components';
+import { Language } from 'common';
 import { CSSTransition } from 'react-transition-group';
+import styled from 'styled-components';
 
 const Wrapper = styled.div`
   margin: 1em;
@@ -31,8 +32,8 @@ const Wrapper = styled.div`
     transition: all 400ms ease-out;
 }
 `
-
-function DashboardWidget(Comp, name, col = 24, hide = true) {
+//  component / title of component / col size / show & hide
+function DashboardWidget(Comp, title, col = 24, hide = true) {
   return (
     class DashboardWidget extends Component {
       handleChangeView = () => {
@@ -53,29 +54,39 @@ function DashboardWidget(Comp, name, col = 24, hide = true) {
         return (
           <Col xs={24} sm={24} md={col === 24 ? col : 12} lg={col} xl={col}>
             <Wrapper>
-              <Row>
-                <Col span={20}>
-                  <h2>{name}</h2>
-                </Col>
-                <Col span={4} style={{ textAlign: 'right' }}>
-                  {hide ?
-                    <h2><Switch checkedChildren={<Icon type="check" />} unCheckedChildren={<Icon type="close" />} defaultChecked onChange={() => { handleChangeView() }} /></h2>
-                    : ''}
-                </Col>
-              </Row>
-              <CSSTransition
-                in={view}
-                classNames="fade"
-                timeout={400}
-                appear
-                mountOnEnter
-                unmountOnExit
-              >
+              {title ?
                 <Row>
-                  <Divider style={{ margin: '10px 0' }} />
-                  <h4>{Comp}</h4>
+                  <Row>
+                    <Col span={20}>
+                      <h3><Language value={title} /></h3>
+                    </Col>
+                    <Col span={4} style={{ textAlign: 'right' }}>
+                      {hide ?
+                        <h3><Switch checkedChildren={<Icon type="check" />} unCheckedChildren={<Icon type="close" />} defaultChecked onChange={() => { handleChangeView() }} /></h3>
+                        : ''}
+                    </Col>
+                  </Row>
+                  <CSSTransition
+                    in={view}
+                    classNames="fade"
+                    timeout={400}
+                    appear
+                    mountOnEnter
+                    unmountOnExit
+                  >
+                    <Row>
+                      <Divider style={{ margin: '10px 0' }} />
+                      <h2>{Comp}</h2>
+                    </Row>
+                  </CSSTransition>
                 </Row>
-              </CSSTransition>
+                :
+                <Row>
+                  <Col span={24}>
+                    <h2>{Comp}</h2>
+                  </Col>
+                </Row>
+              }
             </Wrapper>
           </Col>
         )
