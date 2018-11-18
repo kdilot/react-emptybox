@@ -87,14 +87,15 @@ class Account extends Component {
     super(props)
 
     this.state = {
-      AccountList: [
+      AccountList: [  // country / name / account number
         ['US', 'CHASE', '1240-43045-6554'],
         ['US', 'WELLS FARGO', '7458-88763-1778'],
-        ['KR', 'SHINHAN', '110-234-003890']
+        ['KR', 'SHINHAN', '110-234-003890'],
+        ['US', 'CITY', '4857-2383-498']
       ],
-      TransList: [
+      TransList: [  // country / mount / account / trans name 
         ['in', 1608.39, 0, 'Amazon'],
-        ['out', 5800, 0, 'Ebay'],
+        ['out', 5800, 3, 'Ebay'],
         ['out', 44.59, 1, 'Ebay'],
         ['in', 10000, 2, 'Company'],
         ['out', 2790.40, 1, 'Shopping'],
@@ -110,17 +111,17 @@ class Account extends Component {
     let number = 1;
     const Income = DashboardWidget(<InoutForm price={50120} title={'Income'} />, false, 12)
     const Outcome = DashboardWidget(<InoutForm price={19203.33} title={'Outcome'} />, false, 12)
-    const Account1 = DashboardWidget(<AccountForm account={AccountList[0]} />, false, 6)
-    const Account2 = DashboardWidget(<AccountForm account={AccountList[1]} />, false, 6)
-    const Account3 = DashboardWidget(<AccountForm account={AccountList[2]} />, false, 6)
     return (
       [
         <Income key={number++} />,
         <Outcome key={number++} />,
         <DashboardTitle title={'YourAccount'} key={number++} />,
-        <Account1 key={number++} />,
-        <Account2 key={number++} />,
-        <Account3 key={number++} />,
+        AccountList.map((list, index) => {
+          const Account = DashboardWidget(<AccountForm account={list} />, false, 6)
+          return (
+            <Account key={index} />
+          )
+        }),
         <DashboardTitle title={'RecentTransactions'} key={number++} />,
         TransList.map((list, index) => {
           const Trans = DashboardWidget(<TransactionForm type={list[0]} price={list[1]} account={AccountList[list[2]]} message={list[3]} />, false, 24)
