@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import * as dashboardActions from 'modules/dashboard';
 import { Language } from 'common';
-import { DashboardHeader, Visitor, Account } from 'components/dashboard';
+import { DashboardHeader, Visitor, Account, Schedule } from 'components/dashboard';
 import { Row, Menu, Icon, Layout } from 'antd';
 import moment from 'moment';
 import styled from 'styled-components';
@@ -79,9 +79,9 @@ class DashboardContainer extends Component {
     nextState.status.map((list, index) => {
       if (list !== this.state.status[index])
         return flag = true
-        return true
+      return true
     })
-    if(nextProps !== this.props) flag = true
+    if (nextProps !== this.props) flag = true
 
     return flag
   }
@@ -123,10 +123,10 @@ class DashboardContainer extends Component {
                   <span><Language value="Account" /></span>
                 </Link>
               </Menu.Item>
-              <Menu.Item key="test">
-              <Link to={'/dashboard/test'}>
-                  <Icon type="team" />
-                  <span><Language value="test" /></span>
+              <Menu.Item key="schedule">
+                <Link to={'/dashboard/schedule'}>
+                  <Icon type="calendar" />
+                  <span><Language value="Schedule" /></span>
                 </Link>
               </Menu.Item>
               <SubMenu key="sub1" title={<span><Icon type="mail" /><span>Navigation One</span></span>}>
@@ -155,7 +155,8 @@ class DashboardContainer extends Component {
                   )
                 }} />
                 <Route path='/dashboard/account' component={Account} />
-                <Route path='/dashboard/test' component={()=>{return(<div>test</div>)}} />
+                <Route path='/dashboard/schedule' component={Schedule} />
+                <Route path='/dashboard/test' component={() => { return (<div>test</div>) }} />
               </Row>
             </Content>
           </Layout>
