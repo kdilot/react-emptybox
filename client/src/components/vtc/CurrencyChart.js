@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import echarts from 'echarts';
 import { Row, Col, Icon } from 'antd';
-import debounce from 'lodash/debounce'
+import debounce from 'lodash/debounce';
 import moment from 'moment';
 import styled from 'styled-components';
 
@@ -286,7 +286,7 @@ class CurrencyChart extends Component {
       }]
     };
     myChart.setOption(option)
-    this.chart.scrollIntoView({block: 'end', behavior: 'smooth'})
+    this.chart.scrollIntoView({ block: 'end', behavior: 'smooth' })
   }
   handleChart = (day) => {
     const { currencyChartData, pathname } = this.props
