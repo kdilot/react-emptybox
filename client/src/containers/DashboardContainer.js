@@ -45,7 +45,7 @@ class DashboardContainer extends Component {
         ['Wil Castillo', 14, 36, 21, 0],
         ['Caitlan Waters', 7, 0, 17, 5],
         ['Libbie Avila', 9, 14, 13, 10],
-        ['Laurence Costa', 20, 56, 3, 9],
+        ['Laurence Costa', 20, 56, 23, 9],
         ['Jimmie Russell', 18, 34, 24, 30],
         ['Britany Turner', 10, 0, 19, 0],
       ],
