@@ -22,7 +22,6 @@ class DashboardHeader extends Component {
           {pathname.filter((list, index) => index > 1).map((list, index) => {
             return (
               <Breadcrumb.Item key={index}><Link to={list}><Language value={list.charAt(0).toUpperCase() + list.slice(1)} /></Link></Breadcrumb.Item>
-              // <Breadcrumb.Item key={index}><Language value={list.charAt(0).toUpperCase() + list.slice(1)} /></Breadcrumb.Item>
             )
           })}
         </Breadcrumb>
