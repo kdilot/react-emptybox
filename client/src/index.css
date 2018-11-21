@@ -10,7 +10,7 @@ html, body {
   font-family: 'Montserrat', serif;
   color: white;
 }
-
+p { margin: 0}
 a, h1, h2, h3, h4, h5, h6, div {
   color: white;
   padding: 0;
@@ -59,6 +59,11 @@ h3 { font-size: 1.2em}
 }
 .ant-card-body {
   padding: 1.5em;
+}
+.ant-message-notice-content span,
+.ant-time-picker-panel-select,
+.ant-time-picker-panel-input{
+  color:black
 }
 
 /* netflix */
