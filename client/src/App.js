@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { Route } from 'react-router-dom';
 import { Top } from 'common';
 import { Introduce, About, Example } from 'components';
-import { NetflixContainer, VtcContainer, ProductContainer } from 'containers';
+import { NetflixContainer, VtcContainer, ProductContainer, DashboardContainer } from 'containers';
 import { Layout } from 'antd';
 import styled from 'styled-components';
 import { Store } from 'context';
@@ -139,12 +139,13 @@ class App extends Component {
               <Route path='/' component={Top} />
             </Header>
             <Content className="content" style={{ display: 'flex', height: '93vh', width: '100vw', overflow: 'auto', justifyContent: 'center' }}>
-              <Route exact path='/' component={Introduce} />
-              <Route path='/about' component={About} />
-              <Route path='/project' component={Example} />
-              <Route path='/netflix' component={NetflixContainer} />
-              <Route path='/vtc' component={VtcContainer} />
-              <Route path='/product' component={ProductContainer} />
+              <Route exact path='/' breadcrumbName="Home" component={Introduce} />
+              <Route path='/about' breadcrumbName="About" component={About} />
+              <Route path='/project' breadcrumbName="Project" component={Example} />
+              <Route path='/netflix' breadcrumbName="Netflix" component={NetflixContainer} />
+              <Route path='/vtc' breadcrumbName="Vtc" component={VtcContainer} />
+              <Route path='/product' breadcrumbName="Product" component={ProductContainer} />
+              <Route path='/dashboard' breadcrumbName="Dashboard" component={DashboardContainer} />
             </Content>
           </Layout>
         </Wrapper>
