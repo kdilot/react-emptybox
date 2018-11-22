@@ -1,8 +1,5 @@
 import React, { Component } from 'react';
 import { Route, Link } from 'react-router-dom';
-import { connect } from 'react-redux';
-import { bindActionCreators } from 'redux';
-import * as dashboardActions from 'modules/dashboard';
 import { Language } from 'common';
 import { DashboardHeader, Visitor, Account, Schedule } from 'components/dashboard';
 import { Row, Menu, Icon, Layout } from 'antd';
@@ -166,15 +163,7 @@ class DashboardContainer extends Component {
   }
 }
 
-// export default DashboardContainer;
-export default connect(
-  (state) => ({
-    dashboard: state.dashboard,
-  }),
-  (dispatch) => ({
-    DashboardActions: bindActionCreators(dashboardActions, dispatch),
-  })
-)(DashboardContainer)
+export default DashboardContainer;
 
 DashboardContainer.propsType = {
   checkWorktime: PropTypes.func,
