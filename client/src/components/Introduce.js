@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Language } from 'common';
 import { Row, Col, Icon } from 'antd';
 import styled from 'styled-components';
 import Clock from 'react-live-clock';
@@ -17,7 +18,11 @@ const Wrapper = styled.div`
     font-weight: bold;
   }
   h2 {
+    font-size: 1.3em;
     padding: 1em;
+  }
+  h3 {
+    padding: 0.2em;
   }
   a {
     margin: 0 0.5em;
@@ -60,6 +65,7 @@ class Introduce extends Component {
                     <Icon type="github" theme="outlined" />
                     <a rel="noopener noreferrer" href="https://github.com/kdilot" target="_blank">https://github.com/kdilot</a>
                   </h2>
+                  <h3><Language value={'IntroMsg'} /></h3>
                 </Col>
               </Row>
             </Wrapper>
