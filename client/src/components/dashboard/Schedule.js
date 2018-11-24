@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { DashboardWidget } from 'components/dashboard';
 import { Language } from 'common';
-import { Calendar, Row, Col, Input, TimePicker, Tooltip, Button, List, Tag, DatePicker } from 'antd';
+import { Calendar, Row, Col, Input, Tooltip, Button, List, Tag, DatePicker, Icon } from 'antd';
 import moment from 'moment';
 import styled from 'styled-components';
 import PropTypes from 'prop-types';
@@ -9,6 +9,7 @@ import PropTypes from 'prop-types';
 const Search = Input.Search
 const Wrapper = styled.div`
   width: 100%;
+  margin-bottom: 2em;
   .ant-tag,
   .ant-calendar-picker-icon,
   .ant-select-selection-selected-value {
@@ -40,14 +41,14 @@ const SearchForm = ({ timeChange, addSchedule }) => {
           placeholder="Select Time"
           showTime={{ format: 'HH:mm' }}
           onChange={timeChange}
-          getPopupContainer={trigger => trigger.parentNode}
+          defaultValue={time ? time : moment()}
         />
       </Col>
       <Col xs={24} sm={24} md={20} lg={16} xl={16}>
         <Search
           onSearch={value => addSchedule(value)}
           defaultValue=""
-          enterButton={<Language value={'Add'} />}
+          enterButton={<Icon type="check" style={{ fontSize: '20px' }} />}
         />
       </Col>
     </Col >
@@ -166,13 +167,13 @@ class Schedule extends Component {
     return (
       <Wrapper>
         <ScheduleView />
-        <SearchBox />
         <Col xs={0} sm={0} md={24} lg={24} xl={24}>
           <CalendarView />
         </Col>
         <Col xs={24} sm={24} md={0} lg={0} xl={0}>
           <CalendarMView />
         </Col>
+        <SearchBox />
       </Wrapper>
     );
   }
