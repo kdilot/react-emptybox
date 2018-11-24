@@ -1,14 +1,12 @@
 import React, { Component } from 'react';
-import { Route, Link } from 'react-router-dom';
-import { Language } from 'common';
-import { DashboardHeader, Visitor, Account, Schedule } from 'components/dashboard';
-import { Row, Menu, Icon, Layout } from 'antd';
+import { Route } from 'react-router-dom';
+import { DashboardHeader, Visitor, Account, Schedule, MenuBar } from 'components/dashboard';
+import { Row, Layout } from 'antd';
 import moment from 'moment';
 import styled from 'styled-components';
 import PropTypes from 'prop-types';
 
-const { Content, Sider } = Layout;
-const SubMenu = Menu.SubMenu;
+const { Content } = Layout;
 const Wrapper = styled.div`
   width: 100%;
   h1, h2, h3, h4, h5, h6 {
@@ -29,27 +27,16 @@ const Wrapper = styled.div`
     height: 100%;
   }
 `
+const NonClickable = styled.div`
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  background: rgba(0,0,0,0.65);
+  z-index: 1;
+  display: ${props => props.menuVisibility ? 'block' : 'none'};
+`
 
 class DashboardContainer extends Component {
-  constructor(props) {
-    super(props)
-
-    this.state = {
-      employeeList: [
-        ['Alison Parker', 9, 0, 16, 0], // name / start hour / start minute / finish hour / finish minute 
-        ['Peter Parker', 8, 0, 14, 28],
-        ['Denny Green', 3, 20, 16, 13],
-        ['Wil Castillo', 14, 36, 21, 0],
-        ['Caitlan Waters', 7, 0, 17, 5],
-        ['Libbie Avila', 9, 14, 13, 10],
-        ['Laurence Costa', 20, 56, 23, 9],
-        ['Jimmie Russell', 18, 34, 24, 30],
-        ['Britany Turner', 10, 0, 19, 0],
-      ],
-      status: [],
-    }
-  }
-
   checkWorktime = () => {
     this.intervalID = setTimeout(() => {
       const { employeeList } = this.state
@@ -71,6 +58,28 @@ class DashboardContainer extends Component {
     }, 1000)
   }
 
+  changeMenuVisibility = (menuVisibility) => {
+    this.setState({ menuVisibility })
+  }
+
+  state = {
+    employeeList: [
+      ['Alison Parker', 9, 0, 16, 0], // name / start hour / start minute / finish hour / finish minute 
+      ['Peter Parker', 8, 0, 14, 28],
+      ['Denny Green', 3, 20, 16, 13],
+      ['Wil Castillo', 14, 36, 21, 0],
+      ['Caitlan Waters', 7, 0, 17, 5],
+      ['Libbie Avila', 9, 14, 13, 10],
+      ['Laurence Costa', 20, 56, 23, 9],
+      ['Jimmie Russell', 18, 34, 24, 30],
+      ['Britany Turner', 10, 0, 19, 0],
+    ],
+    status: [],
+    menuVisibility: false,
+    checkWorktime: this.checkWorktime,
+    changeMenuVisibility: this.changeMenuVisibility,
+  }
+
   shouldComponentUpdate(nextProps, nextState) {
     let flag = false
     nextState.status.map((list, index) => {
@@ -78,72 +87,36 @@ class DashboardContainer extends Component {
         return flag = true
       return true
     })
+    if (nextState.menuVisibility !== this.state.menuVisibility) flag = true
     if (nextProps !== this.props) flag = true
-
     return flag
   }
 
   componentDidMount() {
     this.checkWorktime()
   }
+
   componentDidUpdate() {
+    if(window.innerWidth > 576) {
+      this.changeMenuVisibility(false)
+    }
   }
 
   componentWillUnmount() {
-    clearInterval(this.intervalID);
+    clearInterval(this.intervalID)
   }
 
   render() {
+    const {
+      menuVisibility,
+    } = this.state
     return (
       <Wrapper>
         <Layout style={{ height: '100%' }}>
-          <Sider
-            breakpoint="sm"
-            collapsedWidth="0"
-          >
-            <Menu
-              defaultSelectedKeys={[this.props.location.pathname.split('/')[2]]}
-              defaultOpenKeys={[this.props.location.pathname.split('/')[2]]}
-              mode="inline"
-              theme="dark"
-              inlineCollapsed={'menu-unfold'}
-            >
-              <Menu.Item key="member">
-                <Link to={'/dashboard/member'}>
-                  <Icon type="team" />
-                  <span><Language value="Member" /></span>
-                </Link>
-              </Menu.Item>
-              <Menu.Item key="account">
-                <Link to={'/dashboard/account'}>
-                  <Icon type="bank" />
-                  <span><Language value="Account" /></span>
-                </Link>
-              </Menu.Item>
-              <Menu.Item key="schedule">
-                <Link to={'/dashboard/schedule'}>
-                  <Icon type="calendar" />
-                  <span><Language value="Schedule" /></span>
-                </Link>
-              </Menu.Item>
-              <SubMenu key="sub1" title={<span><Icon type="mail" /><span>Navigation One</span></span>}>
-                <Menu.Item key="5">Option 5</Menu.Item>
-                <Menu.Item key="6">Option 6</Menu.Item>
-                <Menu.Item key="7">Option 7</Menu.Item>
-                <Menu.Item key="8">Option 8</Menu.Item>
-              </SubMenu>
-              <SubMenu key="sub2" title={<span><Icon type="appstore" /><span>Navigation Two</span></span>}>
-                <Menu.Item key="9">Option 9</Menu.Item>
-                <Menu.Item key="10">Option 10</Menu.Item>
-                <SubMenu key="sub3" title="Submenu">
-                  <Menu.Item key="11">Option 11</Menu.Item>
-                  <Menu.Item key="12">Option 12</Menu.Item>
-                </SubMenu>
-              </SubMenu>
-            </Menu>
-          </Sider>
+          <MenuBar {...this.props} {...this.state} />
           <Layout>
             <Content>
+              <NonClickable menuVisibility={menuVisibility} />
               <Row type="flex" align="top">
                 <DashboardHeader {...this.props} />
                 <Route exact path='/dashboard/member' component={() => {
@@ -168,5 +141,7 @@ export default DashboardContainer;
 DashboardContainer.propsType = {
   checkWorktime: PropTypes.func,
   employeeList: PropTypes.array,
-  status: PropTypes.array
+  status: PropTypes.array,
+  menuVisibility: PropTypes.bool,
+  changeMenuVisibility: PropTypes.func,
 }
