@@ -46,7 +46,7 @@ class Example extends Component {
                       <Card
                         cover={<h1><Language value="NetflixExTitle" /></h1>}
                         actions={[
-                          <a rel="noopener noreferrer" href="https://github.com/kdilot/react-emptybox" target="_blank"><Icon type="github" theme="filled" style={{ fontSize: 30 }} /></a>,
+                          <a rel="noopener noreferrer" href="https://github.com/kdilot/react-emptybox/tree/master/client/src/components/netflix" target="_blank"><Icon type="github" theme="filled" style={{ fontSize: 30 }} /></a>,
                           <Link to="/netflix" style={{ textDecoration: 'none' }}><Icon type="play-circle" theme="filled" style={{ fontSize: 30 }} /></Link>
                         ]}
                       >
@@ -55,7 +55,6 @@ class Example extends Component {
                           description={<div>
                             <Tag color=" ">react-context</Tag>
                             <Tag color=" ">react-slick</Tag>
-                            <Tag color=" ">react-onclickoutside</Tag>
                             <Tag color=" ">ant-design</Tag>
                             <Tag color=" ">styled-components</Tag>
                           </div>}
@@ -66,7 +65,7 @@ class Example extends Component {
                       <Card
                         cover={<h1><Language value="VtcExTitle" /></h1>}
                         actions={[
-                          <a rel="noopener noreferrer" href="https://github.com/kdilot/react-emptybox" target="_blank"><Icon type="github" theme="filled" style={{ fontSize: 30 }} /></a>,
+                          <a rel="noopener noreferrer" href="https://github.com/kdilot/react-emptybox/tree/master/client/src/components/vtc" target="_blank"><Icon type="github" theme="filled" style={{ fontSize: 30 }} /></a>,
                           <Link to="/vtc" style={{ textDecoration: 'none' }}><Icon type="play-circle" theme="filled" style={{ fontSize: 30 }} /></Link>
                         ]}
                       >
@@ -79,7 +78,7 @@ class Example extends Component {
                             <Tag color=" ">mongoDb</Tag>
                             <Tag color=" ">websocket</Tag>
                             <Tag color=" ">axios</Tag>
-                            <Tag color=" ">recharts</Tag>
+                            <Tag color=" ">echarts</Tag>
                             <Tag color=" ">ant-design</Tag>
                             <Tag color=" ">styled-components</Tag>
                           </div>}
@@ -101,6 +100,25 @@ class Example extends Component {
                             <Tag color=" ">localStorage</Tag>
                             <Tag color=" ">ant-design</Tag>
                             <Tag color=" ">styled-components</Tag>
+                          </div>}
+                        />
+                      </Card>
+                    </Col>
+                    <Col xs={24} sm={24} md={12} lg={8} xl={6}>
+                      <Card
+                        cover={<h1><Language value="DashboardExTitle" /></h1>}
+                        actions={[
+                          <a rel="noopener noreferrer" href="https://github.com/kdilot/react-emptybox/tree/master/client/src/components/dashboard" target="_blank"><Icon type="github" theme="filled" style={{ fontSize: 30 }} /></a>,
+                          <Link to="/dashboard/member" style={{ textDecoration: 'none' }}><Icon type="play-circle" theme="filled" style={{ fontSize: 30 }} /></Link>
+                        ]}
+                      >
+                        <Meta
+                          title={<Language value="DashboardExInfo" />}
+                          description={<div>
+                            <Tag color=" ">react HOC(widget function)</Tag>
+                            <Tag color=" ">echarts</Tag>
+                            <Tag color=" ">react-onclickoutside</Tag>
+                            <Tag color=" ">ant-design</Tag>
                             <Tag color=" ">styled-components</Tag>
                           </div>}
                         />
