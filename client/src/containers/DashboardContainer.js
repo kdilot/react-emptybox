@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Route } from 'react-router-dom';
-import { DashboardHeader, Visitor, Account, Schedule, MenuBar } from 'components/dashboard';
+import { DashboardHeader, Visitor, Account, Schedule, MenuBar, ShoppingProduct } from 'components/dashboard';
 import { Row, Layout } from 'antd';
 import moment from 'moment';
 import styled from 'styled-components';
@@ -62,22 +62,26 @@ class DashboardContainer extends Component {
     this.setState({ menuVisibility })
   }
 
-  state = {
-    employeeList: [
-      ['Alison Parker', 9, 0, 16, 0], // name / start hour / start minute / finish hour / finish minute 
-      ['Peter Parker', 8, 0, 14, 28],
-      ['Denny Green', 3, 20, 16, 13],
-      ['Wil Castillo', 14, 36, 21, 0],
-      ['Caitlan Waters', 7, 0, 17, 5],
-      ['Libbie Avila', 9, 14, 13, 10],
-      ['Laurence Costa', 20, 56, 23, 9],
-      ['Jimmie Russell', 18, 34, 24, 30],
-      ['Britany Turner', 10, 0, 19, 0],
-    ],
-    status: [],
-    menuVisibility: false,
-    checkWorktime: this.checkWorktime,
-    changeMenuVisibility: this.changeMenuVisibility,
+  constructor(props) {
+    super(props)
+
+    this.state = {
+      employeeList: [
+        ['Alison Parker', 9, 0, 16, 0], // name / start hour / start minute / finish hour / finish minute 
+        ['Peter Parker', 8, 0, 14, 28],
+        ['Denny Green', 3, 20, 16, 13],
+        ['Wil Castillo', 14, 36, 21, 0],
+        ['Caitlan Waters', 7, 0, 17, 5],
+        ['Libbie Avila', 9, 14, 13, 10],
+        ['Laurence Costa', 20, 56, 23, 9],
+        ['Jimmie Russell', 18, 34, 24, 30],
+        ['Britany Turner', 10, 0, 19, 0],
+      ],
+      status: [],
+      menuVisibility: false,
+      checkWorktime: this.checkWorktime,
+      changeMenuVisibility: this.changeMenuVisibility,
+    }
   }
 
   shouldComponentUpdate(nextProps, nextState) {
@@ -126,6 +130,7 @@ class DashboardContainer extends Component {
                 }} />
                 <Route path='/dashboard/account' component={Account} />
                 <Route path='/dashboard/schedule' component={Schedule} />
+                <Route path='/dashboard/shopping/product' component={ShoppingProduct} />
                 <Route path='/dashboard/test' component={() => { return (<div>test</div>) }} />
               </Row>
             </Content>
