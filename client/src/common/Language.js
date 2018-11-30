@@ -10,7 +10,7 @@ class Language extends Component {
   }
   render() {
     const { lang } = this.state
-    const { value, type, onChange } = this.props
+    const { value, type, prefix, onChange } = this.props
     return (
       <Store.Consumer>
         {store => {
@@ -21,7 +21,11 @@ class Language extends Component {
                 type === 'input' ?
                   (
                     <Input style={{ width: web ? '27em' : '15em' }} placeholder={lang[store.currentLanguage][value] ? lang[store.currentLanguage][value] : value} onChange={onChange ? onChange : ''} />
-                  ) : ''
+                  ) :
+                  type === 'default' ?
+                    (
+                      <Input prefix={prefix} placeholder={lang[store.currentLanguage][value] ? lang[store.currentLanguage][value] : value} onChange={onChange ? onChange : ''} />
+                    ) : ''
               ) : lang[store.currentLanguage][value] ? lang[store.currentLanguage][value] : value // default text
           )
         }}
