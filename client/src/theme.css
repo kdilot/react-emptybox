@@ -12,10 +12,13 @@
   color: #252525;
 }
 .black .ant-card-meta-title, 
+.black .ant-steps-item-finish .ant-steps-item-icon > .ant-steps-icon,
 .black .ant-card-meta-description {
   color: #393939;
 }
 .black input,
+.black .ant-steps-item-process .ant-steps-item-icon,
+.black .ant-steps-item-finish > .ant-steps-item-content > .ant-steps-item-title:after,
 .black .ant-btn-primary,
 .black .ant-radio-group-solid .ant-radio-button-wrapper-checked:not(.ant-radio-button-wrapper-disabled),
 .black .ant-input-number,
@@ -26,6 +29,9 @@
   background-color: #404040;
 }
 .black input,
+.black .ant-btn:hover,
+.black .ant-steps-item-process .ant-steps-item-icon,
+.black .ant-steps-item-finish .ant-steps-item-icon,
 .black .ant-radio-group-solid .ant-radio-button-wrapper-checked:not(.ant-radio-button-wrapper-disabled),
 .black .ant-input-number,
 .black .ant-select-selection,
@@ -69,11 +75,14 @@
 .yellow .ant-card-cover h1 {
   color: #F29832;
 }
+.yellow .ant-steps-item-finish .ant-steps-item-icon > .ant-steps-icon,
 .yellow .ant-card-meta-title, 
 .yellow .ant-card-meta-description {
   color: #F2AC32;
 }
 .yellow input,
+.yellow .ant-steps-item-process .ant-steps-item-icon,
+.yellow .ant-steps-item-finish > .ant-steps-item-content > .ant-steps-item-title:after,
 .yellow .ant-btn-primary,
 .yellow .ant-radio-group-solid .ant-radio-button-wrapper-checked:not(.ant-radio-button-wrapper-disabled),
 .yellow .ant-input-number,
@@ -84,6 +93,9 @@
   background-color: #F37E35;
 }
 .yellow input,
+.yellow .ant-btn:hover,
+.yellow .ant-steps-item-process .ant-steps-item-icon,
+.yellow .ant-steps-item-finish .ant-steps-item-icon,
 .yellow .ant-radio-group-solid .ant-radio-button-wrapper-checked:not(.ant-radio-button-wrapper-disabled),
 .yellow .ant-input-number,
 .yellow .ant-select-selection,
@@ -128,11 +140,14 @@
 .blue .ant-card-cover h1 {
   color: #4C92FF;
 }
+.blue .ant-steps-item-finish .ant-steps-item-icon > .ant-steps-icon,
 .blue .ant-card-meta-title, 
 .blue .ant-card-meta-description {
   color: #4CA6FF;
 }
 .blue input,
+.blue .ant-steps-item-process .ant-steps-item-icon,
+.blue .ant-steps-item-finish > .ant-steps-item-content > .ant-steps-item-title:after,
 .blue .ant-btn-primary,
 .blue .ant-radio-group-solid .ant-radio-button-wrapper-checked:not(.ant-radio-button-wrapper-disabled),
 .blue .ant-input-number,
@@ -143,6 +158,9 @@
   background-color: #7FB2F0;
 }
 .blue input,
+.blue .ant-btn:hover,
+.blue .ant-steps-item-process .ant-steps-item-icon,
+.blue .ant-steps-item-finish .ant-steps-item-icon,
 .blue .ant-radio-group-solid .ant-radio-button-wrapper-checked:not(.ant-radio-button-wrapper-disabled),
 .blue .ant-input-number,
 .blue .ant-select-selection,
@@ -186,11 +204,14 @@
 .mint .ant-card-cover h1 {
   color: #03A678;
 }
+.mint .ant-steps-item-finish .ant-steps-item-icon > .ant-steps-icon,
 .mint .ant-card-meta-title, 
 .mint .ant-card-meta-description {
   color: #03BA78;
 }
 .mint input,
+.mint .ant-steps-item-process .ant-steps-item-icon,
+.mint .ant-steps-item-finish > .ant-steps-item-content > .ant-steps-item-title:after,
 .mint .ant-btn-primary,
 .mint .ant-radio-group-solid .ant-radio-button-wrapper-checked:not(.ant-radio-button-wrapper-disabled),
 .mint .ant-input-number,
@@ -201,6 +222,9 @@
   background-color: #4BA66A;
 }
 .mint input,
+.mint .ant-btn:hover,
+.mint .ant-steps-item-process .ant-steps-item-icon,
+.mint .ant-steps-item-finish .ant-steps-item-icon,
 .mint .ant-radio-group-solid .ant-radio-button-wrapper-checked:not(.ant-radio-button-wrapper-disabled),
 .mint .ant-input-number,
 .mint .ant-select-selection,
@@ -244,11 +268,14 @@
 .beige .ant-card-cover h1 {
   color: #BD8D5F;
 }
+.beige .ant-steps-item-finish .ant-steps-item-icon > .ant-steps-icon,
 .beige .ant-card-meta-title, 
 .beige .ant-card-meta-description {
   color: #BD975F;
 }
 .beige input,
+.beige .ant-steps-item-process .ant-steps-item-icon,
+.beige .ant-steps-item-finish > .ant-steps-item-content > .ant-steps-item-title:after,
 .beige .ant-btn-primary,
 .beige .ant-radio-group-solid .ant-radio-button-wrapper-checked:not(.ant-radio-button-wrapper-disabled),
 .beige .ant-input-number,
@@ -259,6 +286,9 @@
   background-color: #DEAF6B;
 }
 .beige input,
+.beige .ant-btn:hover,
+.beige .ant-steps-item-process .ant-steps-item-icon,
+.beige .ant-steps-item-finish .ant-steps-item-icon,
 .beige .ant-radio-group-solid .ant-radio-button-wrapper-checked:not(.ant-radio-button-wrapper-disabled),
 .beige .ant-input-number,
 .beige .ant-select-selection,

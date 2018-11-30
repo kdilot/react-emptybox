@@ -26,7 +26,6 @@ h3 { font-size: 1.2em}
 .header {
   height: 4em;
   line-height: 4em;
-  /* border-bottom: 0.1em solid; */
 }
 
 .nameTag {
@@ -61,10 +60,16 @@ h3 { font-size: 1.2em}
   padding: 1.5em;
 }
 .ant-message-notice-content span,
+.ant-calendar-today-btn,
+.ant-calendar-time-picker-btn,
+.ant-calendar-today-btn:hover,
+.ant-calendar-time-picker-btn:hover,
+.ant-calendar-time-picker-select,
 .ant-time-picker-panel-select,
 .ant-time-picker-panel-input{
   color:black
 }
+.ant-table td { white-space: nowrap; }
 
 /* netflix */
 .netflix .ant-drawer-wrapper-body {
