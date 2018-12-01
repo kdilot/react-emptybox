@@ -27,7 +27,7 @@ const OptionWrapper = styled.div`
 const OptionBox = ({ value, arrow = true, event, change, focus, blur }) => {
   return (
     <OptionWrapper>
-      <Input defaultValue={value} onChange={change} onFocus={focus} onBlur={blur} />
+      <Input style={{ width: arrow ? '55%' : '' }} defaultValue={value} onChange={change} onFocus={focus} onBlur={blur} />
       <Icon type="minus-circle" style={{ fontSize: '1.5em' }} theme="outlined" onClick={event} />
       {arrow ? <Icon type="arrow-right" theme="outlined" /> : ''}
     </OptionWrapper>
@@ -71,8 +71,8 @@ class ProductForm extends Component {
       <Wrapper>
         {_list ?
           <Row>
-            <Col xs={0} sm={0} md={2} lg={6} xl={7} />
-            <Col xs={24} sm={24} md={20} lg={12} xl={10}>
+            <Col xs={0} sm={0} md={2} lg={6} xl={6} />
+            <Col xs={24} sm={24} md={20} lg={12} xl={12}>
               <Row>
                 <Col span={24}>
                   <LinkButton LinkTo={`/product/view/${pathname[3]}`} ButtonName={<Language value="Back" />} />
@@ -198,7 +198,7 @@ class ProductForm extends Component {
                 </Col>
               </Row>
             </Col>
-            <Col xs={0} sm={0} md={2} lg={6} xl={7} />
+            <Col xs={0} sm={0} md={2} lg={6} xl={6} />
           </Row>
           :
           <Row style={{ textAlign: 'center' }}>
