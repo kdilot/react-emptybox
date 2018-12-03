@@ -50,7 +50,7 @@ class Top extends Component {
             <Wrapper>
               <DrawerBox
                 className={store.theme}
-                title={<Language value="Menu" />}
+                title={<Language text="Menu" />}
                 placement="right"
                 closable={true}
                 onClose={() => { store.handleDrawer('menu') }}
@@ -70,7 +70,7 @@ class Top extends Component {
                     </Col>
                     <Col span={24} onClick={() => { store.handleDrawer('menu') }}>
                       <p style={{marginBottom: '1em'}}><Link to="/?" style={{ textDecoration: 'none' }}>?</Link></p>
-                      <p style={{marginBottom: '1em'}}><Link to="/project" style={{ textDecoration: 'none' }}><Language value="Project" /></Link></p>
+                      <p style={{marginBottom: '1em'}}><Link to="/project" style={{ textDecoration: 'none' }}><Language text="Project" /></Link></p>
                       <p style={{marginBottom: '1em'}}><Link to="/about" style={{ textDecoration: 'none' }}>About</Link></p>
                     </Col>
                   </Row>
@@ -106,10 +106,10 @@ class Top extends Component {
                           <Link to="/?" style={{ textDecoration: 'none' }}>?</Link>
                         </Col>
                         <Col xs={0} sm={0} md={8} lg={8} xl={8}>
-                          <Link to="/project" style={{ textDecoration: 'none' }}><Language value="Project" /></Link>
+                          <Link to="/project" style={{ textDecoration: 'none' }}><Language text="Project" /></Link>
                         </Col>
                         <Col xs={0} sm={0} md={8} lg={8} xl={8}>
-                          <Link to="/about" style={{ textDecoration: 'none' }}><Language value="About" /></Link>
+                          <Link to="/about" style={{ textDecoration: 'none' }}><Language text="About" /></Link>
                         </Col>
                       </Row>
                     </Col>
