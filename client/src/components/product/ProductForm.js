@@ -75,30 +75,30 @@ class ProductForm extends Component {
             <Col xs={24} sm={24} md={20} lg={12} xl={12}>
               <Row>
                 <Col span={24}>
-                  <LinkButton LinkTo={`/product/view/${pathname[3]}`} ButtonName={<Language value="Back" />} />
-                  <LinkButton LinkTo={`/product`} click={() => { handleProductRemove(pathname[3]) }} ButtonName={<Language value="Remove" />} />
+                  <LinkButton LinkTo={`/product/view/${pathname[3]}`} ButtonName={<Language text="Back" />} />
+                  <LinkButton LinkTo={`/product`} click={() => { handleProductRemove(pathname[3]) }} ButtonName={<Language text="Remove" />} />
                 </Col>
                 <InformationWrapper
-                  title={<Language value="Name" />}
+                  title={<Language text="Name" />}
                   children={
                     <Input style={{ width: '100%' }} defaultValue={_list.name ? _list.name : ''} onBlur={(e) => { handleModifyProduct('product', null, null, 'name', e.target.value) }} />
                   }
                 />
                 <InformationWrapper
-                  title={<Language value="OriginPrice" />}
+                  title={<Language text="OriginPrice" />}
                   children={
                     <Input type="number" defaultValue={_list.originPrice} onBlur={(e) => { handleModifyProduct('product', null, null, 'originPrice', e.target.value) }} />
                   }
                 />
                 <InformationWrapper
-                  title={<Language value="Price" />}
+                  title={<Language text="Price" />}
                   children={
                     <Input type="number" defaultValue={_list.price} onBlur={(e) => { handleModifyProduct('product', null, null, 'price', e.target.value) }} />
                   }
                 />
 
                 <InformationWrapper
-                  title={<Language value="Option" />}
+                  title={<Language text="Option" />}
                   children={
                     <AddButton click={() => { handleAddOption('new') }} />
                   }
@@ -111,7 +111,7 @@ class ProductForm extends Component {
                           return (
                             <Row key={index} style={{ marginBottom: '2em' }}>
                               <InformationWrapper
-                                title={<Language value="Name" />}
+                                title={<Language text="Name" />}
                                 children={
                                   <OptionWrapper>
                                     <Input style={{ width: '50%' }} defaultValue={opt.name} onBlur={(e) => { handleModifyProduct('option', index, null, 'name', e.target.value) }} />
@@ -120,13 +120,13 @@ class ProductForm extends Component {
                                 }
                               />
                               <InformationWrapper
-                                title={<Language value="OriginPrice" />}
+                                title={<Language text="OriginPrice" />}
                                 children={
                                   <Input type="number" defaultValue={opt.originPrice} onBlur={(e) => { handleModifyProduct('option', index, null, 'originPrice', e.target.value) }} />
                                 }
                               />
                               <InformationWrapper
-                                title={<Language value="Price" />}
+                                title={<Language text="Price" />}
                                 children={
                                   <Input type="number" defaultValue={opt.price} onBlur={(e) => { handleModifyProduct('option', index, null, 'price', e.target.value) }} />
                                 }
@@ -172,7 +172,7 @@ class ProductForm extends Component {
                                 </div>
                                 :
                                 <InformationWrapper
-                                  title={<Language value="OptionDepth" />}
+                                  title={<Language text="OptionDepth" />}
                                   children={
                                     <AddButton click={() => { handleAddOption(null, index) }} />
                                   }
@@ -187,14 +187,14 @@ class ProductForm extends Component {
                   : ''
                 }
                 <InformationWrapper
-                  title={<Language value="Description" />}
+                  title={<Language text="Description" />}
                   children={
                     <TextArea rows={10} style={{ width: '100%', margin: 0 }} defaultValue={_list.description ? _list.description : ''} onBlur={(e) => { handleModifyProduct('product', null, null, 'description', e.target.value) }} />
                   }
                 />
                 <Col span={24} style={{ marginTop: '1em' }}>
-                  <LinkButton LinkTo={`/product/view/${pathname[3]}`} ButtonName={<Language value="Back" />} />
-                  <LinkButton LinkTo={`/product`} click={() => { handleProductRemove(pathname[3]) }} ButtonName={<Language value="Remove" />} />
+                  <LinkButton LinkTo={`/product/view/${pathname[3]}`} ButtonName={<Language text="Back" />} />
+                  <LinkButton LinkTo={`/product`} click={() => { handleProductRemove(pathname[3]) }} ButtonName={<Language text="Remove" />} />
                 </Col>
               </Row>
             </Col>
@@ -203,7 +203,7 @@ class ProductForm extends Component {
           :
           <Row style={{ textAlign: 'center' }}>
             <Col span={24}>
-              <h1><Language value="IncorrectPage" /></h1>
+              <h1><Language text="IncorrectPage" /></h1>
             </Col>
           </Row>
         }

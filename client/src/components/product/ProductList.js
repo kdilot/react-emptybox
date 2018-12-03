@@ -83,13 +83,13 @@ class ProductList extends Component {
                 <Row>
                   <Col xs={20} sm={20} md={20} lg={20} xl={20}>
                     <Radio.Group defaultValue="a" buttonStyle="solid">
-                      <Radio.Button value="a" onClick={() => { handleListSort('name') }}><Language value="Name" /></Radio.Button>
-                      <Radio.Button value="c" onClick={() => { handleListSort('price') }}><Language value="Price" /></Radio.Button>
+                      <Radio.Button value="a" onClick={() => { handleListSort('name') }}><Language text="Name" /></Radio.Button>
+                      <Radio.Button value="c" onClick={() => { handleListSort('price') }}><Language text="Price" /></Radio.Button>
                       <Radio.Button value="d" disabled><h4>{asc ? <Icon type="arrow-up" theme="outlined" /> : <Icon type="arrow-down" theme="outlined" />}</h4></Radio.Button>
                     </Radio.Group>
                   </Col>
                   <Col xs={4} sm={4} md={4} lg={4} xl={4}>
-                    <Button type="primary" onClick={() => { handleCreateProduct() }}><Language value="Create" /></Button>
+                    <Button type="primary" onClick={() => { handleCreateProduct() }}><Language text="Create" /></Button>
                   </Col>
                 </Row>
               </Col>

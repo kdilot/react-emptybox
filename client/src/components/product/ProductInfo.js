@@ -43,7 +43,7 @@ class ProductInfo extends Component {
             <Col xs={24} sm={24} md={22} lg={18} xl={18}>
               <Row>
                 <Col span={24}>
-                  <LinkButton LinkTo={`/product`} ButtonName={<Language value="Back" />} />
+                  <LinkButton LinkTo={`/product`} ButtonName={<Language text="Back" />} />
                 </Col>
                 <Col xs={24} sm={24} md={24} lg={14} xl={12} style={{ textAlign: 'center' }}>
                   <div className="thumbnail" style={{ background: color[(productStatus.image ? productStatus.image : _list.image)], border: '2px solid white', width: '80%', paddingBottom: '80%', height: '0', borderRadius: '1em' }} />
@@ -51,7 +51,7 @@ class ProductInfo extends Component {
                 <Col xs={24} sm={24} md={24} lg={10} xl={12}>
                   <Row>
                     <Col span={24}>
-                      <LinkButton LinkTo={`/product/modify/${pathname[3]}`} ButtonName={<Language value="Modify" />} />
+                      <LinkButton LinkTo={`/product/modify/${pathname[3]}`} ButtonName={<Language text="Modify" />} />
                     </Col>
                     <Col span={24}>
                       <h1 className="text-overflow" title={_list.name}>
@@ -60,7 +60,7 @@ class ProductInfo extends Component {
                     </Col>
                     <Col span={24}>
                       <Row>
-                        <Col xs={7} sm={5} md={4} lg={6} xl={4}><h3><Language value="Price" /> : </h3></Col>
+                        <Col xs={7} sm={5} md={4} lg={6} xl={4}><h3><Language text="Price" /> : </h3></Col>
                         <Col xs={17} sm={19} md={20} lg={18} xl={20}>
                           <h3>
                             {_list.originPrice || productStatus.originPrice ?
@@ -76,14 +76,14 @@ class ProductInfo extends Component {
                     </Col>
                     <Col span={24}>
                       <Row>
-                        <Col xs={7} sm={5} md={4} lg={6} xl={4}><h3><Language value="Quantity" /> : </h3></Col>
+                        <Col xs={7} sm={5} md={4} lg={6} xl={4}><h3><Language text="Quantity" /> : </h3></Col>
                         <Col xs={17} sm={19} md={20} lg={18} xl={20}><InputNumber min={1} max={99} defaultValue={1} /></Col>
                       </Row>
                     </Col>
                     {_list.option.length ?
                       <Col span={24}>
                         <Row>
-                          <Col xs={7} sm={5} md={4} lg={6} xl={4}><h3><Language value="Option" /> : </h3></Col>
+                          <Col xs={7} sm={5} md={4} lg={6} xl={4}><h3><Language text="Option" /> : </h3></Col>
                           <Col xs={17} sm={19} md={20} lg={18} xl={20}>
                             <Col span={24}><h3>{optionStatus.name}</h3></Col>
                             {_list.option.map((opt, index) => {
@@ -140,7 +140,7 @@ class ProductInfo extends Component {
                 <Col span={24}>
                   <Row>
                     <Col span={24} style={{ padding: '1em' }}>
-                      <h1 style={{ textAlign: 'center' }}><Language value="Description" /></h1>
+                      <h1 style={{ textAlign: 'center' }}><Language text="Description" /></h1>
                     </Col>
                   </Row>
                   <Row>
@@ -156,7 +156,7 @@ class ProductInfo extends Component {
           :
           <Row style={{ textAlign: 'center' }}>
             <Col span={24}>
-              <h1><Language value="IncorrectPage" /></h1>
+              <h1><Language text="IncorrectPage" /></h1>
             </Col>
           </Row>
         }
