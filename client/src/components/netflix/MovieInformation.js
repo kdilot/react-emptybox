@@ -87,7 +87,7 @@ const MovieInformation = () => {
                         ) : ''}
                       </h2>
                       <h2><Rate disabled value={net.movieList.information.vote_average} count={10} /></h2>
-                      <h2><b><Language value="ReleaseInfo" /> :</b> {net.movieList.information ? net.movieList.information.release_date : ''}</h2>
+                      <h2><b><Language text="ReleaseInfo" /> :</b> {net.movieList.information ? net.movieList.information.release_date : ''}</h2>
                       <h2>{net.movieList.information ? net.movieList.information.overview : ''}</h2>
                     </Col>
                   </Row>

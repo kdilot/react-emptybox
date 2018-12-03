@@ -51,7 +51,7 @@ class Profile extends Component {
             <Wrapper>
               <Row style={{ textAlign: 'center', width: '100%' }}>
                 <Col span={24}>
-                  <h1><Language value="WhosWatching" /></h1>
+                  <h1><Language text="WhosWatching" /></h1>
                 </Col>
                 <Col span={24}>
                   <Row type="flex" justify="center">

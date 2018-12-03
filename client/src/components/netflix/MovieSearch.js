@@ -85,7 +85,7 @@ class Modal extends Component {
                   </Col>
                   <Col span={18} style={{ textAlign: 'center' }}>
                     {/* <Icon type="search" style={{ fontSize: 30, color: 'white', fontWeight: 'bold', marginRight: '0.2em' }} /> */}
-                    <Language value="Search" type="input" onChange={net.handleSearchList} />
+                    <Language text="Search" type="input" onChange={net.handleSearchList} />
                   </Col>
                   <Col span={3} />
                 </Row>
@@ -111,7 +111,7 @@ class Modal extends Component {
                   <Row type="flex" justify="center">
                     <Col span={24}>
                       <Result>
-                        <h1><Language value="EnterSearch" /></h1>
+                        <h1><Language text="EnterSearch" /></h1>
                       </Result>
                     </Col>
                   </Row>

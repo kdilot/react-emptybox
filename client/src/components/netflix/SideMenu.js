@@ -128,15 +128,15 @@ class SideMenu extends Component {
                       <Icon type="swap" className="header-icon" style={{ fontSize: 24 }} />
                     </Content>
                     <Content onClick={net.handleSideMenu}>
-                      <h2><Language value="Notifications" /></h2>
+                      <h2><Language text="Notifications" /></h2>
                       <Icon type="right" className="icon" style={{ fontSize: 20 }} />
                     </Content>
-                    <List className={net.menuSelected === 'Home' ? 'selected' : ''} onClick={() => { net.handleMenu('Home') }}><p><Language value="Home" /></p></List>
-                    <List className={net.menuSelected === 'Action' ? 'selected' : ''} onClick={() => { net.handleMenu('Action') }}><p><Language value="Action" /></p></List>
-                    <List className={net.menuSelected === 'Adventure' ? 'selected' : ''} onClick={() => { net.handleMenu('Adventure') }}><p><Language value="Adventure" /></p></List>
-                    <List className={net.menuSelected === 'Animation' ? 'selected' : ''} onClick={() => { net.handleMenu('Animation') }}><p><Language value="Animation" /></p></List>
-                    <List className={net.menuSelected === 'Drama' ? 'selected' : ''} onClick={() => { net.handleMenu('Drama') }}><p><Language value="Drama" /></p></List>
-                    <List className={net.menuSelected === 'Horror' ? 'selected' : ''} onClick={() => { net.handleMenu('Horror') }}><p><Language value="Horror" /></p></List>
+                    <List className={net.menuSelected === 'Home' ? 'selected' : ''} onClick={() => { net.handleMenu('Home') }}><p><Language text="Home" /></p></List>
+                    <List className={net.menuSelected === 'Action' ? 'selected' : ''} onClick={() => { net.handleMenu('Action') }}><p><Language text="Action" /></p></List>
+                    <List className={net.menuSelected === 'Adventure' ? 'selected' : ''} onClick={() => { net.handleMenu('Adventure') }}><p><Language text="Adventure" /></p></List>
+                    <List className={net.menuSelected === 'Animation' ? 'selected' : ''} onClick={() => { net.handleMenu('Animation') }}><p><Language text="Animation" /></p></List>
+                    <List className={net.menuSelected === 'Drama' ? 'selected' : ''} onClick={() => { net.handleMenu('Drama') }}><p><Language text="Drama" /></p></List>
+                    <List className={net.menuSelected === 'Horror' ? 'selected' : ''} onClick={() => { net.handleMenu('Horror') }}><p><Language text="Horror" /></p></List>
                   </div>
                   <div style={{ display: !net.display.sideMenu ? 'block' : 'none' }}>
                     <Content onClick={net.handleSideMenu}>
@@ -145,7 +145,7 @@ class SideMenu extends Component {
                           <Icon type="left" style={{ fontSize: '1.3em', marginTop: '0.2em', verticalAlign: 'middle' }} />
                         </Col>
                         <Col span={22}>
-                          <h2><Language value="Notifications" /></h2>
+                          <h2><Language text="Notifications" /></h2>
                         </Col>
                         <Col span={1}></Col>
                       </Row>
@@ -155,7 +155,7 @@ class SideMenu extends Component {
                         <OptionList key={children.title} onClick={() => { net.handleMovieModal(children) }}>
                           <div className="img"><img alt={children.title} style={{ width: '100%' }} src={net.imgSize.small + children.backdrop_path} /></div>
                           <p className="text-overflow">
-                            <Language value="SuggestionForYou" />
+                            <Language text="SuggestionForYou" />
                             <br />
                             {children.title}
                           </p>

@@ -50,7 +50,7 @@ class MovieList extends Component {
       table.push(
         <div key={children.name}>
           <Wrapper>
-            <h2>{<Language value={children.name} />}</h2>
+            <h2>{<Language text={children.name} />}</h2>
             <Slider {...settings}>
               {children.data.map((list, index) => {
                 return (
