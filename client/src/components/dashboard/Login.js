@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { DashboardWidget } from 'components/dashboard';
+import { DashboardWidget, Step1, Step2 } from 'components/dashboard';
 import { Language } from 'common';
 import { Form, Icon, Button, Checkbox, Row, Col, Steps } from 'antd';
 import styled from 'styled-components';
@@ -18,6 +18,7 @@ const Wrapper = styled.div`
     color: white;
   }
   .steps-content {
+  padding: 0 1em;
   margin-top: 16px;
   border: 1px dashed #e9e9e9;
   border-radius: 6px;
@@ -51,13 +52,14 @@ const LoginForm = ({ handleType }) => {
   )
 }
 
-const RegisterForm = ({ steps, current, handleCurrent, handleType }) => {
+const RegisterForm = ({ current, handleCurrent, handleType }) => {
+  const steps = [<Step1 />, <Step2 />, 'sadf']
   return (
     <div>
       <Steps current={current}>
-        {steps.map(item => <Step key={item.title} title={item.title} />)}
+        {steps.map((item, index) => <Step key={index} />)}
       </Steps>
-      <div className="steps-content">{steps[current].content}</div>
+      <div className="steps-content">{steps[current]}</div>
       <div className="steps-action">
         {
           current < steps.length - 1
@@ -100,16 +102,6 @@ class Login extends Component {
   }
 
   state = {
-    steps: [{
-      title: 'First',
-      content: 'First-content',
-    }, {
-      title: 'Second',
-      content: 'Second-content',
-    }, {
-      title: 'Last',
-      content: 'Last-content',
-    }],
     type: true,
     current: 0,
     handleSubmit: this.handleSubmit,
@@ -119,14 +111,13 @@ class Login extends Component {
 
   render() {
     const {
-      steps,
       handleType,
       type,
       current,
       handleCurrent,
     } = this.state
     const Login = DashboardWidget(<LoginForm handleType={handleType} />, false, 8)
-    const Regist = DashboardWidget(<RegisterForm handleType={handleType} steps={steps} current={current} handleCurrent={handleCurrent} />, false, 24)
+    const Regist = DashboardWidget(<RegisterForm handleType={handleType} current={current} handleCurrent={handleCurrent} />, false, 24)
     return (
       <Wrapper>
         <Row type="flex" justify="center" align="middle" style={{ width: '100%' }}>
