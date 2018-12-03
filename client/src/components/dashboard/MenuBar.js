@@ -37,6 +37,8 @@ class MenuBar extends Component {
       visibility,
       onCollapse
     } = this.state
+    const pathname = this.props.location.pathname.split('/')
+    const key = pathname[pathname.length - 1]
     return (
       <Sider
         style={{ zIndex: 2 }}
@@ -46,8 +48,8 @@ class MenuBar extends Component {
         onCollapse={onCollapse}
       >
         <Menu
-          defaultSelectedKeys={[this.props.location.pathname.split('/')[2]]}
-          defaultOpenKeys={[this.props.location.pathname.split('/')[2]]}
+          defaultSelectedKeys={[key]}
+          defaultOpenKeys={[pathname.length === 4 ? 'shopping' : '']}
           mode="inline"
           theme="dark"
           inlineCollapsed={'menu-unfold'}
@@ -70,26 +72,26 @@ class MenuBar extends Component {
               <span><Language value="Schedule" /></span>
             </Link>
           </Menu.Item>
-          <Menu.Item key="product">
-            <Link to={'/dashboard/product'}>
-              <Icon type="shopping-cart" />
-              <span><Language value="Product" /></span>
+          <SubMenu key="shopping" title={<span><Icon type="shopping-cart" /><span><Language value="Shopping" /></span></span>}>
+            <Menu.Item key="product">
+              <Link to={'/dashboard/shopping/product'}>
+                <Icon type="skin" />
+                <span><Language value="Product" /></span>
+              </Link>
+            </Menu.Item>
+            <Menu.Item key="shipping">
+              <Link to={'/dashboard/shopping/shipping'}>
+                <Icon type="rocket" />
+                <span><Language value="Shipping" /></span>
+              </Link>
+            </Menu.Item>
+          </SubMenu>
+          <Menu.Item key="login">
+            <Link to={'/dashboard/login'}>
+              <Icon type="calendar" />
+              <span><Language value="Login" /></span>
             </Link>
           </Menu.Item>
-          <SubMenu key="sub1" title={<span><Icon type="mail" /><span>Navigation One</span></span>}>
-            <Menu.Item key="5">Option 5</Menu.Item>
-            <Menu.Item key="6">Option 6</Menu.Item>
-            <Menu.Item key="7">Option 7</Menu.Item>
-            <Menu.Item key="8">Option 8</Menu.Item>
-          </SubMenu>
-          <SubMenu key="sub2" title={<span><Icon type="appstore" /><span>Navigation Two</span></span>}>
-            <Menu.Item key="9">Option 9</Menu.Item>
-            <Menu.Item key="10">Option 10</Menu.Item>
-            <SubMenu key="sub3" title="Submenu">
-              <Menu.Item key="11">Option 11</Menu.Item>
-              <Menu.Item key="12">Option 12</Menu.Item>
-            </SubMenu>
-          </SubMenu>
         </Menu>
       </Sider>
     );
