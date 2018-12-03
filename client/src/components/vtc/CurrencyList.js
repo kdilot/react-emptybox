@@ -65,7 +65,7 @@ class CurrencyList extends Component {
           :
           <Col span={24}>
             <Wrapper>
-              <h1><Language value="UpdatingData" /></h1><Icon type="loading" theme="outlined" style={{ fontSize: '30px' }} />
+              <h1><Language text="UpdatingData" /></h1><Icon type="loading" theme="outlined" style={{ fontSize: '30px' }} />
             </Wrapper>
           </Col>
         }
