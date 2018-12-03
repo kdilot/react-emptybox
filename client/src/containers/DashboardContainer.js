@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Route } from 'react-router-dom';
-import { DashboardHeader, Visitor, Account, Schedule, MenuBar, ShoppingProduct } from 'components/dashboard';
+import { DashboardHeader, Visitor, Account, Schedule, MenuBar, ShoppingProduct, ShoppingShipping, Login } from 'components/dashboard';
 import { Row, Layout } from 'antd';
 import moment from 'moment';
 import styled from 'styled-components';
@@ -131,6 +131,8 @@ class DashboardContainer extends Component {
                 <Route path='/dashboard/account' component={Account} />
                 <Route path='/dashboard/schedule' component={Schedule} />
                 <Route path='/dashboard/shopping/product' component={ShoppingProduct} />
+                <Route path='/dashboard/shopping/shipping' component={ShoppingShipping} />
+                <Route path='/dashboard/login' component={Login} />
                 <Route path='/dashboard/test' component={() => { return (<div>test</div>) }} />
               </Row>
             </Content>
