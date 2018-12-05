@@ -1,17 +1,12 @@
-import React from 'react';
+import React, { Component } from 'react';
 import { Language } from 'common';
 import { Form, Input, Button } from 'antd';
 
-const FormItem = Form.Item;
-
-class Step1 extends React.Component {
+const FormItem = Form.Item
+class Step1 extends Component {
   handleSubmit = (e) => {
     e.preventDefault()
-    this.props.form.validateFieldsAndScroll((err, values) => {
-      if (!err) {
-        console.log('Received values of form: ', values)
-      }
-    })
+    this.props.form.validateFieldsAndScroll()
   }
 
   handleConfirmBlur = (e) => {
@@ -23,7 +18,7 @@ class Step1 extends React.Component {
   compareToFirstPassword = (rule, value, callback) => {
     const form = this.props.form
     if (value && value !== form.getFieldValue('password')) {
-      callback(<Language value='PlsCPassword' />)
+      callback(<Language text='PlsCPassword' />)
     } else {
       callback()
     }
@@ -79,13 +74,13 @@ class Step1 extends React.Component {
       <Form onSubmit={handleSubmit}>
         <FormItem
           {...formItemLayout}
-          label={<Language value='Email' />}
+          label={<Language text='Email' />}
         >
           {getFieldDecorator('email', {
             rules: [{
-              type: 'email', message: <Language value='InvalidEmail' />,
+              type: 'email', message: <Language text='InvalidEmail' />,
             }, {
-              required: true, message: <Language value='PlsIEmail' />,
+              required: true, message: <Language text='PlsIEmail' />,
             }],
           })(
             <Input />
@@ -93,11 +88,11 @@ class Step1 extends React.Component {
         </FormItem>
         <FormItem
           {...formItemLayout}
-          label={<Language value='Password' />}
+          label={<Language text='Password' />}
         >
           {getFieldDecorator('password', {
             rules: [{
-              required: true, message: <Language value='PlsIPassword' />,
+              required: true, message: <Language text='PlsIPassword' />,
             }, {
               validator: validateToNextPassword,
             }],
@@ -107,11 +102,11 @@ class Step1 extends React.Component {
         </FormItem>
         <FormItem
           {...formItemLayout}
-          label={<Language value='ConfirmPassword' />}
+          label={<Language text='ConfirmPassword' />}
         >
           {getFieldDecorator('confirm', {
             rules: [{
-              required: true, message: <Language value='PlsCPassword' />,
+              required: true, message: <Language text='PlsCPassword' />,
             }, {
               validator: compareToFirstPassword,
             }],
@@ -121,16 +116,16 @@ class Step1 extends React.Component {
         </FormItem>
         <FormItem
           {...formItemLayout}
-          label={<Language value='PhoneNumber' />}
+          label={<Language text='PhoneNumber' />}
         >
           {getFieldDecorator('number', {
-            rules: [{ required: true, message: <Language value='PlsINumber' />, whitespace: true }],
+            rules: [{ required: true, message: <Language text='PlsINumber' />, whitespace: true }],
           })(
             <Input type="Number" />
           )}
         </FormItem>
         <FormItem {...tailFormItemLayout}>
-          <Button type="primary" htmlType="submit"><Language value='Check' /></Button>
+          <Button type="primary" htmlType="submit"><Language text='Check' /></Button>
         </FormItem>
       </Form>
     )

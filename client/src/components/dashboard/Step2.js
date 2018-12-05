@@ -6,8 +6,8 @@ class Step2 extends React.Component {
   render() {
     return (
       <div>
-        <h5><Language value='AgreementInfo' /></h5>
-        <div><Checkbox><Language value='AgreementCheck' /></Checkbox></div>
+        <h5><Language text='AgreementInfo' /></h5>
+        <div><Checkbox><Language text='AgreementCheck' /></Checkbox></div>
       </div>
     )
   }
