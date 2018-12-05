@@ -1,11 +1,11 @@
 import React, { Component } from 'react';
-import { DashboardWidget, Step1, Step2 } from 'components/dashboard';
+import { DashboardWidget } from 'components/dashboard/common';
+import { Step0, Step1, Step2 } from 'components/dashboard';
 import { Language } from 'common';
-import { Form, Icon, Button, Checkbox, Row, Col, Steps } from 'antd';
+import { Form, Button, Row, Col, Steps } from 'antd';
 import styled from 'styled-components';
 import PropTypes from 'prop-types';
 
-const FormItem = Form.Item;
 const Step = Steps.Step;
 const Wrapper = styled.div`
   width: 100%;
@@ -34,21 +34,7 @@ const Wrapper = styled.div`
 `
 const LoginForm = ({ handleType }) => {
   return (
-    <Form className="login-form">
-      <FormItem>
-        <Language prefix={<Icon type="user" />} type='default' value='Username' />
-      </FormItem>
-      <FormItem>
-        <Language prefix={<Icon type="lock" />} type='default' value='Password' />
-      </FormItem>
-      <div>
-        <Checkbox><Language value={'RememberMe'} /></Checkbox>
-      </div>
-      <div style={{ marginTop: '1em' }}>
-        <Button type="primary" htmlType="submit" className="login-form-button"><Language value={'Login'} /></Button>
-        <Button type="primary" onClick={() => { handleType() }}><Language value={'Register'} /></Button>
-      </div>
-    </Form>
+    <Step0 handleType={handleType} />
   )
 }
 
@@ -63,17 +49,17 @@ const RegisterForm = ({ current, handleCurrent, handleType }) => {
       <div className="steps-action">
         {
           current < steps.length - 1
-          && <Button type="primary" onClick={() => handleCurrent(true)}><Language value={'Next'} /></Button>
+          && <Button type="primary" onClick={() => handleCurrent(true)}><Language text={'Next'} /></Button>
         }
         {
           current === steps.length - 1
-          && <Button type="primary" ><Language value={'Done'} /></Button>
+          && <Button type="primary" ><Language text={'Done'} /></Button>
         }
         {
           current === 0
           && (
             <Button style={{ marginLeft: 8 }} onClick={() => handleType()}>
-              <Language value={'Previous'} />
+              <Language text={'Previous'} />
             </Button>
           )
         }
@@ -81,7 +67,7 @@ const RegisterForm = ({ current, handleCurrent, handleType }) => {
           current > 0
           && (
             <Button style={{ marginLeft: 8 }} onClick={() => handleCurrent()}>
-              <Language value={'Previous'} />
+              <Language text={'Previous'} />
             </Button>
           )
         }
