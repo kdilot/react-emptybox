@@ -63,7 +63,7 @@ function DashboardWidget(Comp, title, col = 24, show = true) {
                 <Row>
                   <Row>
                     <Col span={20}>
-                      <h3><Language value={title} /></h3>
+                      <h3><Language text={title} /></h3>
                     </Col>
                     <Col span={4} style={{ textAlign: 'right' }}>
                       {show ?

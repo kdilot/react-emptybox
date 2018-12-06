@@ -15,7 +15,7 @@ const DashboardTitle = ({ title, col = 24 }) => {
     <Col span={col}>
       <Wrapper>
         <h3>
-          <Language value={title} />
+          <Language text={title} />
         </h3>
       </Wrapper>
     </Col>
