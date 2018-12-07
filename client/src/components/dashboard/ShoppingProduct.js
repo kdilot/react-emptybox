@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Language, CurrencyFormat, RandomNumber } from 'common';
-import { DashboardWidget, DashboardTable } from 'components/dashboard';
+import { DashboardWidget, DashboardTable } from 'components/dashboard/common';
 import { Col, Avatar, Tag } from 'antd';
 import PropTypes from 'prop-types';
 
@@ -17,7 +17,7 @@ const PriceForm = ({ origin, price }) => {
 }
 
 const color = ['red', 'black', 'blue', 'yellow', 'purple', 'green', 'aqua', 'antiquewhite', 'darkcyan', 'royalblue', 'orange', 'maroon', 'tan', 'lightsteelblue']
-const display = [<Language value={'Disabled'} />, <Language value={'Enabled'} />]
+const display = [<Language text={'Disabled'} />, <Language text={'Enabled'} />]
 const productList = []
 for (let i = 1; i <= 50; i++) {
   const random = Math.floor(Math.random() * Math.floor(2))
@@ -40,7 +40,7 @@ class ShoppingProduct extends Component {
   render() {
     const { columns } = this.state
     let number = 1
-    const Product = DashboardWidget(<DashboardTable columns={columns} data={productList} pageSize={15} />, <Language value={'Product'} />, 24, false)
+    const Product = DashboardWidget(<DashboardTable columns={columns} data={productList} pageSize={15} />, <Language text={'Product'} />, 24, false)
     return (
       [
         <Col xs={24} sm={24} md={24} lg={24} xl={24} key={number++} >
