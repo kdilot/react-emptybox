@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
-import { DashboardWidget, DashboardTitle, VisitorCharts } from 'components/dashboard';
+import { VisitorCharts } from 'components/dashboard';
+import { DashboardWidget, DashboardTitle } from 'components/dashboard/common';
 import { Row, Col, Avatar, Tag } from 'antd';
 import { Language } from 'common';
 import moment from 'moment';
@@ -40,7 +41,7 @@ const EmployeeForm = ({ member, status }) => {
               <h5>{list[0]}</h5>
               <h6>{moment().hour(list[1]).minute(list[2]).format('HH:mm')} - {moment().hour(list[3]).minute(list[4]).format('HH:mm')}</h6>
             </Col>
-            <Col span={6} style={{ textAlign: 'right' }}><Tag><Language value={status[index]} /></Tag></Col>
+            <Col span={6} style={{ textAlign: 'right' }}><Tag><Language text={status[index]} /></Tag></Col>
           </Row>
         </EmployeeWrapper>
       )
