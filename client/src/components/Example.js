@@ -44,14 +44,14 @@ class Example extends Component {
                   <Row style={{ textAlign: "center", marginTop: '1em' }} gutter={20}>
                     <Col xs={24} sm={24} md={12} lg={8} xl={6}>
                       <Card
-                        cover={<h1><Language value="NetflixExTitle" /></h1>}
+                        cover={<h1><Language text="NetflixExTitle" /></h1>}
                         actions={[
                           <a rel="noopener noreferrer" href="https://github.com/kdilot/react-emptybox/tree/master/client/src/components/netflix" target="_blank"><Icon type="github" theme="filled" style={{ fontSize: 30 }} /></a>,
                           <Link to="/netflix" style={{ textDecoration: 'none' }}><Icon type="play-circle" theme="filled" style={{ fontSize: 30 }} /></Link>
                         ]}
                       >
                         <Meta
-                          title={<Language value="NetflixExInfo" />}
+                          title={<Language text="NetflixExInfo" />}
                           description={<div>
                             <Tag color=" ">react-context</Tag>
                             <Tag color=" ">react-slick</Tag>
@@ -63,17 +63,18 @@ class Example extends Component {
                     </Col>
                     <Col xs={24} sm={24} md={12} lg={8} xl={6}>
                       <Card
-                        cover={<h1><Language value="VtcExTitle" /></h1>}
+                        cover={<h1><Language text="VtcExTitle" /></h1>}
                         actions={[
                           <a rel="noopener noreferrer" href="https://github.com/kdilot/react-emptybox/tree/master/client/src/components/vtc" target="_blank"><Icon type="github" theme="filled" style={{ fontSize: 30 }} /></a>,
                           <Link to="/vtc" style={{ textDecoration: 'none' }}><Icon type="play-circle" theme="filled" style={{ fontSize: 30 }} /></Link>
                         ]}
                       >
                         <Meta
-                          title={<Language value="VtcExInfo" />}
+                          title={<Language text="VtcExInfo" />}
                           description={<div>
                             <Tag color=" ">redux</Tag>
                             <Tag color=" ">redux-saga</Tag>
+                            <Tag color=" ">immutable</Tag>
                             <Tag color=" ">express</Tag>
                             <Tag color=" ">mongoDb</Tag>
                             <Tag color=" ">websocket</Tag>
@@ -87,17 +88,17 @@ class Example extends Component {
                     </Col>
                     <Col xs={24} sm={24} md={12} lg={8} xl={6}>
                       <Card
-                        cover={<h1><Language value="ProductExTitle" /></h1>}
+                        cover={<h1><Language text="ProductExTitle" /></h1>}
                         actions={[
                           <a rel="noopener noreferrer" href="https://github.com/kdilot/react-emptybox" target="_blank"><Icon type="github" theme="filled" style={{ fontSize: 30 }} /></a>,
                           <Link to="/product" style={{ textDecoration: 'none' }}><Icon type="play-circle" theme="filled" style={{ fontSize: 30 }} /></Link>
                         ]}
                       >
                         <Meta
-                          title={<Language value="ProductExInfo" />}
+                          title={<Language text="ProductExInfo" />}
                           description={<div>
                             <Tag color=" ">redux</Tag>
-                            <Tag color=" ">localStorage</Tag>
+                            <Tag color=" ">immutable</Tag>
                             <Tag color=" ">ant-design</Tag>
                             <Tag color=" ">styled-components</Tag>
                           </div>}
@@ -106,14 +107,14 @@ class Example extends Component {
                     </Col>
                     <Col xs={24} sm={24} md={12} lg={8} xl={6}>
                       <Card
-                        cover={<h1><Language value="DashboardExTitle" /></h1>}
+                        cover={<h1><Language text="DashboardExTitle" /></h1>}
                         actions={[
                           <a rel="noopener noreferrer" href="https://github.com/kdilot/react-emptybox/tree/master/client/src/components/dashboard" target="_blank"><Icon type="github" theme="filled" style={{ fontSize: 30 }} /></a>,
                           <Link to="/dashboard/member" style={{ textDecoration: 'none' }}><Icon type="play-circle" theme="filled" style={{ fontSize: 30 }} /></Link>
                         ]}
                       >
                         <Meta
-                          title={<Language value="DashboardExInfo" />}
+                          title={<Language text="DashboardExInfo" />}
                           description={<div>
                             <Tag color=" ">react HOC(widget function)</Tag>
                             <Tag color=" ">echarts</Tag>
