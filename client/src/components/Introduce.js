@@ -65,7 +65,7 @@ class Introduce extends Component {
                     <Icon type="github" theme="outlined" />
                     <a rel="noopener noreferrer" href="https://github.com/kdilot" target="_blank">https://github.com/kdilot</a>
                   </h2>
-                  <h3><Language value={'IntroMsg'} /></h3>
+                  <h3><Language text={'IntroMsg'} /></h3>
                 </Col>
               </Row>
             </Wrapper>
