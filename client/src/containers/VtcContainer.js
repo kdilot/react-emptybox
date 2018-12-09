@@ -101,7 +101,7 @@ class VtcContainer extends Component {
               ?
               <Row>
                 <Col span={24}>
-                  <LinkButton LinkTo={`/vtc`} ButtonName={<Language value="Back" />} />
+                  <LinkButton LinkTo={`/vtc`} ButtonName={<Language text="Back" />} />
                 </Col>
                 <Col span={24} style={{ textAlign: 'center' }}>
                   <h1>{this.props.location.pathname.split('/')[2]}</h1>
