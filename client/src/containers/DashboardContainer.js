@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Route } from 'react-router-dom';
-import { DashboardHeader, Visitor, Account, Schedule, MenuBar, ShoppingProduct, ShoppingShipping, Login } from 'components/dashboard';
+import { Visitor, Account, Schedule, ShoppingProduct, ShoppingShipping, Login } from 'components/dashboard';
+import { DashboardHeader, MenuBar } from 'components/dashboard/common';
 import { Row, Layout } from 'antd';
 import moment from 'moment';
 import styled from 'styled-components';
@@ -101,7 +102,7 @@ class DashboardContainer extends Component {
   }
 
   componentDidUpdate() {
-    if(window.innerWidth > 576) {
+    if (window.innerWidth > 576) {
       this.changeMenuVisibility(false)
     }
   }
