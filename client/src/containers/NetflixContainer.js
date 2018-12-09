@@ -271,7 +271,7 @@ class NetflixController extends Component {
                     <SideMenu />
                   </Drawer>
                 </Badge>
-                <h1><Language value="Netflix" /></h1>
+                <h1><Language text="Netflix" /></h1>
               </Col>
               <Col span={8} style={{ textAlign: 'right', marginTop: '0.5em', paddingRight: '1em' }}>
                 <Icon type="search" style={{ fontSize: 30, color: 'white', fontWeight: 'bolder', marginRight: web ? '2em' : '1em' }} onClick={() => { handleSearch() }} />
