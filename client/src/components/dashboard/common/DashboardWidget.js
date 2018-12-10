@@ -50,7 +50,6 @@ function DashboardWidget(Comp, title, col = 24, show = true) {
         return nextProps !== this.props || nextState !== this.state
       }
 
-
       render() {
         const {
           view,
