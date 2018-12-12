@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { VisitorCharts } from 'components/dashboard';
 import { DashboardWidget, DashboardTitle } from 'components/dashboard/common';
-import { Row, Col, Avatar, Tag } from 'antd';
+import { Row, Col, Avatar, Tag, Progress } from 'antd';
 import { Language } from 'common';
 import moment from 'moment';
 import styled from 'styled-components';
@@ -22,6 +22,11 @@ const EmployeeWrapper = styled.div`
     line-height: 0;
   }
 `
+const ProgressWrapper = styled.div`
+  text-align: center;
+  h5 { margin: 0.5em 0; }
+`
+
 const VisitorForm = ({ number }) => {
   return (
     <Wrapper>
@@ -49,6 +54,21 @@ const EmployeeForm = ({ member, status }) => {
   )
 }
 
+const ProgressForm = ({ member }) => {
+  return (
+    member.map((list, index) => {
+      return (
+        <ProgressWrapper key={index}>
+          <Col xs={12} sm={12} md={12} lg={8} xl={8}>
+            <h5>{list[0]}</h5>
+            <h5><Progress type="circle" percent={list[5]} format={percent => percent === 100 ? <Language text='Done' /> : `${percent}%`} /></h5>
+          </Col>
+        </ProgressWrapper>
+      )
+    })
+  )
+}
+
 class Visitor extends Component {
   render() {
     const {
@@ -61,6 +81,7 @@ class Visitor extends Component {
     const Monthly = DashboardWidget(<VisitorForm number={10490} />, 'Monthly', 6, false)
     const Total = DashboardWidget(<VisitorForm number={103722} />, 'Total', 6, false)
     const Employee = DashboardWidget(<EmployeeForm member={employeeList} status={status} />, 'EmployeeInfo', 12)
+    const WorkProgress = DashboardWidget(<ProgressForm member={employeeList} />, 'WorkProgress', 12)
     const BrowserChart = DashboardWidget(<VisitorCharts option={'browser'} />, 'Browser', 8)
     const VisitorChart = DashboardWidget(<VisitorCharts option={'bar'} />, 'ThisWeekVisitors', 8)
     const VisitorComChart = DashboardWidget(<VisitorCharts option={'option'} />, 'VisitorPercentage', 8)
@@ -76,6 +97,7 @@ class Visitor extends Component {
         <VisitorComChart key={number++} />,
         <DashboardTitle title={'Employee'} key={number++} />,
         <Employee key={number++} />,
+        <WorkProgress key={number++} />,
       ]
     );
   }
