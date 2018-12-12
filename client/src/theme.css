@@ -13,8 +13,12 @@
 }
 .black .ant-card-meta-title, 
 .black .ant-steps-item-finish .ant-steps-item-icon > .ant-steps-icon,
-.black .ant-card-meta-description {
+.black .ant-card-meta-description,
+.black .ant-progress-circle.ant-progress-status-success .ant-progress-text {
   color: #393939;
+}
+.black .ant-progress-circle-path {
+  stroke: #393939;
 }
 .black input,
 .black .ant-steps-item-process .ant-steps-item-icon,
@@ -63,6 +67,7 @@
   color: white;
 }
 
+
 .yellow .header, 
 .yellow .ant-switch-checked,
 .yellow .ant-menu-dark .ant-menu-inline.ant-menu-sub,
@@ -77,8 +82,12 @@
 }
 .yellow .ant-steps-item-finish .ant-steps-item-icon > .ant-steps-icon,
 .yellow .ant-card-meta-title, 
-.yellow .ant-card-meta-description {
+.yellow .ant-card-meta-description,
+.yellow .ant-progress-circle.ant-progress-status-success .ant-progress-text {
   color: #F2AC32;
+}
+.yellow .ant-progress-circle-path {
+  stroke: #F2AC32;
 }
 .yellow input,
 .yellow .ant-steps-item-process .ant-steps-item-icon,
@@ -142,8 +151,12 @@
 }
 .blue .ant-steps-item-finish .ant-steps-item-icon > .ant-steps-icon,
 .blue .ant-card-meta-title, 
-.blue .ant-card-meta-description {
+.blue .ant-card-meta-description,
+.blue .ant-progress-circle.ant-progress-status-success .ant-progress-text {
   color: #4CA6FF;
+}
+.blue .ant-progress-circle-path {
+  stroke: #4CA6FF;
 }
 .blue input,
 .blue .ant-steps-item-process .ant-steps-item-icon,
@@ -192,6 +205,7 @@
   color: white;
 }
 
+
 .mint .header, 
 .mint .ant-switch-checked,
 .mint .ant-menu-dark .ant-menu-inline.ant-menu-sub,
@@ -206,8 +220,12 @@
 }
 .mint .ant-steps-item-finish .ant-steps-item-icon > .ant-steps-icon,
 .mint .ant-card-meta-title, 
-.mint .ant-card-meta-description {
+.mint .ant-card-meta-description,
+.mint .ant-progress-circle.ant-progress-status-success .ant-progress-text {
   color: #03BA78;
+}
+.mint .ant-progress-circle-path {
+  stroke: #03BA78;
 }
 .mint input,
 .mint .ant-steps-item-process .ant-steps-item-icon,
@@ -256,6 +274,7 @@
   color: white;
 }
 
+
 .beige .header, 
 .beige .ant-switch-checked,
 .beige .ant-menu-dark .ant-menu-inline.ant-menu-sub,
@@ -270,8 +289,12 @@
 }
 .beige .ant-steps-item-finish .ant-steps-item-icon > .ant-steps-icon,
 .beige .ant-card-meta-title, 
-.beige .ant-card-meta-description {
+.beige .ant-card-meta-description,
+.beige .ant-progress-circle.ant-progress-status-success .ant-progress-text {
   color: #BD975F;
+}
+.beige .ant-progress-circle-path {
+  stroke: #BD975F;
 }
 .beige input,
 .beige .ant-steps-item-process .ant-steps-item-icon,
