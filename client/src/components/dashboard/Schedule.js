@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { DashboardWidget } from 'components/dashboard';
+import { DashboardWidget } from 'components/dashboard/common';
 import { Language } from 'common';
 import { Calendar, Row, Col, Input, Tooltip, Button, List, Tag, DatePicker, Icon } from 'antd';
 import moment from 'moment';
@@ -25,7 +25,6 @@ const Wrapper = styled.div`
   }
 `
 let time = moment().hour(0).minute(0)
-
 const CalendarForm = ({ selectedDate, onPanelChange, dateCellRender }) => {
   return (
     <Calendar value={selectedDate ? selectedDate : moment()} dateCellRender={dateCellRender} onChange={onPanelChange} onPanelChange={onPanelChange} />
@@ -70,7 +69,7 @@ const ScheduleForm = ({ selectedDate, dateCellRender, deleteSchedule }) => {
             <List.Item>
               <Row type="flex" align="middle" style={{ width: '100%' }}>
                 <Col xs={18} sm={18} md={18} lg={18} xl={18}><Tag>{item.time.format('HH:mm')}</Tag><p>{item.content}</p></Col>
-                <Col xs={6} sm={6} md={6} lg={6} xl={6} style={{ textAlign: 'right' }}><p><Button type="primary" onClick={() => { deleteSchedule(item) }}><Language value={'Delete'} /></Button></p></Col>
+                <Col xs={6} sm={6} md={6} lg={6} xl={6} style={{ textAlign: 'right' }}><p><Button type="primary" onClick={() => { deleteSchedule(item) }}><Language text={'Delete'} /></Button></p></Col>
               </Row>
             </List.Item>
           )}
@@ -79,7 +78,7 @@ const ScheduleForm = ({ selectedDate, dateCellRender, deleteSchedule }) => {
       :
       <div>
         <h5 style={{ marginBottom: '0.5em' }}>{selectedDate.format('MM/DD/YYYY')}</h5>
-        <div style={{ fontSize: '0.8em' }}><Language value={'ScheduleNot'} /></div>
+        <div style={{ fontSize: '0.8em' }}><Language text={'ScheduleNot'} /></div>
       </div>
   )
 }
