@@ -1,12 +1,15 @@
 import React, { Component } from 'react';
-import { Input, Col } from 'antd';
+import { Input, Row, Col } from 'antd';
 import styled from 'styled-components';
 
 const Wrapper = styled.div`
   .ant-input-search-icon {
     color: white;
   }
-  p { opacity: 0.7; }
+  h5 { 
+    margin: 0.3em 0;
+    opacity: 0.7;
+  }
 `
 const Search = Input.Search
 class SearchButton extends Component {
@@ -19,6 +22,7 @@ class SearchButton extends Component {
           return child.name.toLowerCase().indexOf(value.toLowerCase()) !== -1
         else if (child.hasOwnProperty('address'))
           return child.address.toLowerCase().indexOf(value.toLowerCase()) !== -1
+        return true
       })
     } else {
       filter = list
@@ -37,12 +41,16 @@ class SearchButton extends Component {
 
     return (
       <Wrapper>
-        <Col xs={24} sm={24} md={18} lg={8} xl={8}>
-          <Search
-            onSearch={value => handleSearch(value)}
-          />
-          <p>{keyword && `(${keyword})`}</p>
-        </Col>
+        <Row gutter={10} type="flex" justify="space-around" align="middle">
+          <Col xs={24} sm={24} md={12} lg={8} xl={8}>
+            <Search
+              onSearch={value => handleSearch(value)}
+            />
+          </Col>
+          <Col xs={24} sm={24} md={12} lg={16} xl={16}>
+            <h5>{keyword && `(${keyword})`}</h5>
+          </Col>
+        </Row>
       </Wrapper>
     );
   }
