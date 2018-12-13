@@ -57,39 +57,39 @@ class MenuBar extends Component {
           <Menu.Item key="member">
             <Link to={'/dashboard/member'}>
               <Icon type="team" />
-              <span><Language value="Member" /></span>
+              <span><Language text="Member" /></span>
             </Link>
           </Menu.Item>
           <Menu.Item key="account">
             <Link to={'/dashboard/account'}>
               <Icon type="bank" />
-              <span><Language value="Account" /></span>
+              <span><Language text="Account" /></span>
             </Link>
           </Menu.Item>
           <Menu.Item key="schedule">
             <Link to={'/dashboard/schedule'}>
               <Icon type="calendar" />
-              <span><Language value="Schedule" /></span>
+              <span><Language text="Schedule" /></span>
             </Link>
           </Menu.Item>
-          <SubMenu key="shopping" title={<span><Icon type="shopping-cart" /><span><Language value="Shopping" /></span></span>}>
+          <SubMenu key="shopping" title={<span><Icon type="shopping-cart" /><span><Language text="Shopping" /></span></span>}>
             <Menu.Item key="product">
               <Link to={'/dashboard/shopping/product'}>
                 <Icon type="skin" />
-                <span><Language value="Product" /></span>
+                <span><Language text="Product" /></span>
               </Link>
             </Menu.Item>
             <Menu.Item key="shipping">
               <Link to={'/dashboard/shopping/shipping'}>
                 <Icon type="rocket" />
-                <span><Language value="Shipping" /></span>
+                <span><Language text="Shipping" /></span>
               </Link>
             </Menu.Item>
           </SubMenu>
           <Menu.Item key="login">
             <Link to={'/dashboard/login'}>
               <Icon type="calendar" />
-              <span><Language value="Login" /></span>
+              <span><Language text="Login" /></span>
             </Link>
           </Menu.Item>
         </Menu>
