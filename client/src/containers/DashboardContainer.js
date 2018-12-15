@@ -67,16 +67,16 @@ class DashboardContainer extends Component {
     super(props)
 
     this.state = {
-      employeeList: [
-        ['Alison Parker', 9, 0, 16, 0], // name / start hour / start minute / finish hour / finish minute 
-        ['Peter Parker', 8, 0, 14, 28],
-        ['Denny Green', 3, 20, 16, 13],
-        ['Wil Castillo', 14, 36, 21, 0],
-        ['Caitlan Waters', 7, 0, 17, 5],
-        ['Libbie Avila', 9, 14, 13, 10],
-        ['Laurence Costa', 20, 56, 23, 9],
-        ['Jimmie Russell', 18, 34, 24, 30],
-        ['Britany Turner', 10, 0, 19, 0],
+      employeeList: [ // name / start hour / start minute / finish hour / finish minute / work progress
+        ['Alison Parker', 9, 0, 16, 0, 59],
+        ['Peter Parker', 8, 0, 14, 28, 11],
+        ['Denny Green', 3, 20, 16, 13, 100],
+        ['Wil Castillo', 14, 36, 21, 0, 85],
+        ['Caitlan Waters', 7, 0, 17, 5, 24],
+        ['Libbie Avila', 9, 14, 13, 10, 45],
+        ['Laurence Costa', 20, 56, 23, 9, 97],
+        ['Jimmie Russell', 18, 34, 24, 30, 57],
+        ['Britany Turner', 10, 0, 19, 0, 20],
       ],
       status: [],
       menuVisibility: false,
