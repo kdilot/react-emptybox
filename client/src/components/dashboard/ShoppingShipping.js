@@ -11,7 +11,7 @@ const PriceForm = ({ price }) => {
 }
 
 const color = ['red', 'black', 'blue', 'yellow', 'purple', 'green', 'aqua', 'antiquewhite', 'darkcyan', 'royalblue', 'orange', 'maroon', 'tan', 'lightsteelblue']
-const status = [<Language text={'Arriving'} />, <Language text={'Delivered'} />, <Language text={'Canceled'} />]
+const status = [<Language text={'Shipp'} />, <Language text={'Delivered'} />, <Language text={'Canceled'} />]
 const shippingList = []
 for (let i = 1; i <= 50; i++) {
   const random = Math.floor(Math.random() * Math.floor(3))
@@ -23,7 +23,7 @@ for (let i = 1; i <= 50; i++) {
     address: `${RandomNumber(5)} Test Street Apt ${100 + RandomNumber(20)}, CA`,
     total: <PriceForm price={RandomNumber(5000)} />,
     quantity: RandomNumber(999),
-    status: <Tag style={{ color: 'white', background: random === 0 ? 'green' : (random === 1 ? 'blue' : 'red') }}>{status[random]}</Tag>,
+    status: <Tag style={{ color: 'white', opacity: random === 2 ? 0.5 : 1, background: random === 0 ? 'blue' : '' }}>{status[random]}</Tag>,
   }
   shippingList.push(shipping)
 }
