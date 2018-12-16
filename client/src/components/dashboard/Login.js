@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { DashboardWidget } from 'components/dashboard/common';
-import { Step0, Step1, Step2 } from 'components/dashboard';
+import { Step0, Step1, Step2, Step3 } from 'components/dashboard';
 import { Language } from 'common';
 import { Form, Button, Row, Col, Steps } from 'antd';
 import styled from 'styled-components';
@@ -25,7 +25,7 @@ const Wrapper = styled.div`
   background-color: #fafafa;
   min-height: 200px;
   text-align: center;
-  padding-top: 80px;
+  padding-top: 40px;
 }
 
 .steps-action {
@@ -39,7 +39,7 @@ const LoginForm = ({ handleType }) => {
 }
 
 const RegisterForm = ({ current, handleCurrent, handleType }) => {
-  const steps = [<Step1 />, <Step2 />, 'sadf']
+  const steps = [<Step1 />, <Step2 />, <Step3 />]
   return (
     <div>
       <Steps current={current}>
