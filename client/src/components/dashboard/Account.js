@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Language, CurrencyFormat } from 'common';
-import { DashboardWidget, DashboardTitle } from 'components/dashboard';
+import { WithWidget, DashboardTitle } from 'components/dashboard/common';
 import styled from 'styled-components';
 import PropTypes from 'prop-types';
 
@@ -28,9 +28,12 @@ const AccountWrapper = styled.div`
   }
 `
 const TransWrapper = styled.div`
-  div { padding-left: 0.7em; }
-  .in { border-left: 0.3em solid green; }
-  .out { border-left: 0.3em solid red; }
+  div { 
+    padding-left: 0.7em;
+    border-radius: 0.3em;
+  }
+  .in { border-left: 1em solid green; }
+  .out { border-left: 1em solid red; }
   p {
     font-size: 0.8em;
     font-weight: normal;
@@ -51,7 +54,7 @@ const InoutForm = ({ price, title }) => {
   return (
     <Wrapper>
       <h1><CurrencyFormat price={price} digit={2} /></h1>
-      <p><Language value={title} /></p>
+      <p><Language text={title} /></p>
     </Wrapper>
   )
 }
@@ -108,23 +111,23 @@ class Account extends Component {
       AccountList,
       TransList
     } = this.state
-    let number = 1;
-    const Income = DashboardWidget(<InoutForm price={50120} title={'Income'} />, false, 12)
-    const Outcome = DashboardWidget(<InoutForm price={19203.33} title={'Outcome'} />, false, 12)
+    let number = 1
+    const Income = WithWidget(<InoutForm price={50120} title={'Income'} />)({ col: 12 })
+    const Outcome = WithWidget(<InoutForm price={19203.33} title={'Outcome'} />)({ col: 12 })
     return (
       [
         <Income key={number++} />,
         <Outcome key={number++} />,
         <DashboardTitle title={'YourAccount'} key={number++} />,
         AccountList.map((list, index) => {
-          const Account = DashboardWidget(<AccountForm account={list} />, false, 6)
+          const Account = WithWidget(<AccountForm account={list} />)({ col: 6 })
           return (
             <Account key={index} />
           )
         }),
         <DashboardTitle title={'RecentTransactions'} key={number++} />,
         TransList.map((list, index) => {
-          const Trans = DashboardWidget(<TransactionForm type={list[0]} price={list[1]} account={AccountList[list[2]]} message={list[3]} />, false, 24)
+          const Trans = WithWidget(<TransactionForm type={list[0]} price={list[1]} account={AccountList[list[2]]} message={list[3]} />)(false)
           return (
             <Trans key={index} />
           )
