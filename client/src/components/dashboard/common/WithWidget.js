@@ -32,10 +32,10 @@ const Wrapper = styled.div`
     transition: all 400ms ease-out;
 }
 `
-//  component / title of component / col size / show & hide
-function DashboardWidget(Comp, title, col = 24, show = true) {
+//  (component) => (title of component / col size / show & hide)
+const WithWidget = (Comp) => ({ title = false, col = 24, hide = true }) => {
   return (
-    class DashboardWidget extends Component {
+    class HOC extends Component {
       handleChangeView = () => {
         const { view } = this.state
         this.setState({
@@ -65,7 +65,7 @@ function DashboardWidget(Comp, title, col = 24, show = true) {
                       <h3><Language text={title} /></h3>
                     </Col>
                     <Col span={4} style={{ textAlign: 'right' }}>
-                      {show ?
+                      {hide ?
                         <h3><Switch checkedChildren={<Icon type="check" />} unCheckedChildren={<Icon type="close" />} defaultChecked onChange={() => { handleChangeView() }} /></h3>
                         : ''}
                     </Col>
@@ -100,4 +100,4 @@ function DashboardWidget(Comp, title, col = 24, show = true) {
 }
 
 
-export default DashboardWidget;
+export default WithWidget;
