@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { DashboardWidget } from 'components/dashboard/common';
+import { WithWidget } from 'components/dashboard/common';
 import { Language } from 'common';
 import { Calendar, Row, Col, Input, Tooltip, Button, List, Tag, DatePicker, Icon } from 'antd';
 import moment from 'moment';
@@ -142,14 +142,6 @@ class Schedule extends Component {
     deleteSchedule: this.deleteSchedule,
   }
 
-  // shouldComponentUpdate(nextProps, nextState) {
-  //   if (nextState, this.state) {
-  //     // if(nextState.time.hour() === this.state.time.hour() && nextState.time.minute() === this.state.time.minute()) return false
-  //     return true
-  //   }
-  //   return false
-  // }
-
   render() {
     const {
       selectedDate,
@@ -159,10 +151,10 @@ class Schedule extends Component {
       deleteSchedule,
       timeChange
     } = this.state
-    const ScheduleView = DashboardWidget(<ScheduleForm selectedDate={selectedDate} dateCellRender={dateCellRender} deleteSchedule={deleteSchedule} />, 'ScheduleList', 24)
-    const CalendarView = DashboardWidget(<CalendarForm selectedDate={selectedDate} dateCellRender={dateCellRender} onPanelChange={onPanelChange} />, 'Calendar', 24)
-    const CalendarMView = DashboardWidget(<Calendar value={selectedDate} onSelect={onPanelChange} onPanelChange={onPanelChange} fullscreen={false} />, 'Calendar', 24)
-    const SearchBox = DashboardWidget(<SearchForm time={time} timeChange={timeChange} addSchedule={addSchedule} />, 'ScheduleInputBox', 24)
+    const ScheduleView = WithWidget(<ScheduleForm selectedDate={selectedDate} dateCellRender={dateCellRender} deleteSchedule={deleteSchedule} />)({ title: 'ScheduleList' })
+    const CalendarView = WithWidget(<CalendarForm selectedDate={selectedDate} dateCellRender={dateCellRender} onPanelChange={onPanelChange} />)({ title: 'Calendar' })
+    const CalendarMView = WithWidget(<Calendar value={selectedDate} onSelect={onPanelChange} onPanelChange={onPanelChange} fullscreen={false} />)({ title: 'Calendar' })
+    const SearchBox = WithWidget(<SearchForm time={time} timeChange={timeChange} addSchedule={addSchedule} />)({ title: 'ScheduleInputBox' })
     return (
       <Wrapper>
         <ScheduleView />
