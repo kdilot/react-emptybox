@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Language, CurrencyFormat, RandomNumber } from 'common';
-import { DashboardWidget, DashboardTable, SearchButton } from 'components/dashboard/common';
+import { WithWidget, DashboardTable, SearchButton } from 'components/dashboard/common';
 import { Col, Avatar, Tag } from 'antd';
 import PropTypes from 'prop-types';
 
@@ -53,8 +53,8 @@ class ShoppingShipping extends Component {
       SearchList
     } = this.state
     let number = 1
-    const SearchBtn = DashboardWidget(<SearchButton list={list} func={SearchList} keyword={keyword} />, <Language text={'AddressSearch'} />, 24, false)
-    const Shipping = DashboardWidget(<DashboardTable columns={columns} data={search ? search : list} pageSize={15} />, <Language text={'Shipping'} />, 24, false)
+    const SearchBtn = WithWidget(<SearchButton list={list} func={SearchList} keyword={keyword} />)({ title: 'AddressSearch', hide: false })
+    const Shipping = WithWidget(<DashboardTable columns={columns} data={search ? search : list} pageSize={15} />)({ title: 'Shipping', hide: false })
     return (
       [
         <Col xs={24} sm={24} md={24} lg={24} xl={24} key={number++} >
