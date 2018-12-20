@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { DashboardWidget } from 'components/dashboard/common';
+import { WithWidget } from 'components/dashboard/common';
 import { Step0, Step1, Step2, Step3 } from 'components/dashboard';
 import { Language } from 'common';
 import { Form, Button, Row, Col, Steps } from 'antd';
@@ -102,8 +102,8 @@ class Login extends Component {
       current,
       handleCurrent,
     } = this.state
-    const Login = DashboardWidget(<LoginForm handleType={handleType} />, false, 8)
-    const Regist = DashboardWidget(<RegisterForm handleType={handleType} current={current} handleCurrent={handleCurrent} />, false, 24)
+    const Login = WithWidget(<LoginForm handleType={handleType} />)({ col: 8 })
+    const Regist = WithWidget(<RegisterForm handleType={handleType} current={current} handleCurrent={handleCurrent} />)(false)
     return (
       <Wrapper>
         <Row type="flex" justify="center" align="middle" style={{ width: '100%' }}>
