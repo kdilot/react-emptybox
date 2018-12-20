@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { VisitorCharts } from 'components/dashboard';
-import { DashboardWidget, DashboardTitle } from 'components/dashboard/common';
+import { WithWidget, DashboardTitle } from 'components/dashboard/common';
 import { Row, Col, Avatar, Tag, Progress } from 'antd';
 import { Language } from 'common';
 import moment from 'moment';
@@ -76,15 +76,15 @@ class Visitor extends Component {
       status
     } = this.props
     let number = 1
-    const Today = DashboardWidget(<VisitorForm number={290} />, 'Today', 6, false)
-    const Weekly = DashboardWidget(<VisitorForm number={1300} />, 'Weekly', 6, false)
-    const Monthly = DashboardWidget(<VisitorForm number={10490} />, 'Monthly', 6, false)
-    const Total = DashboardWidget(<VisitorForm number={103722} />, 'Total', 6, false)
-    const Employee = DashboardWidget(<EmployeeForm member={employeeList} status={status} />, 'EmployeeInfo', 12)
-    const WorkProgress = DashboardWidget(<ProgressForm member={employeeList} />, 'WorkProgress', 12)
-    const BrowserChart = DashboardWidget(<VisitorCharts option={'browser'} />, 'Browser', 8)
-    const VisitorChart = DashboardWidget(<VisitorCharts option={'bar'} />, 'ThisWeekVisitors', 8)
-    const VisitorComChart = DashboardWidget(<VisitorCharts option={'option'} />, 'VisitorPercentage', 8)
+    const Today = WithWidget(<VisitorForm number={290} />)({ title: 'Today', col: 6, hide: false })
+    const Weekly = WithWidget(<VisitorForm number={1300} />)({ title: 'Weekly', col: 6, hide: false })
+    const Monthly = WithWidget(<VisitorForm number={10490} />)({ title: 'Monthly', col: 6, hide: false })
+    const Total = WithWidget(<VisitorForm number={103722} />)({ title: 'Total', col: 6, hide: false })
+    const Employee = WithWidget(<EmployeeForm member={employeeList} status={status} />)({ title: 'EmployeeInfo', col: 12 })
+    const WorkProgress = WithWidget(<ProgressForm member={employeeList} />)({ title: 'WorkProgress', col: 12 })
+    const BrowserChart = WithWidget(<VisitorCharts option={'browser'} />)({ title: 'Browser', col: 8 })
+    const VisitorChart = WithWidget(<VisitorCharts option={'bar'} />)({ title: 'ThisWeekVisitors', col: 8 })
+    const VisitorComChart = WithWidget(<VisitorCharts option={'option'} />)({ title: 'VisitorPercentage', col: 8 })
     return (
       [
         <DashboardTitle title={'Visitor'} key={number++} />,
