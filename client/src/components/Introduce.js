@@ -34,6 +34,7 @@ class Introduce extends Component {
     skills: [
       'React JS',
       'Node JS',
+      'Redux',
       'Express',
       'MariaDB',
       'MongoDB',
