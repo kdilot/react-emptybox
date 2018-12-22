@@ -69,9 +69,8 @@ class Top extends Component {
                     <Col span={24} style={{ borderBottom: '1px solid white', marginBottom: '1em' }}>
                     </Col>
                     <Col span={24} onClick={() => { store.handleDrawer('menu') }}>
-                      <p style={{marginBottom: '1em'}}><Link to="/?" style={{ textDecoration: 'none' }}>?</Link></p>
                       <p style={{marginBottom: '1em'}}><Link to="/project" style={{ textDecoration: 'none' }}><Language text="Project" /></Link></p>
-                      <p style={{marginBottom: '1em'}}><Link to="/about" style={{ textDecoration: 'none' }}>About</Link></p>
+                      <p style={{marginBottom: '1em'}}><Link to="/about" style={{ textDecoration: 'none' }}><Language text="About" /></Link></p>
                     </Col>
                   </Row>
                 }
@@ -103,7 +102,7 @@ class Top extends Component {
                           <h2><Icon type="appstore" theme="filled" style={{ fontSize: '22px' }} onClick={() => store.handleDrawer('menu', true)} /></h2>
                         </Col>
                         <Col xs={0} sm={0} md={8} lg={8} xl={8}>
-                          <Link to="/?" style={{ textDecoration: 'none' }}>?</Link>
+                          {/* <Link to="/?" style={{ textDecoration: 'none' }}>?</Link> */}
                         </Col>
                         <Col xs={0} sm={0} md={8} lg={8} xl={8}>
                           <Link to="/project" style={{ textDecoration: 'none' }}><Language text="Project" /></Link>
