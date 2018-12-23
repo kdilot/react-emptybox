@@ -13,6 +13,7 @@ const Wrapper = styled.div`
 
   h1 {
     margin-top: 1em;
+    padding: 0 1em;
   }
   .ant-card-meta-title {
     height: 3em;
@@ -24,10 +25,17 @@ const Wrapper = styled.div`
   .ant-tag-has-color {
     margin: 0.1em;
     font-size: 0.9em;
+    border-radius: 1em;
   }
   .ant-card-meta-description {
     display: table-cell;
     vertical-align: middle;
+  }
+  .ant-card-actions {
+    border-radius: 0 0 1.5em 1.5em;
+  }
+  .ant-card-bordered {
+    border-radius: 1.5em;
   }
 `
 
