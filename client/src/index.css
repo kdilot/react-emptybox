@@ -45,7 +45,7 @@ h3 { font-size: 1.2em}
 
 /* antd */
 .ant-card {
-  margin-bottom: 1em
+  margin-bottom: 2em;
 }
 
 .ant-btn-primary,
