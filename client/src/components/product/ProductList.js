@@ -22,13 +22,13 @@ const Wrapper = styled.div`
 const ItemBox = ({ product, color }) => {
   return (
     <Link to={`/product/view/${product.no}`}>
-      <Row type="flex" justify="space-around" align="middle" style={{ background: 'white', marginBottom: '1em', padding: '1px' }}>
-        <Col xs={7} sm={7} md={24} lg={24} xl={24} style={{ border: '1px solid white' }}>
-          <div style={{ width: '100%', paddingBottom: '100%', background: color[product.image], borderRadius: '4px' }} />
+      <Row type="flex" justify="space-around" align="middle" style={{ background: 'white', marginBottom: '1em', padding: '1px', borderRadius: '1em' }}>
+        <Col xs={0} sm={0} md={24} lg={24} xl={24} style={{ border: '2px solid white', borderRadius: '1em' }}>
+          <div style={{ width: '100%', paddingBottom: '100%', background: color[product.image], borderRadius: '1em' }} />
         </Col>
-        <Col xs={17} sm={17} md={24} lg={24} xl={24} style={{ padding: '1em', fontWeight: 'bold', background: 'white' }}>
+        <Col xs={0} sm={0} md={24} lg={24} xl={24} style={{ padding: '1em', fontWeight: 'bold', background: 'white', borderRadius: '1em' }}>
           <h4 className="text-overflow">{product.name}</h4>
-          <h4 style={{textAlign: 'right'}}>
+          <h4 style={{ textAlign: 'right' }}>
             {product.originPrice ?
               <p style={{ textDecoration: 'line-through' }}>
                 (<CurrencyFormat price={product.originPrice} />)
@@ -36,6 +36,22 @@ const ItemBox = ({ product, color }) => {
               : ''}
             <p><CurrencyFormat price={product.price} /></p>
           </h4>
+        </Col>
+        <Col xs={24} sm={24} md={0} lg={0} xl={0}>
+          <div style={{ padding: '0.5em', fontWeight: 'bold', background: 'white', borderRadius: '1em', display: 'flex' }}>
+            <div style={{ width: '5.5em', paddingBottom: '5.5em', background: color[product.image], borderRadius: '1em', marginRight: '1em' }} />
+            <div style={{ width: '70%' }}>
+              <h4 className="text-overflow">{product.name}</h4>
+              <h4 style={{ textAlign: 'right' }}>
+                {product.originPrice ?
+                  <p style={{ textDecoration: 'line-through' }}>
+                    (<CurrencyFormat price={product.originPrice} />)
+              </p>
+                  : ''}
+                <p><CurrencyFormat price={product.price} /></p>
+              </h4>
+            </div>
+          </div>
         </Col>
       </Row>
     </Link>
