@@ -1,4 +1,5 @@
 import { createAction, handleActions } from 'redux-actions';
+import randomcolor from 'randomcolor';
 import { Map, List, fromJS } from 'immutable';
 import Product from 'files/Product';
 
@@ -37,8 +38,7 @@ const initialState = Map({
   }),
   sort: 'name',
   asc: true,
-  color: List(['red', 'black', 'blue', 'yellow', 'purple', 'green', 'aqua', 'antiquewhite', 'darkcyan', 'royalblue', 'orange', 'maroon', 'tan', 'lightsteelblue']),
-  productNumber: 2
+  productNumber: 20
 })
 
 export default handleActions({
@@ -47,12 +47,11 @@ export default handleActions({
     let number = result.get('productNumber')
     let data = result.getIn(['list'])
     let product = fromJS(Product.add)
-    product = product.set('image', Math.floor(Math.random() * 14)).set('name', product.get('name') + ' ' + (data.toJS().length + 1))
+    product = product.set('image', randomcolor()).set('name', product.get('name') + ' ' + (data.toJS().length + 1))
       .set('no', ++number)
-      .setIn(['option', 0, 'image'], Math.floor(Math.random() * 14))
-      .setIn(['option', 0, 'depth', 'option', 0, 'image'], Math.floor(Math.random() * 14))
+      .setIn(['option', 0, 'image'], randomcolor())
+      .setIn(['option', 0, 'depth', 'option', 0, 'image'], randomcolor())
     data = data.push(product)
-    // console.log(data.toJS())
     result = result.setIn(['list'], data).set('productNumber', number)
     return result
   },
@@ -85,14 +84,14 @@ export default handleActions({
   },
   [ADD_OPTION]: (state, action) => {
     const addOption = Map({ name: 'add field', option: List() })
-    const addDepth = Map({ name: 'add field', depth: Map() })
+    const addDepth = Map({ name: 'add field', image: randomcolor(), depth: Map() })
     const param = action.payload
-    const index = state.getIn(['list']).findIndex(children => children.get('no') === param.product)
+    const index = state.getIn(['list']).findIndex(children => children.get('no') === parseInt(param.product, 10))
     let result = state
     if (param.type === 'new') {
       const array = Map({
         name: 'new option',
-        image: 'new.img',
+        image: randomcolor(),
         originPrice: 100,
         price: 100,
         depth: Map()
