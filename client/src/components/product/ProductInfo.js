@@ -5,7 +5,8 @@ import { LinkButton } from 'common/ButtonType';
 import styled from 'styled-components';
 
 const Wrapper = styled.div`
-  h3 {margin-bottom: 0.5em}
+  h1 { margin-top: 1em }
+  h3 { margin-bottom: 0.5em }
   .ant-tag {
     margin: 0.5em;
   }
@@ -19,7 +20,6 @@ class ProductInfo extends Component {
   render() {
     const {
       list,
-      color,
       pathname,
       optionStatus,
       productStatus,
@@ -46,7 +46,7 @@ class ProductInfo extends Component {
                   <LinkButton LinkTo={`/product`} ButtonName={<Language text="Back" />} />
                 </Col>
                 <Col xs={24} sm={24} md={24} lg={14} xl={12} style={{ textAlign: 'center' }}>
-                  <div className="thumbnail" style={{ background: color[(productStatus.image ? productStatus.image : _list.image)], border: '2px solid white', width: '80%', paddingBottom: '80%', height: '0', borderRadius: '1em' }} />
+                  <div className="thumbnail" style={{ background: (productStatus.image ? productStatus.image : _list.image), border: '2px solid white', width: '80%', paddingBottom: '80%', height: '0', borderRadius: '1em' }} />
                 </Col>
                 <Col xs={24} sm={24} md={24} lg={10} xl={12}>
                   <Row>
@@ -89,7 +89,7 @@ class ProductInfo extends Component {
                             {_list.option.map((opt, index) => {
                               return (
                                 <Col xs={6} sm={3} md={4} lg={8} xl={4} key={index}>
-                                  <div className="thumbnail" style={{ background: color[opt.image], border: '1px solid white', width: '90%', paddingBottom: '90%', height: '0', borderRadius: '1em' }} onClick={() => { handleOptionDepth(opt) }} />
+                                  <div className="thumbnail" style={{ background: opt.image, border: '1px solid white', width: '90%', paddingBottom: '90%', height: '0', borderRadius: '1em' }} onClick={() => { handleOptionDepth(opt) }} />
                                 </Col>
                               )
                             })}
