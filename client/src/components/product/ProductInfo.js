@@ -5,8 +5,8 @@ import { LinkButton } from 'common/ButtonType';
 import styled from 'styled-components';
 
 const Wrapper = styled.div`
-  h1 { margin-top: 1em }
-  h3 { margin-bottom: 0.5em }
+  h1 { margin-top: 1em; }
+  h3 { margin: 0.5em 0; }
   .ant-tag {
     margin: 0.5em;
   }
