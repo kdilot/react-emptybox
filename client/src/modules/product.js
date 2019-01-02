@@ -2,6 +2,7 @@ import { createAction, handleActions } from 'redux-actions';
 import randomcolor from 'randomcolor';
 import { Map, List, fromJS } from 'immutable';
 import Product from 'files/Product';
+import { RandomNumber } from 'common';
 
 export const CREATE_PRODUCT = 'product/CREATE_PRODUCT';
 export const MODIFY_PRODUCT = 'product/MODIFY_PRODUCT';
@@ -49,6 +50,10 @@ export default handleActions({
     let product = fromJS(Product.add)
     product = product.set('image', randomcolor()).set('name', product.get('name') + ' ' + (data.toJS().length + 1))
       .set('no', ++number)
+      .set('originPrice', RandomNumber(4) + 2000)
+      .set('price', RandomNumber(3000, true))
+      .setIn(['option', 0, 'originPrice'], RandomNumber(4) + 2000)
+      .setIn(['option', 0, 'price'], RandomNumber(3000, true))
       .setIn(['option', 0, 'image'], randomcolor())
       .setIn(['option', 0, 'depth', 'option', 0, 'image'], randomcolor())
     data = data.push(product)
