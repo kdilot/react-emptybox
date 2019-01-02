@@ -8,8 +8,8 @@ function _objectWithoutProperties(obj, keys) { var target = {}; for (var i in ob
 
 module.exports.registCurrencyRate = async function registCurrencyRate() {
   const tickers = await Poloniex.getTickers()
-  // console.log('[Drop]')
-  // await CurrencyRate.drop()
+  console.log('[Drop Rate]')
+  await CurrencyRate.drop()
   const keys = Object.keys(tickers)
   const param = keys.map(key => {
     const ticker = tickers[key]
@@ -55,6 +55,8 @@ module.exports.updateCurrencyRate = async function updateCurrencyRate() {
 }
 
 module.exports.registCurrencyName = async function registCurrencyName() {
+  console.log('[Drop Name]')
+  CurrencyName.drop()
   const info = await Poloniex.getCurrenciesName()
   const keys = Object.keys(info)
   const param = keys.map(key => {
