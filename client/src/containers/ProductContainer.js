@@ -130,7 +130,6 @@ class ProductContainer extends Component {
                   handleSelectedOption={handleSelectedOption}
                   handleResetSelectedOption={handleResetSelectedOption}
                   list={product.get('list').toJS()}
-                  color={product.get('color').toJS()}
                   optionStatus={product.get('optionStatus').toJS()}
                   productStatus={product.get('productStatus').toJS()}
                   pathname={pathname}
@@ -140,7 +139,6 @@ class ProductContainer extends Component {
                 list={product.get('list').toJS()}
                 sort={product.get('sort')}
                 asc={product.get('asc')}
-                color={product.get('color').toJS()}
                 handleListSort={handleListSort}
                 handleCreateProduct={handleCreateProduct}
               />
