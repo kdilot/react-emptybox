@@ -57,6 +57,7 @@ class CurrencyList extends Component {
                   volume={_list.baseVolume}
                   change={_list.percentChange}
                   date={_list.lastUpdate}
+                  frozen={_list.isFrozen}
                   selected={selectedCurrencyType}
                   currencyChartData={currencyChartData}
                 />
