@@ -69,8 +69,8 @@ class Top extends Component {
                     <Col span={24} style={{ borderBottom: '1px solid white', marginBottom: '1em' }}>
                     </Col>
                     <Col span={24} onClick={() => { store.handleDrawer('menu') }}>
-                      <p style={{marginBottom: '1em'}}><Link to="/project" style={{ textDecoration: 'none' }}><Language text="Project" /></Link></p>
-                      <p style={{marginBottom: '1em'}}><Link to="/about" style={{ textDecoration: 'none' }}><Language text="About" /></Link></p>
+                      <p style={{marginBottom: '1em', fontSize: '1.1em'}}><Link to="/project" style={{ textDecoration: 'none' }}><Language text="Project" /></Link></p>
+                      <p style={{marginBottom: '1em', fontSize: '1.1em'}}><Link to="/about" style={{ textDecoration: 'none' }}><Language text="About" /></Link></p>
                     </Col>
                   </Row>
                 }
