@@ -54,7 +54,7 @@ class About extends Component {
                         <h2>{list.title}</h2>
                         <h4>{list.period}</h4>
                         {list.des.map((_list, index) =>
-                          <h3 key={index}><Icon type="folder-open" theme="outlined" style={{ marginRight: '0.5em' }} />{_list}</h3>
+                          <h3 key={index}><Icon type={index === 0 ? "pushpin" : "folder-open"} theme="outlined" style={{ marginRight: '0.5em' }} />{_list}</h3>
                         )}
                         <Row>
                           {list.skills.map((_list, index) =>
