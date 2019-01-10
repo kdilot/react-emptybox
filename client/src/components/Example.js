@@ -23,7 +23,7 @@ const Wrapper = styled.div`
     height: 5.5em;
   }
   .ant-tag-has-color {
-    margin: 0.1em;
+    margin: 0.2em;
     font-size: 0.9em;
     border-radius: 1em;
   }
