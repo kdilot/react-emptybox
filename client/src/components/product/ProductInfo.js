@@ -69,7 +69,7 @@ class ProductInfo extends Component {
                               </div>
                               : ''
                             }
-                            {productStatus.price ? <CurrencyFormat price={productStatus.price} /> : <CurrencyFormat price={_list.price} />} {percentage || percentage2 ? ` ( ${percentage2 ? percentage2 : percentage}% off )` : ''}
+                            {productStatus.price ? <CurrencyFormat price={productStatus.price} /> : <CurrencyFormat price={_list.price} />} {percentage > 0 || percentage2 > 0 ? ` ( ${percentage2 ? percentage2 : percentage}% off )` : ''}
                           </h3>
                         </Col>
                       </Row>
