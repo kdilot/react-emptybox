@@ -67,17 +67,16 @@ class ProductList extends Component {
     if (list.length > 1) {
       _list = list.sort((a, b) => {
         if (sort === 'name') {
-          if (a.name > b.name) return asc ? 1 : -1
-          if (a.name < b.name) return asc ? -1 : 1
-          return 0
+          const first = a.name.toString()
+          const second = b.name.toString()
+          if (!isNaN(a.name) && !isNaN(b.name))
+            return asc ? (a.name < b.name ? -1 : 1) : (a.name < b.name ? 1 : -1)
+          else
+            return asc ? (second.localeCompare(first) ? 1 : -1) : (second.localeCompare(first) ? -1 : 1)
         } else if (sort === 'originPrice') {
-          if (a.originPrice < b.originPrice) return asc ? 1 : -1
-          if (a.originPrice > b.originPrice) return asc ? -1 : 1
-          return 0
+          return asc ? (a.originPrice < b.originPrice ? -1 : 1) : (a.originPrice < b.originPrice ? 1 : -1)
         } else if (sort === 'price') {
-          if (a.price < b.price) return asc ? 1 : -1
-          if (a.price > b.price) return asc ? -1 : 1
-          return 0
+          return asc ? (a.price < b.price ? -1 : 1) : (a.price < b.price ? 1 : -1)
         }
         return 0
       })
@@ -90,18 +89,18 @@ class ProductList extends Component {
           <Col xs={1} sm={1} md={2} lg={2} xl={2} />
           <Col xs={22} sm={22} md={20} lg={20} xl={20}>
             <Row>
-              <Col xs={24} sm={24} md={22} lg={22} xl={22} style={{ marginBottom: '1em', display: 'flex' }}>
-                <Row>
-                  <Col xs={20} sm={20} md={20} lg={20} xl={20}>
+              <Col xs={24} sm={24} md={24} lg={24} xl={24} style={{ marginBottom: '1em', display: 'flex' }}>
+                <Row style={{ width: '100%' }}>
+                  <Col xs={24} sm={24} md={12} lg={12} xl={12} style={{ margin: '0.5em 0' }}>
+                    <Button type="primary" onClick={() => { handleCreateProduct() }}><Language text="Create" /></Button>
+                  </Col>
+                  <Col xs={24} sm={24} md={12} lg={12} xl={12} style={{ margin: '0.5em 0', textAlign: 'right' }}>
                     <Radio.Group defaultValue="a" buttonStyle="solid">
                       <Radio.Button value="a" onClick={() => { handleListSort('name') }}><Language text="Name" /></Radio.Button>
                       <Radio.Button value="b" onClick={() => { handleListSort('originPrice') }}><Language text="Price" /></Radio.Button>
                       <Radio.Button value="c" onClick={() => { handleListSort('price') }}><Language text="DiscountPrice" /></Radio.Button>
                       <Radio.Button value="d" disabled><h4>{asc ? <Icon type="arrow-up" theme="outlined" /> : <Icon type="arrow-down" theme="outlined" />}</h4></Radio.Button>
                     </Radio.Group>
-                  </Col>
-                  <Col xs={4} sm={4} md={4} lg={4} xl={4}>
-                    <Button type="primary" onClick={() => { handleCreateProduct() }}><Language text="Create" /></Button>
                   </Col>
                 </Row>
               </Col>
