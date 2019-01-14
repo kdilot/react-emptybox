@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Language, CurrencyFormat, RandomNumber } from 'common';
 import { WithWidget, DashboardTable, SearchButton } from 'components/dashboard/common';
+import randomcolor from 'randomcolor';
 import { Col, Avatar, Tag } from 'antd';
 import PropTypes from 'prop-types';
 
@@ -10,7 +11,6 @@ const PriceForm = ({ price }) => {
   )
 }
 
-const color = ['red', 'black', 'blue', 'yellow', 'purple', 'green', 'aqua', 'antiquewhite', 'darkcyan', 'royalblue', 'orange', 'maroon', 'tan', 'lightsteelblue']
 const status = [<Language text={'Shipp'} />, <Language text={'Delivered'} />, <Language text={'Canceled'} />]
 const shippingList = []
 for (let i = 1; i <= 50; i++) {
@@ -19,10 +19,10 @@ for (let i = 1; i <= 50; i++) {
     key: i,
     no: i,
     orderNo: `#${RandomNumber(5)}`,
-    buyer: <Avatar icon="user" shape="square" size="large" style={{ backgroundColor: color[RandomNumber(14)] }} />,
-    address: `${RandomNumber(5)} Test Street Apt ${100 + RandomNumber(20)}, CA`,
-    total: <PriceForm price={RandomNumber(5000)} />,
-    quantity: RandomNumber(999),
+    buyer: <Avatar icon="user" shape="square" size="large" style={{ backgroundColor: randomcolor() }} />,
+    address: `${RandomNumber(5)} Test Street Apt ${100 + RandomNumber(20, true)}, CA`,
+    total: <PriceForm price={RandomNumber(5000, true)} />,
+    quantity: RandomNumber(999, true),
     status: <Tag style={{ color: 'white', opacity: random === 2 ? 0.5 : 1, background: random === 0 ? 'blue' : '' }}>{status[random]}</Tag>,
   }
   shippingList.push(shipping)
