@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Language, CurrencyFormat, RandomNumber } from 'common';
 import { WithWidget, DashboardTable, SearchButton } from 'components/dashboard/common';
+import randomcolor from 'randomcolor';
 import { Col, Avatar, Tag } from 'antd';
 import PropTypes from 'prop-types';
 
@@ -16,7 +17,6 @@ const PriceForm = ({ origin, price }) => {
   )
 }
 
-const color = ['red', 'black', 'blue', 'yellow', 'purple', 'green', 'aqua', 'antiquewhite', 'darkcyan', 'royalblue', 'orange', 'maroon', 'tan', 'lightsteelblue']
 const display = [<Language text={'Disabled'} />, <Language text={'Enabled'} />]
 const productList = []
 for (let i = 1; i <= 50; i++) {
@@ -25,9 +25,9 @@ for (let i = 1; i <= 50; i++) {
     key: i,
     no: i,
     name: `New Macbook S ${i}`,
-    thumbnail: <Avatar shape="square" size="large" style={{ backgroundColor: color[RandomNumber(14)] }} />,
-    price: <PriceForm origin={RandomNumber(9000)} price={RandomNumber(5000)} />,
-    quantity: RandomNumber(999),
+    thumbnail: <Avatar shape="square" size="large" style={{ backgroundColor: randomcolor() }} />,
+    price: <PriceForm origin={RandomNumber(9000, true)} price={RandomNumber(5000, true)} />,
+    quantity: RandomNumber(999, true),
     display: <Tag style={{ color: 'white', opacity: random === 0 ? 0.5 : 1 }}>{display[random]}</Tag>,
   }
   productList.push(product)
