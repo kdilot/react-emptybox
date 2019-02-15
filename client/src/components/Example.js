@@ -98,7 +98,7 @@ class Example extends Component {
                       <Card
                         cover={<h1><Language text="ProductExTitle" /></h1>}
                         actions={[
-                          <a rel="noopener noreferrer" href="https://github.com/kdilot/react-emptybox" target="_blank"><Icon type="github" theme="filled" style={{ fontSize: 30 }} /></a>,
+                          <a rel="noopener noreferrer" href="https://github.com/kdilot/react-emptybox/tree/master/client/src/components/product" target="_blank"><Icon type="github" theme="filled" style={{ fontSize: 30 }} /></a>,
                           <Link to="/product" style={{ textDecoration: 'none' }}><Icon type="play-circle" theme="filled" style={{ fontSize: 30 }} /></Link>
                         ]}
                       >
