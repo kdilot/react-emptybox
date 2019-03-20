@@ -133,6 +133,27 @@ class Example extends Component {
                         />
                       </Card>
                     </Col>
+                    <Col xs={24} sm={24} md={12} lg={8} xl={6}>
+                      <Card
+                        cover={<h1><Language text="HouseHoldLedgerEx" /></h1>}
+                        actions={[
+                          <a rel="noopener noreferrer" href="https://github.com/kdilot/react-household-ledger" target="_blank"><Icon type="github" theme="filled" style={{ fontSize: 30 }} /></a>,
+                          <a rel="noopener noreferrer" href="https://emptyboxhhl.herokuapp.com" target="_blank"><Icon type="play-circle" theme="filled" style={{ fontSize: 30 }} /></a>,
+                        ]}
+                      >
+                        <Meta
+                          title={<Language text="HouseHoldLedgerInfo" />}
+                          description={<div>
+                            <Tag color=" ">react-context</Tag>
+                            <Tag color=" ">axios</Tag>
+                            <Tag color=" ">express</Tag>
+                            <Tag color=" ">mongoDb</Tag>
+                            <Tag color=" ">ant-design</Tag>
+                            <Tag color=" ">sass</Tag>
+                          </div>}
+                        />
+                      </Card>
+                    </Col>
                   </Row>
                 </Col>
               </Row>
