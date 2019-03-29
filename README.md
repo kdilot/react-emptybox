@@ -10,4 +10,4 @@ backend
 client
 (view page)
 - - -
-> Netflix Clone / Virtual Currency / Product / Dashboard
+> Netflix Clone / Virtual Currency / Product / Dashboard  / Household Ledger
