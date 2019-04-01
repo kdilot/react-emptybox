@@ -1,13 +1,31 @@
-# react-emptybox
+# emptybox
 
+> portfolio with react & node.js
+> **demo site	http://emptybox.herokuapp.com/**
 
-backend
-- - -
+# Backend
+
 > api / crawler / db
 
-<br />
+ - Node.js
+ - axios
+ - express
+ - MongoDB (mongoose)
+ - websocket(ws)
+ - cross-env
+ - nodemon
 
-client
-(view page)
-- - -
-> Netflix Clone / Virtual Currency / Product / Dashboard  / Household Ledger
+# Client
+
+> view pages
+
+	Netflix Clone / Virtual Currency / Product / Dashboard  / Household Ledger
+
+ - React
+ - Redux(logger, saga)
+ - Immutable
+ - Echarts
+ - Axios
+ - Ant Design
+ - styled-components
+ - cross-env
