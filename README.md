@@ -4,9 +4,7 @@
 > **demo site	http://emptybox.herokuapp.com/**
 
 # Backend
-
-> api / crawler / db
-
+	api / crawler / db
  - Node.js
  - axios
  - express
@@ -16,11 +14,7 @@
  - nodemon
 
 # Client
-
-> view pages
-
 	Netflix Clone / Virtual Currency / Product / Dashboard  / Household Ledger
-
  - React
  - Redux(logger, saga)
  - Immutable
