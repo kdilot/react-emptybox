@@ -2,7 +2,7 @@
 
 > portfolio with react & node.js
 	
-> demo site http://emptybox.herokuapp.com/
+> **demo site http://emptybox.herokuapp.com/**
 
 # Backend
 	api / crawler / db
