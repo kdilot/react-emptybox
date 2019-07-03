@@ -1,26 +1,55 @@
-# emptybox
+> `Portfolio` with `React` & `Node.js`
 
-> portfolio with react & node.js
-	
-> **demo site http://emptybox.herokuapp.com/**
+### Demo site 
 
-# Backend
-	api / crawler / db
- - Node.js
- - axios
- - express
- - MongoDB (mongoose)
- - websocket(ws)
- - cross-env
- - nodemon
+>  Netflix Clone http://emptybox.herokuapp.com/netflix
+>  Virtual Currency http://emptybox.herokuapp.com/vtc
+>  Dashboard http://emptybox.herokuapp.com/dashboard/member
+>  **` It takes a few seconds to connect with Heroku `**
+  
 
-# Client
-	Netflix Clone / Virtual Currency / Product / Dashboard  / Household Ledger
- - React
- - Redux(logger, saga)
- - Immutable
- - Echarts
- - Axios
- - Ant Design
- - styled-components
- - cross-env
+## Backend
+
+    Api / Crawler / DB
+
+- Node.js
+
+- Axios
+
+- Express
+
+- MongoDB (mongoose)
+
+- Websocket(ws)
+
+- Cross env
+
+- Nodemon
+
+  
+
+## Client
+    Netflix Clone / Virtual Currency / Dashboard 
+
+
+- React
+
+- React Router
+
+- Redux(logger, saga)
+
+- Redux Actions
+
+- Redux Saga
+
+- Immutable
+
+- Echarts
+
+- Axios
+
+- Ant Design
+
+- Styled Components
+
+- Cross env
