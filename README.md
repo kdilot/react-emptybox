@@ -1,15 +1,6 @@
-> `Portfolio` with `React` & `Node.js`
+> `React` & `Node.js`
 
-### Demo site 
 
->  Netflix Clone http://emptybox.herokuapp.com/netflix
-
->  Virtual Currency http://emptybox.herokuapp.com/vtc
-
->  Dashboard http://emptybox.herokuapp.com/dashboard/member
-
-**` It takes a few seconds to connect with Heroku `**
-  
 
 ## Backend
 
