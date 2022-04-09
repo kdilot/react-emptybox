@@ -12,7 +12,7 @@
     "express": "^4.16.3",
     "express-graphql": "^0.6.12",
     "graphql": "^14.0.2",
-    "moment": "^2.22.2",
+    "moment": "^2.29.2",
     "mongoose": "^5.2.15",
     "mongoose-double": "^0.0.1",
     "nodemon": "^1.18.3",
